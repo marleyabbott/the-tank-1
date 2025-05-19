@@ -402,23 +402,75 @@ tw-link[click-append] {
 tw-link[click-append]:hover {
     color: #3C3633 !important;
     text-decoration: none !important;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.onload = function () {
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Improved audio setup that works with modern browser policies
+window.onload = function() {
+    // Check if audio already exists
     if (!document.getElementById("bg-music")) {
+        // Create audio element
         var audio = document.createElement("audio");
         audio.id = "bg-music";
         audio.loop = true;
-        audio.autoplay = true;
-        audio.volume = 0.5;
+        audio.volume = 0.2; // Start with lower volume
         audio.setAttribute("preload", "auto");
-
+        
+        // Add source
         var source = document.createElement("source");
         source.src = "./audio/Space8-NalaSinephro.mp3";
         source.type = "audio/mpeg";
-
         audio.appendChild(source);
         document.body.appendChild(audio);
+        
+        // Store audio in window object for easy access
+        window.bgMusic = audio;
+        
+        // Setup play function for first user interaction
+        function attemptPlayMusic() {
+            var playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    // Playback started successfully
+                    console.log("Music started playing");
+                    // Slowly increase volume to desired level
+                    fadeVolumeUp(audio, 0.5, 3); // Target volume: 0.5, Duration: 3 seconds
+                }).catch(function(error) {
+                    // Auto-play was prevented
+                    console.log("Autoplay prevented:", error);
+                    // We need to wait for user interaction
+                });
+            }
+            
+            // Remove event listeners once played
+            document.removeEventListener('click', attemptPlayMusic);
+            document.removeEventListener('keydown', attemptPlayMusic);
+        }
+        
+        // Add event listeners for user interaction
+        document.addEventListener('click', attemptPlayMusic);
+        document.addEventListener('keydown', attemptPlayMusic);
+        
+        // Try immediate autoplay (might work in some cases)
+        attemptPlayMusic();
     }
-};</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-tag name="brackets" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">It’s late on a Saturday night, too late for you to be awake.
+};
+
+// Function to slowly fade up volume
+function fadeVolumeUp(audioElement, targetVolume, duration) {
+    var startVolume = audioElement.volume;
+    var volumeStep = (targetVolume - startVolume) / (duration * 10); // 10 steps per second
+    var steps = duration * 10;
+    var currentStep = 0;
+    
+    var volumeInterval = setInterval(function() {
+        currentStep++;
+        var newVolume = startVolume + (volumeStep * currentStep);
+        audioElement.volume = Math.min(newVolume, targetVolume);
+        
+        if (currentStep >= steps) {
+            clearInterval(volumeInterval);
+        }
+    }, 100);
+}</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-tag name="brackets" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">It’s late on a Saturday night, too late for you to be awake.
 
 “Tell us a story from when you were younger”, you say.
 
