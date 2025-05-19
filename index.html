@@ -153,186 +153,44 @@ tw-passage {
 }
 
 
-/* BRACKETS PASSAGE FORMATTING - FIXED POSITIONING */
-tw-story\[tags\~="brackets"] {
-    background-color: #EEEDEB;
+/* ADDITIONAL TARGETED FIXES */
+
+/* Make brackets more visible and stable */
+tw-story\[tags\~="brackets"] .big-brackets::before {
+    top: -8rem !important;
+    font-size: 16rem !important;
+    opacity: 1 !important; /* Full opacity */
+    z-index: 0 !important; /* Higher z-index */
+    position: fixed !important; /* Fixed position so they don't disappear */
+    left: 5vw !important;
 }
 
-/* Fix scrolling issues */
-tw-story\[tags\~="brackets"] tw-passage {
-    overflow: visible !important; /* Prevent scrollbars */
-    padding-bottom: 300px; /* Extra space at bottom */
+tw-story\[tags\~="brackets"] .big-brackets::after {
+    bottom: auto !important; /* Override bottom positioning */
+    top: 30vh !important; /* Position from top instead */
+    font-size: 16rem !important;
+    opacity: 1 !important; /* Full opacity */
+    z-index: 0 !important; /* Higher z-index */
+    position: fixed !important; /* Fixed position so they don't disappear */
+    right: 5vw !important;
 }
 
-/* Main container with brackets */
-.big-brackets {
-    font-family: 'CabrionLight', sans-serif;
-    font-size: 1rem;
-    color: #3C3633;
-    position: relative;
-    max-width: 800px;
-    margin: 8rem auto 10rem; /* Much more top margin to prevent cutoff */
-    padding: 0 3rem 3rem;
-    min-height: 30rem;
+/* Even larger text */
+tw-story\[tags\~="brackets"] .line {
+    font-size: 1.6rem !important; /* Significantly larger */
+    line-height: 1.7 !important;
 }
 
-/* Left bracket - fixed positioning */
-.big-brackets::before {
-    content: "(";
-    position: absolute;
-    left: -2rem;
-    top: -16rem; /* Moved up significantly */
-    font-size: 18rem;
-    color: #3C3633; /* Exact same color as text */
-    opacity: 0.7; /* Increased opacity */
-    font-family: 'Arial', sans-serif;
-    font-weight: 100;
-    transform: scaleX(0.4);
-    z-index: -1; /* Place behind content */
-}
-
-/* Right bracket - fixed positioning */
-.big-brackets::after {
-    content: ")";
-    position: absolute;
-    right: -2rem;
-    bottom: -6rem; /* Adjusted position */
-    font-size: 18rem;
-    color: #3C3633; /* Exact same color as text */
-    opacity: 0.7; /* Increased opacity */
-    font-family: 'Arial', sans-serif;
-    font-weight: 100;
-    transform: scaleX(0.4);
-    z-index: -1; /* Place behind content */
-}
-
-/* Container for all text and images */
-.dynamic-text {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    position: relative;
-    z-index: 1; /* Ensure text is in front of brackets */
-}
-
-/* Basic line styling - larger text */
-.line {
-    font-size: 1.3rem; /* Increased from 1.1rem */
-    color: #3C3633;
-    font-family: 'CabrionLight', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 90%;
-    padding: 0.7rem 0;
-}
-
-/* Dynamic positioning for each line */
-.line-1 {
-    align-self: flex-start;
-    margin-top: 0; /* Moved up */
-    margin-left: 0;
-}
-
-.line-2 {
-    align-self: flex-end;
-    margin-top: 2.5rem; /* Reduced spacing */
-    margin-right: 0;
-}
-
-.line-3 {
-    align-self: flex-start;
-    margin-top: 1.5rem; /* Reduced spacing */
-    margin-left: 2rem;
-    max-width: 80%;
-}
-
-.line-4 {
-    align-self: center;
-    margin-top: 2.5rem; /* Reduced spacing */
-    max-width: 60%;
-}
-
-.line-5 {
-    align-self: flex-start;
-    margin-top: 1.5rem; /* Reduced spacing */
-    margin-left: 4rem;
-    max-width: 70%;
-}
-
-.line-6 {
-    align-self: flex-end;
-    margin-top: 2rem; /* Reduced spacing */
-    margin-right: 2rem;
-}
-
-.line-7 {
-    align-self: center;
-    margin-top: 2.5rem; /* Reduced spacing */
-    max-width: 75%;
-}
-
-/* Image styling - smaller size */
-.inter-text-image {
-    width: 50%; /* Reduced from 65% */
-    max-width: 400px; /* Reduced from 500px */
-    margin: 2.5rem 0; /* Reduced spacing */
-    display: block;
-    object-fit: cover;
-    border: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* Absolutely ensure no image rotation */
+tw-story\[tags\~="brackets"] .inter-text-image,
+tw-story\[tags\~="brackets"] .inter-text-image:nth-of-type(odd),
+tw-story\[tags\~="brackets"] .inter-text-image:nth-of-type(even) {
     transform: none !important;
-}
-
-/* Alternating image alignment */
-.inter-text-image:nth-of-type(odd) {
-    align-self: flex-end;
-    margin-right: 0;
-}
-
-.inter-text-image:nth-of-type(even) {
-    align-self: flex-start;
-    margin-left: 0;
-}
-
-/* Link styling within this passage */
-tw-story\[tags\~="brackets"] tw-link,
-tw-story\[tags\~="brackets"] tw-link:link,
-tw-story\[tags\~="brackets"] tw-link:visited {
-    color: #3C3633 !important;
-    text-decoration: none !important;
-    border-bottom: 1px solid #3C3633;
-    padding-bottom: 1px;
-    font-weight: normal !important;
-    transition: all 0.2s ease;
-}
-
-tw-story\[tags\~="brackets"] tw-link:hover {
-    color: #6d635d !important;
-    border-bottom: 1px solid #6d635d;
-}
-/* TARGETED FIXES - ONLY for brackets passage */
-
-/* Fix bracket positioning - ONLY in brackets passage */
-tw-story[tags~="brackets"] .big-brackets::before {
-    top: -10rem !important;
-    font-size: 15rem !important;
-    opacity: 0.85 !important;
-}
-
-tw-story[tags~="brackets"] .big-brackets::after {
-    bottom: -4rem !important;
-    font-size: 15rem !important;
-    opacity: 0.85 !important;
-}
-
-/* Bigger text - ONLY in brackets passage */
-tw-story[tags~="brackets"] .line {
-    font-size: 1.4rem !important;
-}
-
-/* Remove shadow from images - ONLY in brackets passage */
-tw-story[tags~="brackets"] .inter-text-image {
-    box-shadow: none !important;
+    -webkit-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -o-transform: none !important;
+    rotation: 0deg !important;
 }
 
 /* BACKGROUND STYLES */
