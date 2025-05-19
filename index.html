@@ -659,10 +659,17 @@ The bedroom that could fit the water tank inside of it maybe,
   var passage = document.querySelector(&#39;tw-passage&#39;);
   var story = document.querySelector(&#39;tw-story&#39;);
   
-  // Check if this is the correct passage by looking at a unique element or text
-  // This is the key part that makes this script only run on this specific passage
+  // Check if this is the correct passage by looking at unique content or tags
   if (passage &amp;&amp; passage.textContent.includes(&quot;letter.jpg&quot;) || story.getAttribute(&quot;tags&quot;).includes(&quot;background3&quot;)) {
     console.log(&quot;Running background3 script&quot;);
+    
+    // Disable scrolling ONLY for this passage
+    document.body.style.overflow = &#39;hidden&#39;;
+    document.documentElement.style.overflow = &#39;hidden&#39;;
+    
+    // Store original scroll settings to restore later
+    var originalBodyOverflow = document.body.style.overflow;
+    var originalHtmlOverflow = document.documentElement.style.overflow;
     
     // First, set the background image
     document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
@@ -687,6 +694,7 @@ The bedroom that could fit the water tank inside of it maybe,
         // Create a new image element
         var img = document.createElement(&#39;img&#39;);
         img.src = &#39;images/&#39; + images[currentIndex];
+        img.className = &quot;tablecloth-image&quot;; // Add class for later cleanup
         
         // Set random positions
         var top = Math.random() * 600 + &#39;px&#39;;
@@ -720,8 +728,26 @@ The bedroom that could fit the water tank inside of it maybe,
     
     // Start showing images
     showImage();
-  } else {
-    console.log(&quot;Not running background3 script on this passage&quot;);
+    
+    // Add event listener to restore scrolling when leaving this passage
+    document.addEventListener(&#39;tw-passagestart&#39;, function restoreScrolling() {
+      // Check if we&#39;re leaving the passage
+      var currentPassage = document.querySelector(&#39;tw-passage&#39;);
+      if (!currentPassage || !currentPassage.textContent.includes(&quot;letter.jpg&quot;)) {
+        // Restore original scroll settings
+        document.body.style.overflow = &#39;&#39;;
+        document.documentElement.style.overflow = &#39;&#39;;
+        
+        // Remove all added images
+        var images = document.querySelectorAll(&#39;.tablecloth-image&#39;);
+        images.forEach(function(img) {
+          img.remove();
+        });
+        
+        // Remove this event listener once it&#39;s been used
+        document.removeEventListener(&#39;tw-passagestart&#39;, restoreScrolling);
+      }
+    });
   }
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
