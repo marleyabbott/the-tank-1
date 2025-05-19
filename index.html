@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="19" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -795,7 +795,52 @@ or is it the third ?
 </tw-passagedata><tw-passagedata pid="18" name="The roasted Pipi blackening the oil escapes the pan and expands around her." tags="" position="600,1850" size="100,100">Brown-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked over-head. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet. 
 
 She lies on a beach chair and tells you that he has gone to find [[other villagers]] on the beach for you to meet. 
-</tw-passagedata><tw-passagedata pid="19" name="other villagers" tags="" position="600,1975" size="100,100">A cross shaped price tag on the back of the crucifix.
+</tw-passagedata><tw-passagedata pid="19" name="other villagers" tags="" position="600,1975" size="100,100">&lt;!-- Brackets with Rotation --&gt;
+&lt;div class=&quot;big-brackets&quot;&gt;
+  ( )
+&lt;/div&gt;
+
+&lt;div class=&quot;image-grid&quot;&gt;
+  &lt;!-- Image and reveal code here --&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+  .big-brackets {
+    font-family: &#39;CabrionLight&#39;, sans-serif !important;
+    font-size: 6rem !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    color: #3C3633 !important;
+    margin: 5rem 0 !important;
+    letter-spacing: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .big-brackets::before {
+    content: &quot;(&quot;;
+    position: absolute;
+    left: -5rem;
+    top: -2rem;
+    font-size: 12rem;
+    transform: rotate(-10deg); /* Rotation effect */
+  }
+
+  .big-brackets::after {
+    content: &quot;)&quot;;
+    position: absolute;
+    right: -5rem;
+    bottom: -2rem;
+    font-size: 12rem;
+    transform: rotate(10deg); /* Rotation effect */
+  }
+
+  /* Other styling for image grid, etc. */
+&lt;/style&gt;
+
+A cross shaped price tag on the back of the crucifix.
 
 They drive you to the village. 
 
