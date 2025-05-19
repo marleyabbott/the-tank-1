@@ -637,7 +637,18 @@ You repeat after her. Swirl the words around your mouth...
 
 Chew on them, swallow, but they come rising back up. 
 
-[[Bile tainted with track changes]]</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
+[[Bile tainted with track changes]]
+
+&lt;script&gt;
+  // Set background directly using JavaScript
+  document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
+  document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
+  document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
+  document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
+  
+  // Make sure passage has transparent background
+  document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
   var passage = document.querySelector(&#39;tw-passage&#39;);
   var story = document.querySelector(&#39;tw-story&#39;);
