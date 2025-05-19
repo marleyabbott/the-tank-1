@@ -634,11 +634,11 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;p class=&quot;line line-5&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The tile trailing off, somewhere we are supposed to walk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Perfect Seamless Falling Text - Starting Above Viewport --&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Fully Visible Falling Text - Starting from Top --&gt;
 &lt;!-- Keep the background2 tag on this passage --&gt;
 
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: -200px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
     On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand... The couch is made of wooden pellets, covered in thin foam. Before talk there is sugo and melone and formaggio... You decline. You retract. You are drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth... Chew on them, swallow, but they come rising back up. [[Bile tainted with track changes]]
   &lt;/div&gt;
 &lt;/div&gt;
@@ -657,11 +657,8 @@ The bedroom that could fit the water tank inside of it maybe,
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
   var duration = 120000;  // 120 seconds in milliseconds
-  var startY = 0;  // No additional offset in transform
-  var endY = window.innerHeight;  // All the way to bottom of viewport
-  
-  // Prevent any layout thrashing by pre-computing dimensions
-  var rect = paragraph.getBoundingClientRect();
+  var startY = 0;
+  var endY = window.innerHeight - paragraph.offsetHeight - 50;  // Stop with text still partially visible
   
   // Pre-calculate animation properties
   function easeLinear(t) { return t; }
