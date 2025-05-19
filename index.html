@@ -678,19 +678,63 @@ The bedroom that could fit the water tank inside of it maybe,
 
   // Call the function immediately
   setBackgroundImage();
-
-  // Also call it after a short delay to ensure it works even if other scripts modify the page
-  setTimeout(setBackgroundImage, 100);
-&lt;/script&gt;
-
-&lt;!-- Your existing scrap images script here --&gt;
-&lt;script&gt;
-  // Array of images to display (add as many as you want)
+  
+  // Array of images to display
   var images = [
     &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
     &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
   ];
-  // Rest of your existing script...
+  
+  var currentIndex = 0;
+  
+  // Function to show images one by one
+  function showImage() {
+    if (currentIndex &lt; images.length) {
+      // Create a new image element
+      var img = document.createElement(&#39;img&#39;);
+      img.src = &#39;images/&#39; + images[currentIndex];
+      img.className = &#39;scrap-img&#39;;
+      
+      // Set random positions for the images
+      var top = Math.random() * 600 + &#39;px&#39;;
+      var left = Math.random() * 800 + &#39;px&#39;;
+      
+      // Restrict rotation to -90° to 90° (left and right only)
+      var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
+      
+      img.style.top = top;
+      img.style.left = left;
+      img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
+      img.style.position = &#39;absolute&#39;;
+      img.style.width = &#39;250px&#39;;
+      img.style.height = &#39;auto&#39;;
+      img.style.opacity = &#39;0&#39;;
+      img.style.transition = &#39;opacity 1s ease, transform 1s ease&#39;;
+      img.style.zIndex = &#39;2&#39;;
+      
+      // Append the image to the body
+      document.body.appendChild(img);
+      
+      // Fade the image in
+      setTimeout(function() {
+        img.style.opacity = 1;
+      }, 100);
+      
+      // Move to the next image
+      currentIndex++;
+      
+      // Call the function again
+      setTimeout(showImage, 500);
+    }
+  }
+  
+  // Start showing images on page load
+  window.onload = function() {
+    // Make sure background is set
+    setBackgroundImage();
+    // Begin showing images
+    showImage();
+  };
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
