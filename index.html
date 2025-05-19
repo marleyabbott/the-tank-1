@@ -137,39 +137,35 @@ tw-passage {
     }
 }
 
-/* ISOLATED SNOWFALLING STYLES */
-/* These styles will ONLY affect passages with the snowfalling tag */
+/* FALLING TEXT STYLES */
 tw-story\[tags\~="snowfalling"] {
-    /* Background from background2 */
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
-    
-    /* Passage styling */
     color: white;
-    padding: 20px;
 }
 
-/* These selectors are ONLY active when inside a passage with the snowfalling tag */
-tw-story\[tags\~="snowfalling"] #falling-container {
+#falling-container {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-tw-story\[tags\~="snowfalling"] .falling-text {
+.falling-text {
     position: absolute;
     font-size: 20px;
     line-height: 1.5;
     color: #EEEDEB;
-    opacity: 0;
-    animation: snowfall-fall 120s forwards; /* Using a unique animation name */
     white-space: normal;
     padding: 10px;
-    max-width: 80%;
-    left: 10%;
+    left: calc(var(--random-x) * 1%);
+    top: -100px;
+    opacity: 0;
+    animation-name: snowfall-fall;
+    animation-duration: 120s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 }
 
-/* Animation ONLY for snowfalling passages - unique name to avoid conflicts */
 @keyframes snowfall-fall {
     0% {
         top: -100px;
@@ -184,16 +180,13 @@ tw-story\[tags\~="snowfalling"] .falling-text {
     }
 }
 
-/* Links ONLY inside the snowfalling container */
-tw-story\[tags\~="snowfalling"] #falling-container tw-link,
-tw-story\[tags\~="snowfalling"] #falling-container tw-link:link,
-tw-story\[tags\~="snowfalling"] #falling-container tw-link:visited {
+.falling-text tw-link {
     color: #EEEDEB !important;
     font-weight: bold !important;
     text-decoration: none !important;
 }
 
-tw-story\[tags\~="snowfalling"] #falling-container tw-link:hover {
+.falling-text tw-link:hover {
     color: #FF5733 !important;
     text-decoration: underline !important;
 }
@@ -623,31 +616,31 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;p class=&quot;line line-5&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The tile trailing off, somewhere we are supposed to walk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="snowfalling" position="600,975" size="100,100">&lt;!-- Define the paragraph text --&gt;
-(set: $fallingText to &quot;
-  On the first night there is vomit. 
-  Before the vomit she talks at you in the language you have pretended to understand... 
-  The couch is made of wooden pellets, covered in thin foam. 
-  Before talk there is sugo and melone and formaggio... 
-  You decline. You retract. You are drunk. 
-  A woman working in the bar corrects your sentences. 
-  You repeat after her. Swirl the words around your mouth... 
-  Chew on them, swallow, but they come rising back up. 
-  &lt;tw-link href=&#39;Next Passage&#39;&gt;Bile tainted with track changes&lt;/tw-link&gt;
-&quot;)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="snowfalling" position="600,975" size="100,100">&lt;!-- Define the text content --&gt;
+(set: $textContent to &quot;On the first night there is vomit. 
+Before the vomit she talks at you in the language you have pretended to understand... 
+The couch is made of wooden pellets, covered in thin foam. 
+Before talk there is sugo and melone and formaggio... 
+You decline. You retract. You are drunk. 
+A woman working in the bar corrects your sentences. 
+You repeat after her. Swirl the words around your mouth... 
+Chew on them, swallow, but they come rising back up. 
+&lt;tw-link href=&#39;Next Passage&#39;&gt;Bile tainted with track changes&lt;/tw-link&gt;&quot;)
+
 &lt;!-- Create the falling-text container --&gt;
 &lt;div id=&quot;falling-container&quot;&gt;
-  &lt;!-- Apply the falling-text class to the whole paragraph --&gt;
-  &lt;span class=&quot;falling-text&quot;&gt;
-    (print: $fallingText)
-  &lt;/span&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="a ring shaped mosquito bite greets you in the morning" tags="" position="600,1350" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="falling line" tags="" position="725,975" size="100,100">(set: _text to _args[1])
-(set: _x to _args[2])
-(set: _delay to _args[3])
-
-&lt;span class=&quot;falling-text&quot; style=&quot;--random-x: _x; animation-delay: _delay + s;&quot;&gt;
-  _text
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="16" name="messy table" tags="background3" position="300,1125" size="100,100">&lt;script&gt;
+  &lt;!-- Call the falling text macro --&gt;
+  (falling-text: $textContent, 10, 0)
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="a ring shaped mosquito bite greets you in the morning" tags="" position="600,1350" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="StoryInit" tags="" position="725,975" size="100,100">(macro: &quot;falling-text&quot;, [...args],
+  [
+    (set: _text to args[0])
+    (set: _x to args[1])
+    (set: _delay to args[2])
+    &lt;span class=&quot;falling-text&quot; style=&quot;--random-x: _x; animation-delay: _delay + s;&quot;&gt;
+      _text
+    &lt;/span&gt;
+  ]
+)</tw-passagedata><tw-passagedata pid="16" name="messy table" tags="background3" position="300,1125" size="100,100">&lt;script&gt;
   // Array of images to display (add as many as you want)
   var images = [
     &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
