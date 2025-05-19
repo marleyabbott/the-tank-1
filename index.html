@@ -9,415 +9,418 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="16" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@font-face {
-  font-family: 'CabrionLight';
-  src: url('fonts/cabrion-light.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+<tw-storydata name="Digital Writing" startnode="16" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+@font-face {
+    font-family: 'CabrionLight';
+    src: url('fonts/cabrion-light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 tw-story {
-  font-family: 'CabrionLight', sans-serif;
-  color: #3C3633;
-  background-color: #EEEDEB;
+    font-family: 'CabrionLight', sans-serif;
+    color: #3C3633;
+    background-color: #EEEDEB;
 }
 
 .story-image {
-  width: 100%;
-}
-tw-link,
-tw-link:link,
-tw-link:visited,
-tw-link:hover,
-tw-link:active,
-tw-link.visited,
-tw-link.visited:hover,
-.enchantment-link,
-tw-hook[class*="link"],
-a.enchantment-link {
-  color: #3C3633 !important;
-  font-weight: bold !important;
-  text-decoration: none !important;
+    width: 100%;
 }
 
-/* Reset and force sidebar display */
-tw-sidebar {
-  visibility: visible !important;
-  opacity: 1 !important;
-  display: block !important;
-  position: fixed !important;
-  bottom: 0 !important;
-  right: 0 !important;
-  z-index: 9999 !important; /* Ensure it's above everything else */
-  pointer-events: auto !important; /* Make sure it can be clicked */
-  width: auto !important;
-  height: auto !important;
-  background-color: transparent !important;
-}
-/* Style all sidebar buttons */
-tw-sidebar [role=button] {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: #3C3633 !important;
-  pointer-events: auto !important;
-  cursor: pointer !important;
+/* OVERALL LINK STYLING */
+tw-link,
+tw-link\:link,
+tw-link\:visited,
+tw-link\:hover,
+tw-link\:active,
+tw-link.visited,
+tw-link.visited\:hover,
+.enchantment-link,
+tw-hook\[class\*="link"],
+a.enchantment-link {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
 
 /* Targets the internal span that Harlowe sometimes uses */
 tw-link span,
 .enchantment-link span {
-  color: #3C3633 !important;
+    color: #3C3633 !important;
 }
 
+/* BACK BUTTON SIDE BAR */
+/* Reset and force sidebar display */
+tw-sidebar {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important; /* Ensure it's above everything else */
+    pointer-events: auto !important; /* Make sure it can be clicked */
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+}
 
+/* Style all sidebar buttons */
+tw-sidebar \[role=button] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #3C3633 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
+
+/* INTRO PASSAGES FORMATTING */
 tw-passage {
-  padding-bottom: 200px;
+    padding-bottom: 200px;
+    overflow: auto;
 }
 
+/* 'THEY SLEPT ON PILES OF CLOTHES' PASSAGE */
+tw-story\[tags\~="pile-of-clothes"] {
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+    }
 
-@keyframes fadeOut {
-  from { opacity: 1; }
-  to { opacity: 0; }
+    .fadeOutSlow {
+        animation: fadeOut 3s ease forwards;
+    }
 }
 
-.fadeOutSlow {
-  animation: fadeOut 3s ease forwards;
+/* 'SWEET AND SOUR SAUCE' PASSAGE */
+tw-story\[tags\~="sweet-sour"] {
+    .slow-fade-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        animation: slowFadeToBlack 4s forwards;
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    @keyframes slowFadeToBlack {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
 }
 
-.big-brackets {
-  font-family: 'CabrionLight', sans-serif;
-  font-size: 1rem;
-  color: #3C3633;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  position: relative;
-  flex-direction: column;
-  padding: 1rem;
-  width: 90%;
-  margin: 2rem auto;
-  text-align: left;
-  min-height: 30rem;
+/* SNOWFALL PASSAGE */
+tw-story\[tags\~="snowfalling"] {
+    background: url('images/sky.jpg') center center / cover no-repeat fixed;
+    
+    \#falling-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Full height for scrolling effect */
+        overflow: hidden; /* Hide any overflow outside the container */
+    }
+
+    .falling-text {
+        position: absolute;
+        font-size: 20px; /* Adjust font size for readability */
+        line-height: 1.5;
+        color: #EEEDEB; /* Set the text color */
+        opacity: 0;
+        animation: fall 120s forwards; /* Make it fall only once, and not repeat */
+        white-space: normal; /* Allow wrapping of text */
+        padding: 10px; /* Add padding for some space around the text */
+    }
+
+    @keyframes fall {
+        0% {
+            top: -100px;
+            opacity: 0;
+        }
+        5% {
+            opacity: 1;
+        }
+        100% {
+            top: 100vh;
+            opacity: 0;
+        }
+    }
+    
+    \#falling-container tw-link {
+        font-weight: bold !important;  /* Ensure bold styling */
+        text-decoration: none !important;  /* No underline */
+    }
+
+    \#falling-container tw-link\:hover {
+        color: #FF5733 !important;  /* Change color when hovering */
+        text-decoration: underline !important;  /* Underline on hover */
+    }
+    
+    \#falling-container .scrap-img {
+        animation: rotateAndMove 10s linear infinite;
+    }
+
+    /* Optional: Text style */
+    padding: 20px; /* Add some padding to text */
+    color: white;  /* Ensure text is visible against background */
+    position: relative;
+    z-index: 1;  /* Keep text above background */
 }
 
-.big-brackets::before {
-  content: "(";
-  position: absolute;
-  left: -3rem;
-  top: 0rem;
-  font-size: 8rem;
-  transform: scaleX(0.6);
-  font-family: 'Arial', sans-serif;
+/* BRACKETS PASSAGE FORMATTING */
+tw-story\[tags\~="brackets"] {
+    .big-brackets {
+        font-family: 'CabrionLight', sans-serif;
+        font-size: 1rem;
+        color: #3C3633;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        position: relative;
+        flex-direction: column;
+        padding: 1rem;
+        width: 90%;
+        margin: 2rem auto;
+        text-align: left;
+        min-height: 30rem;
+    }
+
+    .big-brackets::before {
+        content: "(";
+        position: absolute;
+        left: -3rem;
+        top: 0rem;
+        font-size: 8rem;
+        transform: scaleX(0.6);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .big-brackets::after {
+        content: ")";
+        position: absolute;
+        right: -3rem;
+        bottom: -1rem;
+        font-size: 8rem;
+        transform: scaleX(0.6);
+        font-family: 'Arial', sans-serif;
+    }
+
+    .dynamic-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .line {
+        font-size: 0.9rem;
+        color: #3C3633;
+        font-family: 'CabrionLight', sans-serif;
+        margin: 0;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .line-1 {
+        align-self: flex-start;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        max-width: 70%;
+    }
+
+    .line-2 {
+        align-self: flex-end;
+        margin-top: 2.5rem;
+        margin-right: 3rem;
+        max-width: 65%;
+    }
+
+    .line-3 {
+        align-self: flex-start;
+        margin-top: 1.5rem;
+        margin-left: 4rem;
+        max-width: 60%;
+    }
+
+    .line-4 {
+        align-self: flex-end;
+        margin-top: 3rem;
+        margin-right: 2rem;
+        max-width: 75%;
+    }
+
+    .line-5 {
+        align-self: flex-start;
+        margin-top: 2rem;
+        margin-left: 1rem;
+        max-width: 65%;
+    }
+
+    .line-6 {
+        align-self: flex-end;
+        margin-top: 2.5rem;
+        margin-right: 2.5rem;
+        max-width: 70%;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+
+    .grid-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .story-image {
+        width: 100%;
+        max-width: 100%;
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .text-item {
+        font-family: 'CabrionLight', sans-serif;
+        color: #3C3633;
+        text-align: center;
+    }
+
+    .text-item p {
+        font-size: 1rem;
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+    .inter-text-image {
+        width: 50%;
+        max-width: 400px;
+        margin: 2rem 0;
+        border-radius: 0; /* No rounded corners */
+        display: block;
+        object-fit: cover;
+        box-shadow: none; /* Remove shadow */
+
+        /* Dynamic layout look */
+        transform: rotate(-1deg);
+    }
+
+    .inter-text-image\:nth-of-type(2n) {
+        align-self: flex-start;
+        margin-left: 3rem;
+        transform: rotate(2deg);
+    }
+
+    .inter-text-image\:nth-of-type(2n+1) {
+        align-self: flex-end;
+        margin-right: 3rem;
+        transform: rotate(-2deg);
+    }
 }
 
-.big-brackets::after {
-  content: ")";
-  position: absolute;
-  right: -3rem;
-  bottom: -1rem;
-  font-size: 8rem;
-  transform: scaleX(0.6);
-  font-family: 'Arial', sans-serif;
+/* BACKGROUND STYLES */
+tw-story\[tags\~="background1"] {
+    background: url('images/tapestry.jpg') center center / cover no-repeat fixed;
 }
 
-.dynamic-text {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  width: 90%;
-  margin: 0 auto;
+tw-story\[tags\~="background2"] {
+    background: url('images/sky.jpg') center center / cover no-repeat fixed;
 }
 
-.line {
-  font-size: 0.9rem;
-  color: #3C3633;
-  font-family: 'CabrionLight', sans-serif;
-  margin: 0;
-  line-height: 1.4;
-  text-align: left;
+tw-story\[tags\~="background3"] {
+    background: url('images/tablecloth.jpg') center center / cover no-repeat fixed;
 }
 
-.line-1 {
-  align-self: flex-start;
-  margin-top: 1rem;
-  margin-left: 2rem;
-  max-width: 70%;
+/* MESSY TABLE PASSAGE */
+tw-story\[tags\~="background3"] {
+    background-image: url('images/tablecloth.jpg');  /* Replace with the correct image path */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%; /* Ensure it covers the entire screen width */
+    height: 100vh;  /* Full viewport height */
+    position: fixed;  /* Ensure background stays in place during scroll */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure background is behind the content */
+    
+    /* Collage of images */
+    .scrap-img {
+        position: absolute;
+        width: 150px;  /* Adjust based on your design */
+        opacity: 0;  /* Start with invisible images */
+        transition: opacity 1s ease, transform 1s ease;
+        z-index: 0;  /* Ensure images are in front of background */
+    }
+
+    /* Animation for the collage images */
+    @keyframes rotateAndMove {
+        0% {
+            transform: rotate(0deg) translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: rotate(360deg) translateY(100vh);
+            opacity: 0;
+        }
+    }
 }
 
-.line-2 {
-  align-self: flex-end;
-  margin-top: 2.5rem;
-  margin-right: 3rem;
-  max-width: 65%;
-}
-
-.line-3 {
-  align-self: flex-start;
-  margin-top: 1.5rem;
-  margin-left: 4rem;
-  max-width: 60%;
-}
-
-.line-4 {
-  align-self: flex-end;
-  margin-top: 3rem;
-  margin-right: 2rem;
-  max-width: 75%;
-}
-
-.line-5 {
-  align-self: flex-start;
-  margin-top: 2rem;
-  margin-left: 1rem;
-  max-width: 65%;
-}
-
-.line-6 {
-  align-self: flex-end;
-  margin-top: 2.5rem;
-  margin-right: 2.5rem;
-  max-width: 70%;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-  gap: 20px; 
-  padding: 20px;
-  height: 100vh; 
-  box-sizing: border-box; 
-}
-
-.grid-item {
-  display: flex;
-  flex-direction: column; /* Stack image and text vertically */
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.story-image {
-  width: 100%; 
-  max-width: 100%;
-  max-height: 200px; 
-  object-fit: cover; 
-  border-radius: 10px; 
-}
-
-.text-item {
-  font-family: 'CabrionLight', sans-serif;
-  color: #3C3633;
-  text-align: center; 
-}
-
-.text-item p {
-  font-size: 1rem;
-  margin: 10px 0; 
-  line-height: 1.5;
-}
-
-tw-passage {
-  padding-bottom: 200px; 
-  overflow: auto; 
-}
-
-tw-story[tags~="background1"] {
-  background: url('images/tapestry.jpg') center center / cover no-repeat fixed;
-}
-
+/* IMAGE TEXT CONTAINER STYLING */
 .image-text-container {
-  display: flex;               
-  align-items: flex-start;      
-  gap: 2rem;                    
-  padding: 1rem;
-  max-width: 90%;
-  margin: 2rem auto;            
-  flex-wrap: nowrap;           
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 90%;
+    margin: 2rem auto;
+    flex-wrap: nowrap;
 }
 
 .side-image {
-  width: 350px; 
-  max-width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
-  flex-shrink: 0;
-  margin-left: -100px; 
-  margin-top: 40px; 
+    width: 350px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-left: -100px;
+    margin-top: 40px;
 }
 
 .text-block {
-  flex: 1;                   
-  font-family: 'CabrionLight', sans-serif;
-  color: #3C3633;
-  line-height: 1.6;
-  text-align: left;            
-}
-.slow-fade-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: black;
-  animation: slowFadeToBlack 4s forwards;
-  z-index: 9999;
-  pointer-events: none;
+    flex: 1;
+    font-family: 'CabrionLight', sans-serif;
+    color: #3C3633;
+    line-height: 1.6;
+    text-align: left;
 }
 
-@keyframes slowFadeToBlack {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+/* CLICK-APPEND LINK STYLING */
+tw-link\[click-append] {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
 }
 
-tw-link[click-append] {
-  color: #3C3633 !important; 
-  font-weight: bold !important; 
-  text-decoration: none !important; 
-}
-
-tw-link[click-append]:hover {
-  color: #3C3633 !important; 
-  text-decoration: none !important; 
-}
-tw-sidebar [role=button] {
-  display: inline-block !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  color: #3C3633 !important; /* Optional: match your text color */
-}
-.inter-text-image {
-  width: 50%;
-  max-width: 400px;
-  margin: 2rem 0;
-  border-radius: 0; /* No rounded corners */
-  display: block;
-  object-fit: cover;
-  box-shadow: none; /* Remove shadow */
-
-  /* Dynamic layout look */
-  transform: rotate(-1deg);
-}
-
-.inter-text-image:nth-of-type(2n) {
-  align-self: flex-start;
-  margin-left: 3rem;
-  transform: rotate(2deg);
-}
-
-.inter-text-image:nth-of-type(2n+1) {
-  align-self: flex-end;
-  margin-right: 3rem;
-  transform: rotate(-2deg);
-}
-tw-story[tags~="background2"] {
-  background: url('images/sky.jpg') center center / cover no-repeat fixed;
-}
-
-#falling-container {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* Full height for scrolling effect */
-  overflow: hidden; /* Hide any overflow outside the container */
-}
-
-.falling-text {
-  position: absolute;
-  font-size: 20px; /* Adjust font size for readability */
-  line-height: 1.5;
-  color: #EEEDEB; /* Set the text color */
-  opacity: 0;
-  animation: fall 120s forwards; /* Make it fall only once, and not repeat */
-  white-space: normal; /* Allow wrapping of text */
-  padding: 10px; /* Add padding for some space around the text */
-}
-
-@keyframes fall {
-  0% {
-    top: -100px;
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  100% {
-    top: 100vh;
-    opacity: 0;
-  }
-}
-tw-story[tags~="snowfalling"] {
-#falling-container tw-link {
-  font-weight: bold !important;  /* Ensure bold styling */
-  text-decoration: none !important;  /* No underline */
-}
-
-tw-story[tags~="snowfalling"] {
-#falling-container tw-link:hover {
-  color: #FF5733 !important;  /* Change color when hovering */
-  text-decoration: underline !important;  /* Underline on hover */
-}
-
-/* Apply background only if the passage has 'background3' tag */
-tw-story[tags~="background3"] {
-  background-image: url('images/tablecloth.jpg');  /* Replace with the correct image path */
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  width: 100%; /* Ensure it covers the entire screen width */
-  height: 100vh;  /* Full viewport height */
-  position: fixed;  /* Ensure background stays in place during scroll */
-  top: 0;
-  left: 0;
-  z-index: -1; /* Ensure background is behind the content */
-}
-
-/* Collage of images */
-.scrap-img {
-  position: absolute;
-  width: 150px;  /* Adjust based on your design */
-  opacity: 0;  /* Start with invisible images */
-  transition: opacity 1s ease, transform 1s ease;
-  z-index: 0;  /* Ensure images are in front of background */
-}
-
-/* Animation for the collage images */
-@keyframes rotateAndMove {
-  0% {
-    transform: rotate(0deg) translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: rotate(360deg) translateY(100vh);
-    opacity: 0;
-  }
-}
-  
-/* Remove default background */
-tw-story {
-  background: none;
-  background-color: transparent;  /* Ensure no default color */
-  position: relative; /* Keep content positioned correctly */
-  z-index: 1; /* Ensure content is in front */
-  
-tw-story[tags~="background3"] {
-background: url('images/tablecloth.jpg') center center / cover no-repeat fixed;
-}
-
-#falling-container .scrap-img {
-  animation: rotateAndMove 10s linear infinite;
-}
-
-/* Optional: Text style */
-tw-story {
-  padding: 20px; /* Add some padding to text */
-  color: white;  /* Ensure text is visible against background */
-  position: relative;
-  z-index: 1;  /* Keep text above background */
-}
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.onload = function () {
+tw-link\[click-append]\:hover {
+    color: #3C3633 !important;
+    text-decoration: none !important;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.onload = function () {
     if (!document.getElementById("bg-music")) {
         var audio = document.createElement("audio");
         audio.id = "bg-music";
@@ -433,7 +436,7 @@ tw-story {
         audio.appendChild(source);
         document.body.appendChild(audio);
     }
-};</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">It’s late on a Saturday night, too late for you to be awake.
+};</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-tag name="brackets" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">It’s late on a Saturday night, too late for you to be awake.
 
 “Tell us a story from when you were younger”, you say.
 
@@ -505,7 +508,7 @@ The bedroom that could fit the water tank inside of it maybe,
 
   /* Other styling for image grid, etc. */
 &lt;/style&gt;
-</tw-passagedata><tw-passagedata pid="6" name="next passage" tags="" position="600,1225" size="100,100">&lt;div class=&quot;big-brackets&quot;&gt;
+</tw-passagedata><tw-passagedata pid="6" name="next passage" tags="brackets" position="600,1225" size="100,100">&lt;div class=&quot;big-brackets&quot;&gt;
   &lt;div class=&quot;dynamic-text&quot;&gt;
     &lt;p class=&quot;line line-1&quot;&gt;[[a ring shaped mosquito bite greets you in the morning]].&lt;/p&gt;
 
