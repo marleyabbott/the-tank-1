@@ -655,84 +655,78 @@ The bedroom that could fit the water tank inside of it maybe,
 (css: &quot;#text&quot;, &quot;left: 10%; width: 80%;&quot;)
 (css: &quot;#text&quot;, &quot;top: -100px; opacity: 0;&quot;)
 (css: &quot;#text&quot;, &quot;animation: snowfall-fall 120s linear forwards;&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
-  // First, set the background image and prevent scrolling
-  document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
-  
-  // Make passage fully transparent and prevent scrolling
-  document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
-  
-  // Create a full-viewport div to prevent scrolling and ensure background coverage
-  var fullCoverDiv = document.createElement(&#39;div&#39;);
-  fullCoverDiv.style.position = &#39;fixed&#39;;
-  fullCoverDiv.style.top = &#39;0&#39;;
-  fullCoverDiv.style.left = &#39;0&#39;;
-  fullCoverDiv.style.width = &#39;100%&#39;;
-  fullCoverDiv.style.height = &#39;100%&#39;;
-  fullCoverDiv.style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
-  fullCoverDiv.style.backgroundSize = &quot;cover&quot;;
-  fullCoverDiv.style.backgroundPosition = &quot;center&quot;;
-  fullCoverDiv.style.backgroundAttachment = &quot;fixed&quot;;
-  fullCoverDiv.style.zIndex = &#39;0&#39;;
-  document.body.insertBefore(fullCoverDiv, document.body.firstChild);
-  
-  // Disable scrolling
-  document.body.style.overflow = &#39;hidden&#39;;
-  document.documentElement.style.overflow = &#39;hidden&#39;;
-  
-  // Clear any content in the passage that might cause scrolling
-  var passageContent = document.querySelector(&#39;tw-passage&#39;).innerHTML;
-  document.querySelector(&#39;tw-passage&#39;).innerHTML = &#39;&#39;;
-  
-  // Array of images to display
-  var images = [
-    &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
-    &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
-  ];
-  
-  var currentIndex = 0;
-  
-  // Function to show images one by one
-  function showImage() {
-    if (currentIndex &lt; images.length) {
-      // Create a new image element
+  // Execute when DOM is loaded
+  document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+    // 1. Set the background
+    var bgDiv = document.createElement(&#39;div&#39;);
+    bgDiv.style.position = &#39;fixed&#39;;
+    bgDiv.style.top = &#39;0&#39;;
+    bgDiv.style.left = &#39;0&#39;;
+    bgDiv.style.width = &#39;100vw&#39;;
+    bgDiv.style.height = &#39;100vh&#39;;
+    bgDiv.style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
+    bgDiv.style.backgroundSize = &#39;cover&#39;;
+    bgDiv.style.backgroundPosition = &#39;center&#39;;
+    bgDiv.style.zIndex = &#39;-1&#39;;
+    document.body.appendChild(bgDiv);
+    
+    // 2. Disable scrolling
+    document.body.style.overflow = &#39;hidden&#39;;
+    document.documentElement.style.overflow = &#39;hidden&#39;;
+    
+    // 3. Clear the passage to prevent scroll sources
+    var passage = document.querySelector(&#39;tw-passage&#39;);
+    passage.innerHTML = &#39;&#39;;
+    passage.style.backgroundColor = &#39;transparent&#39;;
+    
+    // 4. Display images
+    var images = [
+      &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
+      &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, 
+      &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, 
+      &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, 
+      &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
+    ];
+    
+    function showNextImage(index) {
+      if (index &gt;= images.length) return;
+      
       var img = document.createElement(&#39;img&#39;);
-      img.src = &#39;images/&#39; + images[currentIndex];
+      img.src = &#39;images/&#39; + images[index];
       
-      // Set random positions across the VIEWPORT (not document)
-      var top = Math.random() * (window.innerHeight - 250) + &#39;px&#39;;
-      var left = Math.random() * (window.innerWidth - 250) + &#39;px&#39;;
-      var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
+      // Position within viewport bounds
+      var maxTop = window.innerHeight - 200;
+      var maxLeft = window.innerWidth - 200;
+      var top = Math.floor(Math.random() * maxTop);
+      var left = Math.floor(Math.random() * maxLeft);
+      var rotation = Math.floor(Math.random() * 180 - 90);
       
-      // Style the image
-      img.style.position = &#39;fixed&#39;; // FIXED not absolute to stay in viewport
-      img.style.top = top;
-      img.style.left = left;
-      img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
+      img.style.position = &#39;fixed&#39;;
+      img.style.top = top + &#39;px&#39;;
+      img.style.left = left + &#39;px&#39;;
       img.style.width = &#39;250px&#39;;
       img.style.height = &#39;auto&#39;;
+      img.style.transform = &#39;rotate(&#39; + rotation + &#39;deg)&#39;;
       img.style.opacity = &#39;0&#39;;
       img.style.transition = &#39;opacity 1s ease&#39;;
-      img.style.zIndex = &#39;5&#39;;
+      img.style.zIndex = &#39;2&#39;;
       
-      // Add to page
-      fullCoverDiv.appendChild(img);
+      document.body.appendChild(img);
       
       // Fade in
       setTimeout(function() {
         img.style.opacity = &#39;1&#39;;
-      }, 100);
+      }, 50);
       
-      // Next image
-      currentIndex++;
-      setTimeout(showImage, 500);
+      // Schedule next image
+      setTimeout(function() {
+        showNextImage(index + 1);
+      }, 500);
     }
-  }
-  
-  // Start showing images
-  showImage();
+    
+    // Start the image sequence
+    showNextImage(0);
+  });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
