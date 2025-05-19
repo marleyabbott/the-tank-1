@@ -153,6 +153,30 @@ tw-passage {
 }
 
 
+/* TARGETED FIXES - ONLY for brackets passage */
+
+/* Fix bracket positioning - ONLY in brackets passage */
+tw-story[tags~="brackets"] .big-brackets::before {
+    top: -10rem !important;
+    font-size: 15rem !important;
+    opacity: 0.85 !important;
+}
+
+tw-story[tags~="brackets"] .big-brackets::after {
+    bottom: -4rem !important;
+    font-size: 15rem !important;
+    opacity: 0.85 !important;
+}
+
+/* Bigger text - ONLY in brackets passage */
+tw-story[tags~="brackets"] .line {
+    font-size: 1.4rem !important;
+}
+
+/* Remove shadow from images - ONLY in brackets passage */
+tw-story[tags~="brackets"] .inter-text-image {
+    box-shadow: none !important;
+}
 /* ADDITIONAL TARGETED FIXES */
 
 /* Make brackets more visible and stable */
