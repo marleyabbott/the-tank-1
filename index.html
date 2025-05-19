@@ -483,11 +483,7 @@ window.onload = function() {
             }
         }, 2000); // Try every 2 seconds if music isn't playing
     }
-};
-
-// Fixing scrolling issue for messy table passage
-document.body.style.overflow = 'hidden';
-document.documentElement.style.overflow = 'hidden';</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-tag name="brackets" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">It’s late on a Saturday night, too late for you to be awake.
+};</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-tag name="brackets" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">It’s late on a Saturday night, too late for you to be awake.
 
 “Tell us a story from when you were younger”, you say.
 
@@ -659,62 +655,74 @@ The bedroom that could fit the water tank inside of it maybe,
 (css: &quot;#text&quot;, &quot;left: 10%; width: 80%;&quot;)
 (css: &quot;#text&quot;, &quot;top: -100px; opacity: 0;&quot;)
 (css: &quot;#text&quot;, &quot;animation: snowfall-fall 120s linear forwards;&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
-  // First, set the background image
-  document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
+  // Only run this script if we&#39;re in the background3 passage
+  var passage = document.querySelector(&#39;tw-passage&#39;);
+  var story = document.querySelector(&#39;tw-story&#39;);
   
-  // Make sure passage has transparent background
-  document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
-  
-  // Array of images to display
-  var images = [
-    &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
-    &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
-  ];
-  
-  var currentIndex = 0;
-  
-  // Function to show images one by one
-  function showImage() {
-    if (currentIndex &lt; images.length) {
-      // Create a new image element
-      var img = document.createElement(&#39;img&#39;);
-      img.src = &#39;images/&#39; + images[currentIndex];
-      
-      // Set random positions
-      var top = Math.random() * 600 + &#39;px&#39;;
-      var left = Math.random() * 800 + &#39;px&#39;;
-      var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
-      
-      // Style the image
-      img.style.position = &#39;absolute&#39;;
-      img.style.top = top;
-      img.style.left = left;
-      img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
-      img.style.width = &#39;250px&#39;;
-      img.style.height = &#39;auto&#39;;
-      img.style.opacity = &#39;0&#39;;
-      img.style.transition = &#39;opacity 1s ease&#39;;
-      img.style.zIndex = &#39;5&#39;;
-      
-      // Add to page
-      document.body.appendChild(img);
-      
-      // Fade in
-      setTimeout(function() {
-        img.style.opacity = &#39;1&#39;;
-      }, 100);
-      
-      // Next image
-      currentIndex++;
-      setTimeout(showImage, 500);
+  // Check if this is the correct passage by looking at a unique element or text
+  // This is the key part that makes this script only run on this specific passage
+  if (passage &amp;&amp; passage.textContent.includes(&quot;letter.jpg&quot;) || story.getAttribute(&quot;tags&quot;).includes(&quot;background3&quot;)) {
+    console.log(&quot;Running background3 script&quot;);
+    
+    // First, set the background image
+    document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
+    
+    // Make sure passage has transparent background
+    document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
+    
+    // Array of images to display
+    var images = [
+      &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
+      &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
+    ];
+    
+    var currentIndex = 0;
+    
+    // Function to show images one by one
+    function showImage() {
+      if (currentIndex &lt; images.length) {
+        // Create a new image element
+        var img = document.createElement(&#39;img&#39;);
+        img.src = &#39;images/&#39; + images[currentIndex];
+        
+        // Set random positions
+        var top = Math.random() * 600 + &#39;px&#39;;
+        var left = Math.random() * 800 + &#39;px&#39;;
+        var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
+        
+        // Style the image
+        img.style.position = &#39;absolute&#39;;
+        img.style.top = top;
+        img.style.left = left;
+        img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
+        img.style.width = &#39;250px&#39;;
+        img.style.height = &#39;auto&#39;;
+        img.style.opacity = &#39;0&#39;;
+        img.style.transition = &#39;opacity 1s ease&#39;;
+        img.style.zIndex = &#39;5&#39;;
+        
+        // Add to page
+        document.body.appendChild(img);
+        
+        // Fade in
+        setTimeout(function() {
+          img.style.opacity = &#39;1&#39;;
+        }, 100);
+        
+        // Next image
+        currentIndex++;
+        setTimeout(showImage, 500);
+      }
     }
+    
+    // Start showing images
+    showImage();
+  } else {
+    console.log(&quot;Not running background3 script on this passage&quot;);
   }
-  
-  // Start showing images
-  showImage();
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
