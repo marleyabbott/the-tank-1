@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="13" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -627,15 +627,15 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;p class=&quot;line line-5&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The tile trailing off, somewhere we are supposed to walk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Snowfall passage with forced background reset --&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and no redirects --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
   &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
-    On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand... The couch is made of wooden pellets, covered in thin foam. Before talk there is sugo and melone and formaggio... You decline. You retract. You are drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth... Chew on them, swallow, but they come rising back up. [[Bile tainted with track changes|reset-bg]]
+    On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand... The couch is made of wooden pellets, covered in thin foam. Before talk there is sugo and melone and formaggio... You decline. You retract. You are drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth... Chew on them, swallow, but they come rising back up. [[Bile tainted with track changes]]
   &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
-  // Set background directly using JavaScript
+  // Simply set background just for this passage
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
@@ -644,40 +644,38 @@ The bedroom that could fit the water tank inside of it maybe,
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
   
-  // Enhanced smooth animation with transform instead of top property
+  // Animation code
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
   var duration = 120000;  // 120 seconds in milliseconds
   var startY = 0;
-  var endY = window.innerHeight - paragraph.offsetHeight - 50;  // Stop with text still partially visible
-  
-  // Pre-calculate animation properties
-  function easeLinear(t) { return t; }
+  var endY = window.innerHeight - paragraph.offsetHeight - 50;
   
   function animateText(timestamp) {
     if (!startTime) startTime = timestamp;
     var elapsed = timestamp - startTime;
     var progress = Math.min(elapsed / duration, 1);
     
-    // Using transform instead of top for smoother animation
-    var yPosition = startY + (easeLinear(progress) * (endY - startY));
+    var yPosition = startY + (progress * (endY - startY));
     paragraph.style.transform = &#39;translateY(&#39; + yPosition + &#39;px)&#39;;
     
-    // Continue animation until done
     if (progress &lt; 1) {
       window.requestAnimationFrame(animateText);
     }
   }
   
-  // Ensure everything is loaded and ready before starting animation
-  if (document.readyState === &#39;complete&#39;) {
-    window.requestAnimationFrame(animateText);
-  } else {
-    window.addEventListener(&#39;load&#39;, function() {
-      window.requestAnimationFrame(animateText);
-    });
-  }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1500" size="100,100">&lt;script&gt;
+  window.requestAnimationFrame(animateText);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">&lt;!-- Bile tainted with track changes passage --&gt;
+&lt;script&gt;
+  // Reset background to default at the start of this passage
+  document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+  document.querySelector(&#39;tw-story&#39;).style.backgroundColor = &quot;#EEEDEB&quot;;
+&lt;/script&gt;
+
+&lt;!-- Your regular passage content goes here --&gt;
+[Your regular passage content would go here...]
+
+[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1500" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
   var passage = document.querySelector(&#39;tw-passage&#39;);
   var story = document.querySelector(&#39;tw-story&#39;);
@@ -780,7 +778,7 @@ The wild boar groans a loud goodbye.
 
 It groans again, something beyond language. Something you know but don’t understand. 
 
-</tw-passagedata><tw-passagedata pid="18" name="reset-bg" tags="" position="725,1100" size="100,100"></tw-passagedata></tw-storydata>
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
