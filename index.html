@@ -137,18 +137,18 @@ tw-passage {
     }
 }
 
-/* SNOWFALL PASSAGE - PROPERLY FORMATTED FOR HARLOWE */
+/* ISOLATED SNOWFALLING STYLES */
+/* These styles will ONLY affect passages with the snowfalling tag */
 tw-story\[tags\~="snowfalling"] {
+    /* Background from background2 */
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
     
-    /* Content styling */
+    /* Passage styling */
     color: white;
     padding: 20px;
-    position: relative;
-    z-index: 1;
 }
 
-/* Falling container styles */
+/* These selectors are ONLY active when inside a passage with the snowfalling tag */
 tw-story\[tags\~="snowfalling"] #falling-container {
     position: relative;
     width: 100%;
@@ -156,22 +156,21 @@ tw-story\[tags\~="snowfalling"] #falling-container {
     overflow: hidden;
 }
 
-/* Falling text animation */
 tw-story\[tags\~="snowfalling"] .falling-text {
     position: absolute;
     font-size: 20px;
     line-height: 1.5;
     color: #EEEDEB;
     opacity: 0;
-    animation: fall 120s forwards;
+    animation: snowfall-fall 120s forwards; /* Using a unique animation name */
     white-space: normal;
     padding: 10px;
     max-width: 80%;
     left: 10%;
 }
 
-/* Define the fall animation */
-@keyframes fall {
+/* Animation ONLY for snowfalling passages - unique name to avoid conflicts */
+@keyframes snowfall-fall {
     0% {
         top: -100px;
         opacity: 0;
@@ -185,8 +184,10 @@ tw-story\[tags\~="snowfalling"] .falling-text {
     }
 }
 
-/* Links inside falling text */
-tw-story\[tags\~="snowfalling"] #falling-container tw-link {
+/* Links ONLY inside the snowfalling container */
+tw-story\[tags\~="snowfalling"] #falling-container tw-link,
+tw-story\[tags\~="snowfalling"] #falling-container tw-link:link,
+tw-story\[tags\~="snowfalling"] #falling-container tw-link:visited {
     color: #EEEDEB !important;
     font-weight: bold !important;
     text-decoration: none !important;
@@ -622,7 +623,7 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;p class=&quot;line line-5&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The tile trailing off, somewhere we are supposed to walk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2 snowfalling" position="600,975" size="100,100">&lt;!-- Define the paragraph text --&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="snowfalling" position="600,975" size="100,100">&lt;!-- Define the paragraph text --&gt;
 (set: $fallingText to &quot;
   On the first night there is vomit. 
   Before the vomit she talks at you in the language you have pretended to understand... 
