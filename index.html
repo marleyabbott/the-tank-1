@@ -137,6 +137,7 @@ tw-passage {
     }
 }
 
+/* SNOWFALL ANIMATION PASSAGE */
 @keyframes snowfall-fall {
     0% {
         top: -100px;
@@ -576,8 +577,10 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;p class=&quot;line line-5&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The tile trailing off, somewhere we are supposed to walk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="snowfalling" position="600,975" size="100,100">&lt;div&gt;
-  &lt;span&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="snowfalling" position="600,975" size="100,100">&lt;!-- Super Simple Approach With Multiple css: calls --&gt;
+
+&lt;div id=&quot;container&quot;&gt;
+  &lt;span id=&quot;text&quot;&gt;
     On the first night there is vomit. 
     Before the vomit she talks at you in the language you have pretended to understand... 
     The couch is made of wooden pellets, covered in thin foam. 
@@ -586,12 +589,18 @@ The bedroom that could fit the water tank inside of it maybe,
     A woman working in the bar corrects your sentences. 
     You repeat after her. Swirl the words around your mouth... 
     Chew on them, swallow, but they come rising back up. 
-    [[Bile tainted with track changes]]
+    [[Next Passage]]
   &lt;/span&gt;
 &lt;/div&gt;
 
-(css: &quot;div&quot;, &quot;position: relative; width: 100%; height: 100vh; overflow: hidden;&quot;)
-(css: &quot;span&quot;, &quot;position: absolute; font-size: 20px; line-height: 1.5; color: #EEEDEB; white-space: normal; padding: 10px; left: 10%; width: 80%; top: -100px; opacity: 0; animation: snowfall-fall 120s linear forwards;&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="a ring shaped mosquito bite greets you in the morning" tags="" position="600,1350" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="messy table" tags="background3" position="300,1125" size="100,100">&lt;script&gt;
+(css: &quot;#container&quot;, &quot;position: relative; width: 100%; height: 100vh; overflow: hidden;&quot;)
+(css: &quot;#text&quot;, &quot;position: absolute;&quot;)
+(css: &quot;#text&quot;, &quot;font-size: 20px; line-height: 1.5;&quot;)
+(css: &quot;#text&quot;, &quot;color: white;&quot;)
+(css: &quot;#text&quot;, &quot;white-space: normal; padding: 10px;&quot;)
+(css: &quot;#text&quot;, &quot;left: 10%; width: 80%;&quot;)
+(css: &quot;#text&quot;, &quot;top: -100px; opacity: 0;&quot;)
+(css: &quot;#text&quot;, &quot;animation: snowfall-fall 120s linear forwards;&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="a ring shaped mosquito bite greets you in the morning" tags="" position="600,1350" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="messy table" tags="background3" position="300,1125" size="100,100">&lt;script&gt;
   // Array of images to display (add as many as you want)
   var images = [
     &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
@@ -645,7 +654,7 @@ The bedroom that could fit the water tank inside of it maybe,
   };
 &lt;/script&gt;
 
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="16" name="Next Passage" tags="" position="725,1100" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
