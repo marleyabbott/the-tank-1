@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="12" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -43,14 +43,13 @@ a.enchantment-link {
     text-decoration: none !important;
 }
 
-/* Targets the internal span that Harlowe sometimes uses */
+/* IMPORTANT- Targets the internal span that Harlowe sometimes uses */
 tw-link span,
 .enchantment-link span {
     color: #3C3633 !important;
 }
 
-/* BACK BUTTON SIDE BAR - REPOSITIONED TO TOP LEFT */
-/* Reset and force sidebar display */
+/* BACK BUTTON SIDE BAR */
 tw-sidebar {
     visibility: visible !important;
     opacity: 1 !important;
@@ -65,7 +64,7 @@ tw-sidebar {
     background-color: transparent !important;
 }
 
-/* Style all sidebar buttons */
+/* STYLE ALL SIDEBAR BUTTONS */
 tw-sidebar \[role=button] {
     display: inline-block !important;
     visibility: visible !important;
@@ -94,7 +93,7 @@ tw-passage tw-link:hover {
     text-decoration: none !important;
 }
 
-/* Override any default Harlowe styles */
+/* OVERRIDE ANY DEFAULT HARLOWE STYLES */
 tw-passage [class*="link"] {
     color: #3C3633 !important;
     font-weight: bold !important;
@@ -107,13 +106,13 @@ tw-passage {
     overflow: auto;
 }
 
-/* Global animation definition */
+/* GLOBAL ANIMATION DEFINITION */
 @keyframes fadeOut {
     from { opacity: 1; }
     to { opacity: 0; }
 }
 
-/* Global animation class */
+/* GLOBAL ANIMATION CLASS */
 .fadeOutSlow {
     animation: fadeOut 3s ease forwards;
 }
@@ -160,7 +159,7 @@ tw-story\[tags\~="brackets"] {
     background-color: #EEEDEB;
 }
 
-/* Main container with brackets */
+/* MAIN CONTAINER WITH BRACKETS */
 .big-brackets {
     font-family: 'CabrionLight', sans-serif;
     font-size: 1rem;
@@ -322,7 +321,7 @@ tw-story\[tags\~="background2"] {
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
 }
 
-/* Scrap images styling */
+/* SCRAP IMAGES STYLING */
 .scrap-img {
     position: absolute;
     width: 250px; /* Larger size as requested */
@@ -333,7 +332,7 @@ tw-story\[tags\~="background2"] {
     box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Optional: add subtle shadow */
 }
 
-/* Animation for the images */
+/* ANIMATION FOR THE IMAGES */
 @keyframes rotateAndMove {
     0% {
         transform: rotate(0deg) translateY(0);
@@ -386,7 +385,7 @@ tw-link[click-append]:hover {
     text-decoration: none !important;
 }
 
-/* HIGH SPECIFICITY BACKGROUND3 STYLING - ADD AT END OF FILE */
+/* HIGH SPECIFICITY BACKGROUND3 STYLING - FOR MESSY TABLE PASSAGE*/
 html body tw-story\[tags\~="background3"] {
     background-image: url('images/tablecloth.jpg') !important;
     background-color: transparent !important; 
