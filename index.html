@@ -101,7 +101,7 @@ tw-passage [class*="link"] {
     text-decoration: none !important;
 }
 
-* INTRO PASSAGES FORMATTING */
+/* INTRO PASSAGES FORMATTING */
 tw-passage {
     padding-bottom: 200px;
     overflow: auto;
@@ -137,7 +137,8 @@ tw-passage {
     }
 }
 
-/* FALLING TEXT STYLES */
+/* SIMPLE FALLING TEXT CSS */
+/* This CSS only affects elements with the falling-text class */
 tw-story\[tags\~="snowfalling"] {
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
     color: white;
@@ -157,13 +158,11 @@ tw-story\[tags\~="snowfalling"] {
     color: #EEEDEB;
     white-space: normal;
     padding: 10px;
-    left: calc(var(--random-x) * 1%);
+    left: 10%;
+    width: 80%;
     top: -100px;
     opacity: 0;
-    animation-name: snowfall-fall;
-    animation-duration: 120s;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
+    animation: snowfall-fall 120s linear forwards;
 }
 
 @keyframes snowfall-fall {
@@ -180,6 +179,7 @@ tw-story\[tags\~="snowfalling"] {
     }
 }
 
+/* Make links in falling text white */
 .falling-text tw-link {
     color: #EEEDEB !important;
     font-weight: bold !important;
