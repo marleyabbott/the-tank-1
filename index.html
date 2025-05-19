@@ -655,60 +655,43 @@ The bedroom that could fit the water tank inside of it maybe,
 (css: &quot;#text&quot;, &quot;left: 10%; width: 80%;&quot;)
 (css: &quot;#text&quot;, &quot;top: -100px; opacity: 0;&quot;)
 (css: &quot;#text&quot;, &quot;animation: snowfall-fall 120s linear forwards;&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
+  // Function to set the background image directly
+  function setBackgroundImage() {
+    // Target the story element
+    var storyElement = document.querySelector(&#39;tw-story&#39;);
+    
+    // Apply the background directly with inline style (highest priority)
+    if (storyElement) {
+      storyElement.style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
+      storyElement.style.backgroundSize = &quot;cover&quot;;
+      storyElement.style.backgroundPosition = &quot;center center&quot;;
+      storyElement.style.backgroundAttachment = &quot;fixed&quot;;
+      storyElement.style.backgroundRepeat = &quot;no-repeat&quot;;
+      
+      // Make sure passage background is transparent
+      var passageElement = document.querySelector(&#39;tw-passage&#39;);
+      if (passageElement) {
+        passageElement.style.backgroundColor = &quot;transparent&quot;;
+      }
+    }
+  }
+
+  // Call the function immediately
+  setBackgroundImage();
+
+  // Also call it after a short delay to ensure it works even if other scripts modify the page
+  setTimeout(setBackgroundImage, 100);
+&lt;/script&gt;
+
+&lt;!-- Your existing scrap images script here --&gt;
+&lt;script&gt;
   // Array of images to display (add as many as you want)
   var images = [
     &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
     &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
   ];
-
-  var currentIndex = 0;
-
-  // Function to show images one by one
-  function showImage() {
-    if (currentIndex &lt; images.length) {
-      // Create a new image element
-      var img = document.createElement(&#39;img&#39;);
-      img.src = &#39;images/&#39; + images[currentIndex];
-      img.className = &#39;scrap-img&#39;;
-
-      // Set random positions for the images (adjust the max value for vertical and horizontal space)
-      var top = Math.random() * 600 + &#39;px&#39;;
-      var left = Math.random() * 800 + &#39;px&#39;;
-      
-      // Restrict rotation to -90° to 90° (left and right only)
-      var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;  // This will give a range of -90 to 90 degrees
-      
-      img.style.top = top;
-      img.style.left = left;
-      img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
-
-      // Make images bigger
-      img.style.width = &#39;250px&#39;;  // Change the width of the images
-      img.style.height = &#39;auto&#39;;  // Keep aspect ratio intact, you can adjust height as needed
-
-      // Append the image to the body of the page
-      document.body.appendChild(img);
-
-      // Fade the image in by changing opacity
-      setTimeout(function() {
-        img.style.opacity = 1;
-      }, 100);
-
-      // Move to the next image
-      currentIndex++;
-
-      // Call the function again to add the next image
-      setTimeout(showImage, 500);  // 500ms delay between images
-    }
-  }
-
-  // Start the process when the page loads
-  window.onload = function() {
-    showImage(); // Begin showing images
-  };
-&lt;/script&gt;
-
-</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
+  // Rest of your existing script...
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
