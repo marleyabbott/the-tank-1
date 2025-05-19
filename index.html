@@ -49,15 +49,15 @@ tw-link span,
     color: #3C3633 !important;
 }
 
-/* BACK BUTTON SIDE BAR */
+/* BACK BUTTON SIDE BAR - REPOSITIONED TO TOP LEFT */
 /* Reset and force sidebar display */
 tw-sidebar {
     visibility: visible !important;
     opacity: 1 !important;
     display: block !important;
     position: fixed !important;
-    bottom: 0 !important;
-    right: 0 !important;
+    top: 10px !important;     /* Changed from bottom to top */
+    left: 10px !important;    /* Changed from right to left */
     z-index: 9999 !important; /* Ensure it's above everything else */
     pointer-events: auto !important; /* Make sure it can be clicked */
     width: auto !important;
@@ -73,6 +73,10 @@ tw-sidebar \[role=button] {
     color: #3C3633 !important;
     pointer-events: auto !important;
     cursor: pointer !important;
+    /* Optional: Add some padding or margin for better positioning */
+    padding: 5px !important;
+    margin: 5px !important;
+}
 }
 
 /* IMPORTANT - Fix for passage links in Harlowe */
