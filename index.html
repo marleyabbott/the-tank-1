@@ -673,6 +673,25 @@ The bedroom that could fit the water tank inside of it maybe,
       if (passageElement) {
         passageElement.style.backgroundColor = &quot;transparent&quot;;
       }
+      
+      // Create a fixed div that blocks scrolling and provides a consistent background
+      var backgroundDiv = document.createElement(&#39;div&#39;);
+      backgroundDiv.id = &#39;fixed-background&#39;;
+      backgroundDiv.style.position = &#39;fixed&#39;;
+      backgroundDiv.style.top = &#39;0&#39;;
+      backgroundDiv.style.left = &#39;0&#39;;
+      backgroundDiv.style.width = &#39;100vw&#39;;
+      backgroundDiv.style.height = &#39;100vh&#39;;
+      backgroundDiv.style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
+      backgroundDiv.style.backgroundSize = &quot;cover&quot;;
+      backgroundDiv.style.backgroundPosition = &quot;center center&quot;;
+      backgroundDiv.style.backgroundAttachment = &quot;fixed&quot;;
+      backgroundDiv.style.zIndex = &#39;-1&#39;;
+      document.body.appendChild(backgroundDiv);
+      
+      // Prevent scrolling on this passage
+      document.body.style.overflow = &#39;hidden&#39;;
+      document.querySelector(&#39;html&#39;).style.overflow = &#39;hidden&#39;;
     }
   }
 
@@ -695,9 +714,9 @@ The bedroom that could fit the water tank inside of it maybe,
       img.src = &#39;images/&#39; + images[currentIndex];
       img.className = &#39;scrap-img&#39;;
       
-      // Set random positions for the images
-      var top = Math.random() * 600 + &#39;px&#39;;
-      var left = Math.random() * 800 + &#39;px&#39;;
+      // Set random positions across the ENTIRE viewport
+      var top = Math.random() * (window.innerHeight - 250) + &#39;px&#39;;
+      var left = Math.random() * (window.innerWidth - 250) + &#39;px&#39;;
       
       // Restrict rotation to -90° to 90° (left and right only)
       var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
@@ -705,7 +724,7 @@ The bedroom that could fit the water tank inside of it maybe,
       img.style.top = top;
       img.style.left = left;
       img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
-      img.style.position = &#39;absolute&#39;;
+      img.style.position = &#39;fixed&#39;; // Use fixed instead of absolute
       img.style.width = &#39;250px&#39;;
       img.style.height = &#39;auto&#39;;
       img.style.opacity = &#39;0&#39;;
