@@ -319,29 +319,6 @@ tw-story\[tags\~="background2"] {
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
 }
 
-tw-story\[tags\~="background3"] {
-    background: url('images/tablecloth.jpg') center center / cover no-repeat fixed;
-}
-
-/* MESSY TABLE PASSAGE - FIXED */
-/* Set the background */
-tw-story\[tags\~="background3"] tw-passage {
-    background: transparent; /* Make sure passage background is transparent to show the story background */
-    position: relative; /* Keep this for proper stacking */
-    z-index: 1; /* Keep content above background */
-}
-
-/* Fix the background image so it displays correctly */
-tw-story\[tags\~="background3"] {
-    background-image: url('images/tablecloth.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    position: relative; /* Changed from fixed to avoid issues */
-    z-index: 0;
-}
-
 /* Scrap images styling */
 .scrap-img {
     position: absolute;
@@ -404,6 +381,24 @@ tw-link[click-append] {
 tw-link[click-append]:hover {
     color: #3C3633 !important;
     text-decoration: none !important;
+}
+
+/* HIGH SPECIFICITY BACKGROUND3 STYLING - ADD AT END OF FILE */
+html body tw-story\[tags\~="background3"] {
+    background-image: url('images/tablecloth.jpg') !important;
+    background-color: transparent !important; 
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Make passage background transparent to show story background */
+html body tw-story\[tags\~="background3"] tw-passage {
+    background-color: transparent !important;
+    background-image: none !important;
+    position: relative !important;
+    z-index: 1 !important;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
