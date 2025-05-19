@@ -655,14 +655,36 @@ The bedroom that could fit the water tank inside of it maybe,
 (css: &quot;#text&quot;, &quot;left: 10%; width: 80%;&quot;)
 (css: &quot;#text&quot;, &quot;top: -100px; opacity: 0;&quot;)
 (css: &quot;#text&quot;, &quot;animation: snowfall-fall 120s linear forwards;&quot;)</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
-  // First, set the background image
+  // First, set the background image and prevent scrolling
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
   
-  // Make sure passage has transparent background
+  // Make passage fully transparent and prevent scrolling
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
+  
+  // Create a full-viewport div to prevent scrolling and ensure background coverage
+  var fullCoverDiv = document.createElement(&#39;div&#39;);
+  fullCoverDiv.style.position = &#39;fixed&#39;;
+  fullCoverDiv.style.top = &#39;0&#39;;
+  fullCoverDiv.style.left = &#39;0&#39;;
+  fullCoverDiv.style.width = &#39;100%&#39;;
+  fullCoverDiv.style.height = &#39;100%&#39;;
+  fullCoverDiv.style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
+  fullCoverDiv.style.backgroundSize = &quot;cover&quot;;
+  fullCoverDiv.style.backgroundPosition = &quot;center&quot;;
+  fullCoverDiv.style.backgroundAttachment = &quot;fixed&quot;;
+  fullCoverDiv.style.zIndex = &#39;0&#39;;
+  document.body.insertBefore(fullCoverDiv, document.body.firstChild);
+  
+  // Disable scrolling
+  document.body.style.overflow = &#39;hidden&#39;;
+  document.documentElement.style.overflow = &#39;hidden&#39;;
+  
+  // Clear any content in the passage that might cause scrolling
+  var passageContent = document.querySelector(&#39;tw-passage&#39;).innerHTML;
+  document.querySelector(&#39;tw-passage&#39;).innerHTML = &#39;&#39;;
   
   // Array of images to display
   var images = [
@@ -679,13 +701,13 @@ The bedroom that could fit the water tank inside of it maybe,
       var img = document.createElement(&#39;img&#39;);
       img.src = &#39;images/&#39; + images[currentIndex];
       
-      // Set random positions
-      var top = Math.random() * 600 + &#39;px&#39;;
-      var left = Math.random() * 800 + &#39;px&#39;;
+      // Set random positions across the VIEWPORT (not document)
+      var top = Math.random() * (window.innerHeight - 250) + &#39;px&#39;;
+      var left = Math.random() * (window.innerWidth - 250) + &#39;px&#39;;
       var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
       
       // Style the image
-      img.style.position = &#39;absolute&#39;;
+      img.style.position = &#39;fixed&#39;; // FIXED not absolute to stay in viewport
       img.style.top = top;
       img.style.left = left;
       img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
@@ -696,7 +718,7 @@ The bedroom that could fit the water tank inside of it maybe,
       img.style.zIndex = &#39;5&#39;;
       
       // Add to page
-      document.body.appendChild(img);
+      fullCoverDiv.appendChild(img);
       
       // Fade in
       setTimeout(function() {
