@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="14" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="16" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -399,6 +399,29 @@ html body tw-story\[tags\~="background3"] tw-passage {
     background-image: none !important;
     position: relative !important;
     z-index: 1 !important;
+}
+/* Test for image path issues - add this to your CSS */
+.test-image-div {
+    width: 100px;
+    height: 100px;
+    border: 3px solid red;
+    background-image: url('images/tablecloth.jpg');
+}
+
+/* Try with absolute path */
+.test-image-absolute {
+    width: 100px;
+    height: 100px;
+    border: 3px solid blue;
+    background-image: url('/images/tablecloth.jpg');
+}
+
+/* Try with relative path up one level */
+.test-image-up {
+    width: 100px;
+    height: 100px;
+    border: 3px solid green;
+    background-image: url('../images/tablecloth.jpg');
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -622,7 +645,7 @@ The bedroom that could fit the water tank inside of it maybe,
     A woman working in the bar corrects your sentences. 
     You repeat after her. Swirl the words around your mouth... 
     Chew on them, swallow, but they come rising back up. 
-    [[Next Passage]]
+    [[Bile tainted with track changes]]
   &lt;/span&gt;
 &lt;/div&gt;
 
@@ -687,7 +710,18 @@ The bedroom that could fit the water tank inside of it maybe,
   };
 &lt;/script&gt;
 
-</tw-passagedata><tw-passagedata pid="15" name="Next Passage" tags="" position="725,1100" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="15" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="16" name="test" tags="" position="775,1375" size="100,100">&lt;!-- Add this to a test passage to diagnose image path issues --&gt;
+&lt;div class=&quot;test-image-div&quot;&gt;Regular path&lt;/div&gt;
+&lt;div class=&quot;test-image-absolute&quot;&gt;Absolute path&lt;/div&gt;
+&lt;div class=&quot;test-image-up&quot;&gt;Up one directory&lt;/div&gt;
+
+&lt;!-- Check the current location of your images --&gt;
+&lt;p&gt;This passage will list other images that are working in your story to help identify the correct path.&lt;/p&gt;
+
+&lt;p&gt;Here are some images using different paths:&lt;/p&gt;
+&lt;img src=&quot;images/cross.jpg&quot; width=&quot;100&quot; style=&quot;border: 2px solid purple&quot;&gt;
+&lt;img src=&quot;/images/cross.jpg&quot; width=&quot;100&quot; style=&quot;border: 2px solid orange&quot;&gt;
+&lt;img src=&quot;../images/cross.jpg&quot; width=&quot;100&quot; style=&quot;border: 2px solid pink&quot;&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
