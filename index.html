@@ -137,66 +137,64 @@ tw-passage {
     }
 }
 
-/* SNOWFALL PASSAGE - FIXED */
+/* SNOWFALL PASSAGE - PROPERLY FORMATTED FOR HARLOWE */
 tw-story\[tags\~="snowfalling"] {
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
     
-    #falling-container {
-        position: relative;
-        width: 100%;
-        height: 100vh; /* Full height for scrolling effect */
-        overflow: hidden; /* Hide any overflow outside the container */
-    }
-
-    .falling-text {
-        position: absolute;
-        font-size: 20px; /* Adjust font size for readability */
-        line-height: 1.5;
-        color: #EEEDEB; /* Set the text color */
-        opacity: 0;
-        animation: fall 120s forwards; /* Make it fall only once, and not repeat */
-        white-space: normal; /* Allow wrapping of text */
-        padding: 10px; /* Add padding for some space around the text */
-        max-width: 80%; /* Prevent text from being too wide */
-        left: 10%; /* Center text horizontally */
-    }
-
-    @keyframes fall {
-        0% {
-            top: -100px;
-            opacity: 0;
-        }
-        5% {
-            opacity: 1;
-        }
-        100% {
-            top: 100vh;
-            opacity: 0;
-        }
-    }
-    
-    #falling-container tw-link,
-    #falling-container tw-link:link,
-    #falling-container tw-link:visited {
-        color: #EEEDEB !important;  /* Match text color */
-        font-weight: bold !important;  /* Ensure bold styling */
-        text-decoration: none !important;  /* No underline */
-    }
-
-    #falling-container tw-link:hover {
-        color: #FF5733 !important;  /* Change color when hovering */
-        text-decoration: underline !important;  /* Underline on hover */
-    }
-    
-    #falling-container .scrap-img {
-        animation: rotateAndMove 10s linear infinite;
-    }
-    
-    /* Text styles within the snowfalling passage */
-    padding: 20px;
+    /* Content styling */
     color: white;
+    padding: 20px;
     position: relative;
     z-index: 1;
+}
+
+/* Falling container styles */
+tw-story\[tags\~="snowfalling"] #falling-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Falling text animation */
+tw-story\[tags\~="snowfalling"] .falling-text {
+    position: absolute;
+    font-size: 20px;
+    line-height: 1.5;
+    color: #EEEDEB;
+    opacity: 0;
+    animation: fall 120s forwards;
+    white-space: normal;
+    padding: 10px;
+    max-width: 80%;
+    left: 10%;
+}
+
+/* Define the fall animation */
+@keyframes fall {
+    0% {
+        top: -100px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+    }
+}
+
+/* Links inside falling text */
+tw-story\[tags\~="snowfalling"] #falling-container tw-link {
+    color: #EEEDEB !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+tw-story\[tags\~="snowfalling"] #falling-container tw-link:hover {
+    color: #FF5733 !important;
+    text-decoration: underline !important;
 }
 
 /* BRACKETS PASSAGE FORMATTING */
@@ -636,15 +634,13 @@ The bedroom that could fit the water tank inside of it maybe,
   Chew on them, swallow, but they come rising back up. 
   &lt;tw-link href=&#39;Next Passage&#39;&gt;Bile tainted with track changes&lt;/tw-link&gt;
 &quot;)
-
 &lt;!-- Create the falling-text container --&gt;
 &lt;div id=&quot;falling-container&quot;&gt;
   &lt;!-- Apply the falling-text class to the whole paragraph --&gt;
   &lt;span class=&quot;falling-text&quot;&gt;
     (print: $fallingText)
   &lt;/span&gt;
-&lt;/div&gt;
-</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="a ring shaped mosquito bite greets you in the morning" tags="" position="600,1350" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="falling line" tags="" position="725,975" size="100,100">(set: _text to _args[1])
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="a ring shaped mosquito bite greets you in the morning" tags="" position="600,1350" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="falling line" tags="" position="725,975" size="100,100">(set: _text to _args[1])
 (set: _x to _args[2])
 (set: _delay to _args[3])
 
