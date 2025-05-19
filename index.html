@@ -29,14 +29,14 @@ tw-story {
 
 /* OVERALL LINK STYLING */
 tw-link,
-tw-link\:link,
-tw-link\:visited,
-tw-link\:hover,
-tw-link\:active,
+tw-link:link,
+tw-link:visited,
+tw-link:hover,
+tw-link:active,
 tw-link.visited,
-tw-link.visited\:hover,
+tw-link.visited:hover,
 .enchantment-link,
-tw-hook\[class\*="link"],
+tw-hook[class*="link"],
 a.enchantment-link {
     color: #3C3633 !important;
     font-weight: bold !important;
@@ -75,13 +75,34 @@ tw-sidebar \[role=button] {
     cursor: pointer !important;
 }
 
+/* IMPORTANT - Fix for passage links in Harlowe */
+tw-passage tw-link,
+tw-passage .enchantment-link,
+tw-passage [role="link"],
+tw-passage tw-link::before {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+tw-passage tw-link:hover {
+    color: #6d635d !important; /* slightly lighter on hover for feedback */
+    text-decoration: none !important;
+}
+
+/* Override any default Harlowe styles */
+tw-passage [class*="link"] {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
 /* INTRO PASSAGES FORMATTING */
 tw-passage {
     padding-bottom: 200px;
     overflow: auto;
 }
-
-/* 'THEY SLEPT ON PILES OF CLOTHES' PASSAGE */
 tw-story\[tags\~="pile-of-clothes"] {
     @keyframes fadeOut {
         from { opacity: 1; }
@@ -411,13 +432,13 @@ tw-story\[tags\~="background3"] {
 }
 
 /* CLICK-APPEND LINK STYLING */
-tw-link\[click-append] {
+tw-link[click-append] {
     color: #3C3633 !important;
     font-weight: bold !important;
     text-decoration: none !important;
 }
 
-tw-link\[click-append]\:hover {
+tw-link[click-append]:hover {
     color: #3C3633 !important;
     text-decoration: none !important;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">window.onload = function () {
