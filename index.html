@@ -101,20 +101,21 @@ tw-passage [class*="link"] {
     text-decoration: none !important;
 }
 
-/* INTRO PASSAGES FORMATTING */
+* INTRO PASSAGES FORMATTING */
 tw-passage {
     padding-bottom: 200px;
     overflow: auto;
 }
-tw-story\[tags\~="pile-of-clothes"] {
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
 
-    .fadeOutSlow {
-        animation: fadeOut 3s ease forwards;
-    }
+/* Global animation definition */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Global animation class */
+.fadeOutSlow {
+    animation: fadeOut 3s ease forwards;
 }
 
 /* 'SWEET AND SOUR SAUCE' PASSAGE */
