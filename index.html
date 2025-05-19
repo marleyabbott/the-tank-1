@@ -401,6 +401,10 @@ tw-story {
   background-color: transparent;  /* Ensure no default color */
   position: relative; /* Keep content positioned correctly */
   z-index: 1; /* Ensure content is in front */
+  
+tw-story[tags~="background3"] {
+background: url('images/tablecloth.jpg') center center / cover no-repeat fixed;
+}
 
 #falling-container .scrap-img {
   animation: rotateAndMove 10s linear infinite;
