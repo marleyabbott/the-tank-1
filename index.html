@@ -137,11 +137,11 @@ tw-passage {
     }
 }
 
-/* SNOWFALL PASSAGE */
+/* SNOWFALL PASSAGE - FIXED */
 tw-story\[tags\~="snowfalling"] {
     background: url('images/sky.jpg') center center / cover no-repeat fixed;
     
-    \#falling-container {
+    #falling-container {
         position: relative;
         width: 100%;
         height: 100vh; /* Full height for scrolling effect */
@@ -157,6 +157,8 @@ tw-story\[tags\~="snowfalling"] {
         animation: fall 120s forwards; /* Make it fall only once, and not repeat */
         white-space: normal; /* Allow wrapping of text */
         padding: 10px; /* Add padding for some space around the text */
+        max-width: 80%; /* Prevent text from being too wide */
+        left: 10%; /* Center text horizontally */
     }
 
     @keyframes fall {
@@ -173,25 +175,28 @@ tw-story\[tags\~="snowfalling"] {
         }
     }
     
-    \#falling-container tw-link {
+    #falling-container tw-link,
+    #falling-container tw-link:link,
+    #falling-container tw-link:visited {
+        color: #EEEDEB !important;  /* Match text color */
         font-weight: bold !important;  /* Ensure bold styling */
         text-decoration: none !important;  /* No underline */
     }
 
-    \#falling-container tw-link\:hover {
+    #falling-container tw-link:hover {
         color: #FF5733 !important;  /* Change color when hovering */
         text-decoration: underline !important;  /* Underline on hover */
     }
     
-    \#falling-container .scrap-img {
+    #falling-container .scrap-img {
         animation: rotateAndMove 10s linear infinite;
     }
-
-    /* Optional: Text style */
-    padding: 20px; /* Add some padding to text */
-    color: white;  /* Ensure text is visible against background */
+    
+    /* Text styles within the snowfalling passage */
+    padding: 20px;
+    color: white;
     position: relative;
-    z-index: 1;  /* Keep text above background */
+    z-index: 1;
 }
 
 /* BRACKETS PASSAGE FORMATTING */
