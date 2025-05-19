@@ -152,7 +152,8 @@ tw-passage {
     }
 }
 
-/* BRACKETS PASSAGE FORMATTING - CLEAN MINIMALIST VERSION */
+
+/* BRACKETS PASSAGE FORMATTING - REVISED */
 tw-story\[tags\~="brackets"] {
     background-color: #EEEDEB; /* Clean white/off-white background */
 }
@@ -169,28 +170,32 @@ tw-story\[tags\~="brackets"] {
     min-height: 30rem;
 }
 
-/* Left bracket */
+/* Left bracket - MUCH bigger and thinner */
 .big-brackets::before {
     content: "(";
     position: absolute;
-    left: -0.2rem;
-    top: -2rem;
-    font-size: 10rem;
+    left: -2rem;
+    top: -5rem;
+    font-size: 18rem;
     color: #3C3633;
-    opacity: 0.7;
+    opacity: 0.4;
     font-family: 'Arial', sans-serif;
+    font-weight: 100; /* Much thinner */
+    transform: scaleX(0.4); /* Make horizontally thinner */
 }
 
-/* Right bracket */
+/* Right bracket - MUCH bigger and thinner */
 .big-brackets::after {
     content: ")";
     position: absolute;
-    right: -0.2rem;
-    bottom: -4rem;
-    font-size: 10rem;
+    right: -2rem;
+    bottom: -10rem;
+    font-size: 18rem;
     color: #3C3633;
-    opacity: 0.7;
+    opacity: 0.4;
     font-family: 'Arial', sans-serif;
+    font-weight: 100; /* Much thinner */
+    transform: scaleX(0.4); /* Make horizontally thinner */
 }
 
 /* Container for all text and images */
@@ -248,7 +253,6 @@ tw-story\[tags\~="brackets"] {
     align-self: flex-end;
     margin-top: 2.5rem;
     margin-right: 2rem;
-    font-style: italic;
 }
 
 .line-7 {
@@ -257,13 +261,7 @@ tw-story\[tags\~="brackets"] {
     max-width: 75%;
 }
 
-.line-8 {
-    align-self: flex-end;
-    margin-top: 2rem;
-    margin-right: 1rem;
-}
-
-/* Image styling */
+/* Image styling - NO ROTATION */
 .inter-text-image {
     width: 65%;
     max-width: 500px;
@@ -272,19 +270,18 @@ tw-story\[tags\~="brackets"] {
     object-fit: cover;
     border: none;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transform: none !important; /* Remove any rotation */
 }
 
-/* Alternating image alignment */
+/* Alternating image alignment - without rotation */
 .inter-text-image:nth-of-type(odd) {
     align-self: flex-end;
     margin-right: 0;
-    transform: rotate(-1deg);
 }
 
 .inter-text-image:nth-of-type(even) {
     align-self: flex-start;
     margin-left: 0;
-    transform: rotate(1deg);
 }
 
 /* Link styling within this passage */
@@ -536,7 +533,7 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;img src=&quot;images/sky.jpg&quot; class=&quot;inter-text-image&quot;&gt;
     &lt;p class=&quot;line line-4&quot;&gt;You collect the clean laundry from the balcony rail.&lt;/p&gt;
     &lt;p class=&quot;line line-5&quot;&gt;Is it the heat or break from idling hands raised above the keyboard in contemplation that makes folding the clothes feel euphoric?&lt;/p&gt;
-    &lt;img src=&quot;images/plant.jpg&quot; class=&quot;inter-text-image&quot;&gt;
+    &lt;img src=&quot;images/zio.jpg&quot; class=&quot;inter-text-image&quot;&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;img src=&quot;images/mum.jpg&quot; class=&quot;inter-text-image&quot;&gt;
     &lt;p class=&quot;line line-7&quot;&gt;The tile trailing off, [[somewhere we are supposed to walk.]]&lt;/p&gt;
