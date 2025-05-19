@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="12" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -634,11 +634,8 @@ The bedroom that could fit the water tank inside of it maybe,
     &lt;p class=&quot;line line-5&quot;&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
     &lt;p class=&quot;line line-6&quot;&gt;The tile trailing off, somewhere we are supposed to walk.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Smooth Falling Single Paragraph --&gt;
-&lt;!-- Keep the background2 tag on this passage --&gt;
-
-&lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;falling-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 50px; transition: top 120s linear; transform: translateZ(0);&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
+  &lt;div id=&quot;smooth-falling-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 50px;&quot;&gt;
     On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand... The couch is made of wooden pellets, covered in thin foam. Before talk there is sugo and melone and formaggio... You decline. You retract. You are drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth... Chew on them, swallow, but they come rising back up. [[Bile tainted with track changes]]
   &lt;/div&gt;
 &lt;/div&gt;
@@ -653,11 +650,32 @@ The bedroom that could fit the water tank inside of it maybe,
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
   
-  // Use JS to trigger the smooth transition after a tiny delay
-  setTimeout(function() {
-    var paragraph = document.getElementById(&#39;falling-paragraph&#39;);
-    paragraph.style.top = &#39;calc(100vh - 300px)&#39;; // Adjust final position as needed
-  }, 100);
+  // Use requestAnimationFrame for ultra-smooth animation
+  var paragraph = document.getElementById(&#39;smooth-falling-paragraph&#39;);
+  var startTime = null;
+  var startPosition = 50;  // Starting position (50px from top)
+  var endPosition = window.innerHeight - 300;  // End position near bottom
+  var duration = 120000;  // 120 seconds in milliseconds
+  
+  function animateText(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var elapsed = timestamp - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    
+    // Calculate the current position using ease-in-out for natural movement
+    var currentPosition = startPosition + (endPosition - startPosition) * progress;
+    
+    // Apply the new position
+    paragraph.style.top = currentPosition + &#39;px&#39;;
+    
+    // Continue animation until done
+    if (progress &lt; 1) {
+      requestAnimationFrame(animateText);
+    }
+  }
+  
+  // Start the animation
+  requestAnimationFrame(animateText);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="Bile tainted with track changes" tags="" position="600,1100" size="100,100">[[next passage]]</tw-passagedata><tw-passagedata pid="14" name="messy table" tags="background3" position="600,1475" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
   var passage = document.querySelector(&#39;tw-passage&#39;);
