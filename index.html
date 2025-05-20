@@ -148,15 +148,15 @@ tw-passage {
   }
 }
 
-/* Remove scrollbars and prevent overflow */
+/* Prevent scrolling */
 html, body, tw-story {
-  overflow: hidden;
+  overflow: hidden !important;
   margin: 0;
   padding: 0;
   height: 100vh;
 }
 
-/* Wide-format styling + smooth, faster animation */
+/* Wide format passage with smooth, fast animation */
 tw-story[tags~="wide-text"] tw-passage {
   max-width: 90% !important;
   width: 90% !important;
@@ -166,12 +166,10 @@ tw-story[tags~="wide-text"] tw-passage {
   font-size: 1rem;
   line-height: 1.6;
 
-  opacity: 0;
+  opacity: 1; /* Make sure it's visible */
   animation: fadeInUpFast 0.25s ease-out forwards;
+  animation-fill-mode: forwards; /* Ensure final state sticks */
 }
-
-
-
 
 /* BRACKETS PASSAGE FORMATTING */
 tw-story\[tags\~="brackets"] {
