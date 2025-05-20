@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="29" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="10" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -659,9 +659,9 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and no redirects --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Modified Snowfall Passage with wider single-column landscape layout --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 18px; line-height: 1.6; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 40%; transform: translateY(-50%); will-change: transform; transform-style: preserve-3d; backface-visibility: hidden; text-align: center; max-height: 150px; overflow: visible;&quot;&gt;
  On the first night there is vomit.
 Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.   
 The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue. 
@@ -672,7 +672,6 @@ but they come rising back up.
 [[Bile tainted with track changes.]]  
   &lt;/div&gt;
 &lt;/div&gt;
-
 &lt;script&gt;
   // Simply set background just for this passage
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
@@ -683,20 +682,24 @@ but they come rising back up.
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
   
-  // Animation code
+  // Animation code for horizontal scrolling instead of vertical
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
   var duration = 120000;  // 120 seconds in milliseconds
-  var startY = 0;
-  var endY = window.innerHeight - paragraph.offsetHeight - 50;
+  
+  // Get the actual text width
+  paragraph.style.whiteSpace = &quot;nowrap&quot;;
+  var textWidth = paragraph.scrollWidth;
+  var startX = window.innerWidth;  // Start from right edge
+  var endX = -textWidth;  // End position off the left side
   
   function animateText(timestamp) {
     if (!startTime) startTime = timestamp;
     var elapsed = timestamp - startTime;
     var progress = Math.min(elapsed / duration, 1);
     
-    var yPosition = startY + (progress * (endY - startY));
-    paragraph.style.transform = &#39;translateY(&#39; + yPosition + &#39;px)&#39;;
+    var xPosition = startX + (progress * (endX - startX));
+    paragraph.style.transform = &#39;translateX(&#39; + xPosition + &#39;px)&#39;;
     
     if (progress &lt; 1) {
       window.requestAnimationFrame(animateText);
@@ -704,9 +707,7 @@ but they come rising back up.
   }
   
   window.requestAnimationFrame(animateText);
-&lt;/script&gt;
-
-/* Change styling to be more seamless */</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
