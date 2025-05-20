@@ -573,7 +573,13 @@ The bedroom that could fit the water tank inside of it maybe,
 
   /* Other styling for image grid, etc. */
 &lt;/style&gt;
-</tw-passagedata><tw-passagedata pid="6" name="Outside the bathroom window, a soccer ball is tossed between small dirty soles." tags="brackets" position="600,1225" size="100,100">&lt;div class=&quot;big-brackets&quot;&gt;
+</tw-passagedata><tw-passagedata pid="6" name="Outside the bathroom window, a soccer ball is tossed between small dirty soles." tags="brackets" position="600,1225" size="100,100">&lt;script&gt;
+// Reset background
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundColor = &quot;#EEEDEB&quot;;
+&lt;/script&gt;
+
+&lt;div class=&quot;big-brackets&quot;&gt;
   &lt;div class=&quot;dynamic-text&quot;&gt;
     &lt;p class=&quot;line line-1&quot;&gt;A ring-shaped mosquito bite on your finger greets you in the morning.&lt;/p&gt;
     &lt;img src=&quot;images/cross.jpg&quot; class=&quot;inter-text-image&quot;&gt;
@@ -668,25 +674,28 @@ but they come rising back up.
 &lt;/script&gt;
 
 /* Change styling to be more seamless */</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
-// Apply specific styling just for this passage
-document.querySelector(&#39;tw-passage&#39;).style.width = &quot;30%&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.margin = &quot;10% auto 0&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.fontSize = &quot;0.8em&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;rgba(255, 255, 255, 0.85)&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.padding = &quot;12px&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.borderRadius = &quot;4px&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.boxShadow = &quot;0 0 10px rgba(0, 0, 0, 0.3)&quot;;
+// Apply minimal text styling
+document.querySelector(&#39;tw-passage&#39;).style.width = &quot;250px&quot;; 
+document.querySelector(&#39;tw-passage&#39;).style.margin = &quot;0 auto&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;white&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.padding = &quot;15px&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.border = &quot;1px solid #ccc&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.borderRadius = &quot;5px&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.position = &quot;relative&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.zIndex = &quot;100&quot;;
 
-// Make sure the background image is visible
-setTimeout(function() {
-  if (document.querySelector(&#39;tw-story&#39;).style.backgroundImage === &quot;&quot;) {
-    document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center center&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
+// Store this passage&#39;s name to check against later
+window.lastBackgroundPassage = passage.name;
+
+// Add event listener to detect passage changes
+window.addEventListener(&#39;sm.passage.show&#39;, function(event) {
+  // If we&#39;re moving to a different passage, reset the background
+  if (window.lastBackgroundPassage &amp;&amp; window.lastBackgroundPassage !== passage.name) {
+    document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundColor = &quot;#EEEDEB&quot;;
+    window.lastBackgroundPassage = null;
   }
-}, 50);
+});
 &lt;/script&gt;
 
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
