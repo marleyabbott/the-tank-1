@@ -680,10 +680,10 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;cent
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
-// LANDSCAPE text positioning - with bigger text and no glow
+// LANDSCAPE text positioning - with more height for all content
 var passage = document.querySelector(&#39;tw-passage&#39;);
-passage.style.width = &quot;50%&quot;; 
-passage.style.height = &quot;200px&quot;; 
+passage.style.width = &quot;60%&quot;; // Wider
+passage.style.height = &quot;250px&quot;; // Taller to fit all text
 passage.style.position = &quot;absolute&quot;; 
 passage.style.top = &quot;50%&quot;; 
 passage.style.left = &quot;50%&quot;;
@@ -692,18 +692,18 @@ passage.style.backgroundColor = &quot;transparent&quot;;
 passage.style.boxShadow = &quot;none&quot;;
 passage.style.border = &quot;none&quot;;
 passage.style.padding = &quot;0&quot;;
-passage.style.fontSize = &quot;0.75em&quot;; // Bigger text
-passage.style.color = &quot;#000000&quot;; // Pure black for better contrast
-passage.style.textShadow = &quot;none&quot;; // Remove the glow effect
-passage.style.lineHeight = &quot;1.5&quot;; // Better spacing for larger text
+passage.style.fontSize = &quot;0.75em&quot;; 
+passage.style.color = &quot;#000000&quot;;
+passage.style.textShadow = &quot;none&quot;;
+passage.style.lineHeight = &quot;1.7&quot;; // More space between lines
 passage.style.textAlign = &quot;center&quot;;
 passage.style.margin = &quot;0&quot;;
-passage.style.overflow = &quot;hidden&quot;; 
+passage.style.overflow = &quot;visible&quot;; // Allow overflow to ensure all text is visible
 passage.style.display = &quot;flex&quot;; 
 passage.style.flexDirection = &quot;column&quot;; 
-passage.style.justifyContent = &quot;center&quot;; 
+passage.style.justifyContent = &quot;center&quot;;
 
-// Fix hyperlinks
+// Fix hyperlinks and make sure they&#39;re fully visible
 var links = passage.querySelectorAll(&#39;a&#39;);
 for (var i = 0; i &lt; links.length; i++) {
     links[i].style.display = &quot;inline-block&quot;;
@@ -711,7 +711,19 @@ for (var i = 0; i &lt; links.length; i++) {
     links[i].style.fontWeight = &quot;bold&quot;;
     links[i].style.textDecoration = &quot;none&quot;;
     links[i].style.marginTop = &quot;10px&quot;;
+    links[i].style.marginBottom = &quot;10px&quot;; // Add bottom margin to ensure visibility
+    links[i].style.position = &quot;relative&quot;; // Ensure proper positioning
+    links[i].style.zIndex = &quot;10&quot;; // Ensure it&#39;s on top
 }
+
+// Add spacers between paragraphs
+setTimeout(function() {
+    var content = passage.innerHTML;
+    // Replace periods followed by spaces with periods followed by two spaces
+    content = content.replace(/\.\s+/g, &#39;. &#39;);
+    // Add more spacing between sentences
+    passage.innerHTML = content;
+}, 100);
 &lt;/script&gt;
 
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
