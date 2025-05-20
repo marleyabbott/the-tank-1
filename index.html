@@ -682,21 +682,26 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-rep
 &lt;/script&gt;
 
 &lt;script&gt;
-// Text formatting - make it landscape and remove the box
+// Improved text formatting - properly centered with better spacing
 var passage = document.querySelector(&#39;tw-passage&#39;);
-passage.style.width = &quot;50%&quot;; // Wider width for landscape orientation
+passage.style.width = &quot;60%&quot;; // Slightly wider
 passage.style.maxWidth = &quot;800px&quot;; 
 passage.style.backgroundColor = &quot;transparent&quot;; // No text box
 passage.style.boxShadow = &quot;none&quot;; // No shadow
 passage.style.border = &quot;none&quot;; // No border
 passage.style.padding = &quot;0&quot;; // No padding
 passage.style.fontSize = &quot;0.75em&quot;; // Smaller text
-passage.style.color = &quot;#000&quot;; // Make sure text is readable
-passage.style.textShadow = &quot;0 0 3px white&quot;; // Optional: slight white glow for readability
-passage.style.margin = &quot;200px auto 0&quot;; // Position it lower on the page
-passage.style.columnCount = &quot;2&quot;; // Create two columns for landscape layout
-passage.style.columnGap = &quot;20px&quot;; // Space between columns
-passage.style.lineHeight = &quot;1.3&quot;; // Tighter line spacing
+passage.style.color = &quot;#000&quot;; // Black text
+passage.style.textShadow = &quot;0 0 3px white, 0 0 3px white&quot;; // Better text shadow for readability
+passage.style.margin = &quot;100px auto 0&quot;; // Higher up on the page to avoid bottom image
+passage.style.columnCount = &quot;2&quot;; // Keep the two columns
+passage.style.columnGap = &quot;30px&quot;; // More space between columns
+passage.style.columnRule = &quot;1px solid rgba(0,0,0,0.1)&quot;; // Subtle divider between columns
+passage.style.lineHeight = &quot;1.5&quot;; // Better line spacing for readability
+passage.style.position = &quot;relative&quot;; // Enable positioning
+passage.style.left = &quot;0&quot;; // Center horizontally
+passage.style.textAlign = &quot;left&quot;; // Left-aligned text
+passage.style.columnFill = &quot;balance&quot;; // Balance content between columns
 &lt;/script&gt;
 
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
