@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="10" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="14" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -324,6 +324,11 @@ tw-story[tags~="background4"] {
 /* title page background */
 tw-story[tags~="background5"] {
   background: url('images/title.jpg') center center / cover no-repeat fixed;
+}
+
+/* paint background */
+tw-story[tags~="background6"] {
+  background: url('images/paintbackground.jpg') center center / cover no-repeat fixed;
 }
 
 /* Text styling for passages with backgrounds */
@@ -877,7 +882,7 @@ You catch her one morning before she knows you are up, tearing squares of the to
 
 You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn’t appropriate. [[You sense that your questions do not have answers.]]
 
-/* Need to decide on styling... maybe broken crockery effect?? */</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
+/* Need to decide on styling... maybe broken crockery effect?? */</tw-passagedata><tw-passagedata pid="14" name="ending" tags="background6" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
 
 Zio slams on the breaks. He points. You roll down the window.
 
@@ -1033,7 +1038,12 @@ Choking on tears, too exhausted to find the translation that says you hope you w
 /* Need to decide on styling */</tw-passagedata><tw-passagedata pid="26" name="next passage" tags="" position="600,2725" size="100,100">They take you to the cemetery. You sign across your chests. She kicks gravel stones with her toes, mutters prayers under her breath. Plotting DNA across the dirt floor, bones turned stone, heat insisting in open-mouthed heavy heaps of exhale . You pick dead petals from the flowers on the graves. More buried here than living.
 Another no-produce year for the olive fields- she looks up to the sky, [[looks up to ask for something.]]
 
-/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="" position="600,3225" size="100,100">back to tank. 
+/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="" position="600,3225" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+&lt;/script&gt;
+
+back to tank. 
 
 /* Need to decide on styling */</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
 </tw-passagedata></tw-storydata>
