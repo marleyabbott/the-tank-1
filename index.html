@@ -137,6 +137,28 @@ tw-passage {
 }
 
 /* SNOWFALL ANIMATION PASSAGE */
+@keyframes snowfall-fall {
+  0% {
+    top: -100px;
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+
+/* Global overflow fix – removes horizontal scroll */
+html, body, tw-story {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wide text style with seamless appearance */
 tw-story[tags~="wide-text"] tw-passage {
   max-width: 90% !important;
   width: 90% !important;
@@ -145,13 +167,21 @@ tw-story[tags~="wide-text"] tw-passage {
   text-align: left;
   font-size: 1rem;
   line-height: 1.6;
-  
-  /* Smooth quick transition */
-  transition: all 0.3s ease-in-out;
 
-  /* Prevent inner scrolling */
-  overflow: visible;
+  /* Seamless faster animation */
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.4s ease-out forwards;
 }
+
+/* Animation keyframe */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
 /* BRACKETS PASSAGE FORMATTING */
