@@ -680,10 +680,10 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;cent
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
-// LANDSCAPE text positioning - with more height for all content
+// LANDSCAPE text positioning with fixes
 var passage = document.querySelector(&#39;tw-passage&#39;);
-passage.style.width = &quot;60%&quot;; // Wider
-passage.style.height = &quot;250px&quot;; // Taller to fit all text
+passage.style.width = &quot;60%&quot;; 
+passage.style.height = &quot;250px&quot;; 
 passage.style.position = &quot;absolute&quot;; 
 passage.style.top = &quot;50%&quot;; 
 passage.style.left = &quot;50%&quot;;
@@ -695,35 +695,29 @@ passage.style.padding = &quot;0&quot;;
 passage.style.fontSize = &quot;0.75em&quot;; 
 passage.style.color = &quot;#000000&quot;;
 passage.style.textShadow = &quot;none&quot;;
-passage.style.lineHeight = &quot;1.7&quot;; // More space between lines
+passage.style.lineHeight = &quot;1.7&quot;;
 passage.style.textAlign = &quot;center&quot;;
 passage.style.margin = &quot;0&quot;;
-passage.style.overflow = &quot;visible&quot;; // Allow overflow to ensure all text is visible
+passage.style.overflow = &quot;visible&quot;;
 passage.style.display = &quot;flex&quot;; 
 passage.style.flexDirection = &quot;column&quot;; 
 passage.style.justifyContent = &quot;center&quot;;
 
-// Fix hyperlinks and make sure they&#39;re fully visible
+// Fix hyperlinks - PRESERVE FUNCTIONALITY
+// DO NOT modify the link tag itself, only style it
 var links = passage.querySelectorAll(&#39;a&#39;);
 for (var i = 0; i &lt; links.length; i++) {
-    links[i].style.display = &quot;inline-block&quot;;
+    // Only modify style properties, not attributes or content
     links[i].style.color = &quot;#3C3633&quot;;
     links[i].style.fontWeight = &quot;bold&quot;;
     links[i].style.textDecoration = &quot;none&quot;;
     links[i].style.marginTop = &quot;10px&quot;;
-    links[i].style.marginBottom = &quot;10px&quot;; // Add bottom margin to ensure visibility
-    links[i].style.position = &quot;relative&quot;; // Ensure proper positioning
-    links[i].style.zIndex = &quot;10&quot;; // Ensure it&#39;s on top
+    links[i].style.marginBottom = &quot;10px&quot;;
+    links[i].style.display = &quot;inline&quot;; // Keep default display
+    
+    // Make sure we&#39;re not interfering with event handlers
+    // Do not modify any other properties that might affect functionality
 }
-
-// Add spacers between paragraphs
-setTimeout(function() {
-    var content = passage.innerHTML;
-    // Replace periods followed by spaces with periods followed by two spaces
-    content = content.replace(/\.\s+/g, &#39;. &#39;);
-    // Add more spacing between sentences
-    passage.innerHTML = content;
-}, 100);
 &lt;/script&gt;
 
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
