@@ -1049,44 +1049,20 @@ Another no-produce year for the olive fields- she looks up to the sky, [[looks u
 
 /* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="" position="600,3225" size="100,100">back to tank. 
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">&lt;script&gt;
-// Set background for title page and ensure it persists
-// Add tag &#39;background5&#39; to the passage
-document.querySelector(&#39;tw-story&#39;).setAttribute(&#39;tags&#39;, 
-  document.querySelector(&#39;tw-story&#39;).getAttribute(&#39;tags&#39;) + &#39; background5&#39;);
+/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(link-reveal: &quot;&quot;)[
+    (goto: &quot;intro&quot;)
+]
 
-// Key press to navigate to next passage
-function goToNextPassage(e) {
-  // Navigate to the &quot;intro&quot; passage using Harlowe&#39;s built-in functions
-  window.goToPassage = &quot;intro&quot;;
-  setTimeout(function() {
-    // Get all links in document
-    var allLinks = document.querySelectorAll(&quot;tw-link&quot;);
-    
-    // Find link to the &quot;intro&quot; passage
-    for (var i = 0; i &lt; allLinks.length; i++) {
-      var link = allLinks[i];
-      if (link.getAttribute(&quot;data-passage&quot;) === &quot;intro&quot;) {
-        link.click();
-        break;
-      }
-    }
-  }, 10);
-}
+(live: 1s)[
+    (if: $playerKeyPressed is not true and (any: (keydown:), (mouseover:))[
+        (set: $playerKeyPressed to true)
+        (goto: &quot;intro&quot;)
+    ])
+]
 
-// Add event listener for keydown
-document.addEventListener(&#39;keydown&#39;, goToNextPassage);
-
-// Auto-navigate after 7 seconds as fallback
-setTimeout(function() {
-  goToNextPassage();
-}, 7000);
-&lt;/script&gt;
-
-&lt;!-- Hidden link to next passage - required for navigation to work --&gt;
-&lt;span style=&quot;position:absolute; opacity:0; pointer-events:none;&quot;&gt;
-[[Intro]]
-&lt;/span&gt;</tw-passagedata></tw-storydata>
+(after: 7s)[
+    (goto: &quot;intro&quot;)
+]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
