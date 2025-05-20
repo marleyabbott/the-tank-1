@@ -703,20 +703,40 @@ passage.style.display = &quot;flex&quot;;
 passage.style.flexDirection = &quot;column&quot;; 
 passage.style.justifyContent = &quot;center&quot;;
 
-// Fix hyperlinks - PRESERVE FUNCTIONALITY
-// DO NOT modify the link tag itself, only style it
+// Fix hyperlinks
 var links = passage.querySelectorAll(&#39;a&#39;);
 for (var i = 0; i &lt; links.length; i++) {
-    // Only modify style properties, not attributes or content
     links[i].style.color = &quot;#3C3633&quot;;
     links[i].style.fontWeight = &quot;bold&quot;;
     links[i].style.textDecoration = &quot;none&quot;;
     links[i].style.marginTop = &quot;10px&quot;;
     links[i].style.marginBottom = &quot;10px&quot;;
-    links[i].style.display = &quot;inline&quot;; // Keep default display
-    
-    // Make sure we&#39;re not interfering with event handlers
-    // Do not modify any other properties that might affect functionality
+    links[i].style.display = &quot;inline&quot;;
+}
+
+// Fix back button positioning
+var sidebar = document.querySelector(&#39;tw-sidebar&#39;);
+if (sidebar) {
+    sidebar.style.position = &quot;fixed&quot;;
+    sidebar.style.top = &quot;30px&quot;;
+    sidebar.style.left = &quot;50px&quot;;
+    sidebar.style.zIndex = &quot;9999&quot;;
+    sidebar.style.width = &quot;auto&quot;;
+    sidebar.style.height = &quot;auto&quot;;
+    sidebar.style.backgroundColor = &quot;transparent&quot;;
+}
+
+// Ensure back button is visible and properly aligned
+var backButton = document.querySelector(&#39;tw-sidebar [role=button]&#39;);
+if (backButton) {
+    backButton.style.position = &quot;relative&quot;;
+    backButton.style.left = &quot;0&quot;;
+    backButton.style.top = &quot;0&quot;;
+    backButton.style.margin = &quot;5px&quot;;
+    backButton.style.padding = &quot;5px&quot;;
+    backButton.style.visibility = &quot;visible&quot;;
+    backButton.style.opacity = &quot;1&quot;;
+    backButton.style.pointerEvents = &quot;auto&quot;;
 }
 &lt;/script&gt;
 
