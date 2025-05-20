@@ -137,10 +137,11 @@ tw-passage {
 }
 
 /* SNOWFALL ANIMATION PASSAGE */
+/* Faster fade-in and move-up animation */
 @keyframes fadeInUpFast {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
@@ -148,15 +149,7 @@ tw-passage {
   }
 }
 
-/* Prevent scrolling globally */
-html, body, tw-story {
-  overflow: hidden !important;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-}
-
-/* ONLY style passages with the 'wide-text' tag */
+/* ONLY passages tagged 'wide-text' get wide style and animation */
 tw-story[tags~="wide-text"] tw-passage {
   max-width: 90% !important;
   width: 90% !important;
@@ -166,9 +159,14 @@ tw-story[tags~="wide-text"] tw-passage {
   font-size: 1rem;
   line-height: 1.6;
 
-  opacity: 1;
-  animation: fadeInUpFast 0.25s ease-out forwards;
-  animation-fill-mode: forwards;
+  animation: fadeInUpFast 0.15s ease-out forwards;
+  overflow-y: hidden;  /* prevent scroll inside passage */
+  max-height: 100vh;   /* limit passage height */
+}
+
+/* Prevent scrolling ONLY inside wide-text passage */
+tw-story[tags~="wide-text"] {
+  overflow: hidden;
 }
 
 
