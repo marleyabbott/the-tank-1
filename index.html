@@ -349,6 +349,10 @@ tw-story[tags~="background6"] {
   background: url('images/paintbackground.jpg') center center / cover no-repeat fixed;
 }
 
+/* ending background */
+tw-story[tags~="background7"] {
+  background: url('images/ending.jpg') center center / cover no-repeat fixed;
+
 /* Text styling for passages with backgrounds */
 tw-story[tags~="background1"] tw-passage,
 tw-story[tags~="background2"] tw-passage,
@@ -903,7 +907,7 @@ You catch her one morning before she knows you are up, tearing squares of the to
 
 You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn’t appropriate. [[You sense that your questions do not have answers.]]
 
-/* Need to decide on styling... maybe broken crockery effect?? */</tw-passagedata><tw-passagedata pid="14" name="ending" tags="background6" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
+/* Need to decide on styling... maybe broken crockery effect?? */</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
 
 Zio slams on the breaks. He points. You roll down the window.
 
@@ -1059,32 +1063,7 @@ Choking on tears, too exhausted to find the translation that says you hope you w
 /* Need to decide on styling */</tw-passagedata><tw-passagedata pid="26" name="next passage" tags="" position="600,2725" size="100,100">They take you to the cemetery. You sign across your chests. She kicks gravel stones with her toes, mutters prayers under her breath. Plotting DNA across the dirt floor, bones turned stone, heat insisting in open-mouthed heavy heaps of exhale . You pick dead petals from the flowers on the graves. More buried here than living.
 Another no-produce year for the olive fields- she looks up to the sky, [[looks up to ask for something.]]
 
-/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="" position="600,3225" size="100,100">&lt;style&gt;
-body {
-  margin: 0;
-  padding: 0;
-}
-#video-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -100;
-}
-.passage {
-  background: transparent !important;
-  position: relative;
-  z-index: 10;
-}
-&lt;/style&gt;
-
-&lt;div id=&quot;video-container&quot;&gt;
-  &lt;video width=&quot;100%&quot; height=&quot;100%&quot; autoplay loop muted&gt;
-    &lt;source src=&quot;https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4&quot; type=&quot;video/mp4&quot;&gt;
-    Your browser does not support the video tag.
-  &lt;/video&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
+/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="background7" position="600,3225" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
