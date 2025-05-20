@@ -680,10 +680,10 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;cent
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
-// LANDSCAPE text positioning - wider than tall
+// LANDSCAPE text positioning - with bigger text and no glow
 var passage = document.querySelector(&#39;tw-passage&#39;);
-passage.style.width = &quot;50%&quot;; // MUCH wider
-passage.style.height = &quot;200px&quot;; // Fixed height to ensure landscape orientation
+passage.style.width = &quot;50%&quot;; 
+passage.style.height = &quot;200px&quot;; 
 passage.style.position = &quot;absolute&quot;; 
 passage.style.top = &quot;50%&quot;; 
 passage.style.left = &quot;50%&quot;;
@@ -692,16 +692,16 @@ passage.style.backgroundColor = &quot;transparent&quot;;
 passage.style.boxShadow = &quot;none&quot;;
 passage.style.border = &quot;none&quot;;
 passage.style.padding = &quot;0&quot;;
-passage.style.fontSize = &quot;0.6em&quot;;
-passage.style.color = &quot;#000&quot;;
-passage.style.textShadow = &quot;0 0 4px white, 0 0 4px white&quot;;
-passage.style.lineHeight = &quot;1.4&quot;; // Tighter line spacing
+passage.style.fontSize = &quot;0.75em&quot;; // Bigger text
+passage.style.color = &quot;#000000&quot;; // Pure black for better contrast
+passage.style.textShadow = &quot;none&quot;; // Remove the glow effect
+passage.style.lineHeight = &quot;1.5&quot;; // Better spacing for larger text
 passage.style.textAlign = &quot;center&quot;;
 passage.style.margin = &quot;0&quot;;
-passage.style.overflow = &quot;hidden&quot;; // Prevent scrolling
-passage.style.display = &quot;flex&quot;; // Use flexbox
-passage.style.flexDirection = &quot;column&quot;; // Stack content vertically
-passage.style.justifyContent = &quot;center&quot;; // Center content vertically
+passage.style.overflow = &quot;hidden&quot;; 
+passage.style.display = &quot;flex&quot;; 
+passage.style.flexDirection = &quot;column&quot;; 
+passage.style.justifyContent = &quot;center&quot;; 
 
 // Fix hyperlinks
 var links = passage.querySelectorAll(&#39;a&#39;);
