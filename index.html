@@ -462,16 +462,6 @@ tw-story\[tags\~="background3"]::before {
     background-repeat: no-repeat !important;
     z-index: -1;
     opacity: 1;
-}
-
-/* Ending video background */
-#wild-boar-video-bg {
-  pointer-events: none;
-}
-
-/* This selector targets only the passage with the specific title */
-[data-passage="The wild boar groans a loud goodbye."] .passage {
-  background-color: transparent !important;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -1073,25 +1063,28 @@ Another no-produce year for the olive fields- she looks up to the sky, [[looks u
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
-.passage {
-  background-color: transparent !important;
-}
-#fullscreen-video {
+#video-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: -100;
-  object-fit: cover;
+}
+.passage {
+  background: transparent !important;
+  position: relative;
+  z-index: 10;
 }
 &lt;/style&gt;
 
-&lt;video id=&quot;fullscreen-video&quot; autoplay loop muted&gt;
-  &lt;source src=&quot;ending.mp4&quot; type=&quot;video/mp4&quot;&gt;
-&lt;/video&gt;</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
+&lt;div id=&quot;video-container&quot;&gt;
+  &lt;video width=&quot;100%&quot; height=&quot;100%&quot; autoplay loop muted&gt;
+    &lt;source src=&quot;https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4&quot; type=&quot;video/mp4&quot;&gt;
+    Your browser does not support the video tag.
+  &lt;/video&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
 </tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
