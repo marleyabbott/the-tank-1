@@ -664,35 +664,28 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Snowfall Passage with flexbox layout for wider text --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Snowfall Passage with background and inline flex layout --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 18px; color: #3C3633; padding: 20px; left: 5%; width: 90%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
-    &lt;!-- Flexbox container to create a grid layout --&gt;
-    &lt;div style=&quot;display: flex; flex-wrap: wrap; justify-content: space-between;&quot;&gt;
-      &lt;!-- Left column --&gt;
-      &lt;div style=&quot;width: 48%; margin-right: 2%;&quot;&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;On the first night there is vomit.&lt;/p&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;The couch is made of wooden pellets, covered in thin foam.&lt;/p&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;Before talk there is sugo and melone and formaggio sliced thinly.&lt;/p&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;A woman working in the bar corrects your sentences.&lt;/p&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; width: 80%; left: 10%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+    &lt;div style=&quot;display: flex; flex-direction: row; flex-wrap: nowrap !important; width: 100% !important; max-width: 1200px !important; margin: 0 auto !important;&quot;&gt;
+      &lt;div style=&quot;flex: 1; padding-right: 20px !important; text-align: left !important; width: 50% !important;&quot;&gt;
+        On the first night there is vomit.&lt;br&gt;&lt;br&gt;
+        The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;br&gt;&lt;br&gt;
+        Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine.&lt;br&gt;&lt;br&gt;
       &lt;/div&gt;
-      &lt;!-- Right column --&gt;
-      &lt;div style=&quot;width: 48%;&quot;&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;Before the vomit she talks at you in the language you have pretended to understand.&lt;/p&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;Foam bubbles up and coats your tongue.&lt;/p&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;You decline. You retract. You are drunk.&lt;/p&gt;
-        &lt;p style=&quot;margin-bottom: 10px;&quot;&gt;You repeat after her. Swirl the words around your mouth.&lt;/p&gt;
+      &lt;div style=&quot;flex: 1; padding-left: 20px !important; text-align: left !important; width: 50% !important;&quot;&gt;
+        Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;br&gt;&lt;br&gt;
+        You decline. You retract. You are drunk.&lt;br&gt;&lt;br&gt;
+        A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up.&lt;br&gt;&lt;br&gt;
       &lt;/div&gt;
-      &lt;!-- Full width bottom row --&gt;
-      &lt;div style=&quot;width: 100%; text-align: center; margin-top: 15px;&quot;&gt;
-        &lt;p&gt;Chew on them, swallow, but they come rising back up.&lt;/p&gt;
-        &lt;p style=&quot;margin-top: 15px;&quot;&gt;[[Bile tainted with track changes.]]&lt;/p&gt;
-      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;text-align: center; margin-top: 20px;&quot;&gt;
+      [[Bile tainted with track changes.]]
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
-  // Set background just for this passage
+  // Simply set background just for this passage
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
@@ -701,7 +694,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
   
-  // Original animation code
+  // Animation code
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
   var duration = 120000;  // 120 seconds in milliseconds
@@ -721,7 +714,6 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
     }
   }
   
-  // Start the animation
   window.requestAnimationFrame(animateText);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
 // Force background image for this passage only
