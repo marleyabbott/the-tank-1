@@ -664,9 +664,9 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Using an embedded SVG for precise text positioning - wider with fixed animation --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Using an embedded SVG with original animation code --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;svg id=&quot;buttery-smooth-paragraph&quot; width=&quot;1000&quot; height=&quot;300&quot; style=&quot;position: absolute; left: 50%; transform: translateX(-50%) translateY(0); top: 20px; will-change: transform;&quot;&gt;
+  &lt;svg id=&quot;buttery-smooth-paragraph&quot; width=&quot;1000&quot; height=&quot;300&quot; style=&quot;position: absolute; left: 50%; transform: translateX(-50%) translateY(0); top: 20px; will-change: transform; transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
     &lt;text x=&quot;20&quot; y=&quot;40&quot; fill=&quot;#3C3633&quot; font-size=&quot;20&quot; font-family=&quot;Arial&quot;&gt;On the first night there is vomit.&lt;/text&gt;
     &lt;text x=&quot;500&quot; y=&quot;40&quot; fill=&quot;#3C3633&quot; font-size=&quot;20&quot; font-family=&quot;Arial&quot;&gt;Before the vomit she talks at you&lt;/text&gt;
     &lt;text x=&quot;20&quot; y=&quot;80&quot; fill=&quot;#3C3633&quot; font-size=&quot;20&quot; font-family=&quot;Arial&quot;&gt;in the language you have pretended to understand&lt;/text&gt;
@@ -684,7 +684,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   &lt;/svg&gt;
 &lt;/div&gt;
 &lt;script&gt;
-  // Set background just for this passage
+  // Simply set background just for this passage
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
@@ -702,34 +702,27 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
     });
   }
   
-  // Fixed animation code
+  // ORIGINAL Animation code - unchanged from your version
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
-  
-  // Starting position
+  var startTime = null;
+  var duration = 120000;  // 120 seconds in milliseconds
   var startY = 0;
-  // Calculate ending position - needs to go past the bottom of the screen
-  var endY = window.innerHeight; 
+  var endY = window.innerHeight - paragraph.getBoundingClientRect().height - 50;
   
-  // Set starting position
-  paragraph.style.top = startY + &quot;px&quot;;
-  
-  // Animation function
-  function moveTextUp() {
-    var currentTop = parseFloat(paragraph.style.top) || 0;
-    var newTop = currentTop + 0.3; // Move 0.3px each frame - adjust for speed
+  function animateText(timestamp) {
+    if (!startTime) startTime = timestamp;
+    var elapsed = timestamp - startTime;
+    var progress = Math.min(elapsed / duration, 1);
     
-    if (newTop &lt;= endY) {
-      paragraph.style.top = newTop + &quot;px&quot;;
-      requestAnimationFrame(moveTextUp);
-    } else {
-      // Reset to start when it goes off screen
-      paragraph.style.top = startY + &quot;px&quot;;
-      requestAnimationFrame(moveTextUp);
+    var yPosition = startY + (progress * (endY - startY));
+    paragraph.style.transform = &#39;translateX(-50%) translateY(&#39; + yPosition + &#39;px)&#39;;
+    
+    if (progress &lt; 1) {
+      window.requestAnimationFrame(animateText);
     }
   }
   
-  // Start the animation
-  requestAnimationFrame(moveTextUp);
+  window.requestAnimationFrame(animateText);
 &lt;/script&gt;
 
 [[Bile tainted with track changes.]]</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
