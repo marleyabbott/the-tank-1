@@ -659,9 +659,9 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Original upward animation with wider paragraph format --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and wider paragraph format --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.5; color: #3C3633; padding: 20px; left: 20%; width: 60%; text-align: left; will-change: transform; transform: translateY(100vh); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 100vh; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
  On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back. The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue. Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine. You decline. You retract. You are drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up. [[Bile tainted with track changes.]]  
   &lt;/div&gt;
 &lt;/div&gt;
@@ -675,27 +675,30 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
   
-  // Animation code for upward movement
+  // Animation code
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
   var duration = 120000;  // 120 seconds in milliseconds
-  var startY = window.innerHeight; // Start from bottom
-  var endY = -paragraph.offsetHeight; // End above the viewport
+  var startY = window.innerHeight;  // Start from bottom of screen
+  var endY = -paragraph.offsetHeight;  // End above the viewport
   
   function animateText(timestamp) {
     if (!startTime) startTime = timestamp;
     var elapsed = timestamp - startTime;
     var progress = Math.min(elapsed / duration, 1);
     
-    var yPosition = startY + (progress * (endY - startY));
-    paragraph.style.transform = &#39;translateY(&#39; + yPosition + &#39;px)&#39;;
+    var yPosition = startY - progress * (startY - endY);
+    paragraph.style.transform = &#39;translateY(&#39; + (-yPosition) + &#39;px)&#39;;
     
     if (progress &lt; 1) {
       window.requestAnimationFrame(animateText);
     }
   }
   
-  window.requestAnimationFrame(animateText);
+  // Start animation after a brief delay to ensure DOM is ready
+  setTimeout(function() {
+    window.requestAnimationFrame(animateText);
+  }, 100);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
