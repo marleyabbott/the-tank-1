@@ -137,28 +137,26 @@ tw-passage {
 }
 
 /* SNOWFALL ANIMATION PASSAGE */
-@keyframes snowfall-fall {
+@keyframes fadeInUpFast {
   0% {
-    top: -100px;
     opacity: 0;
-  }
-  5% {
-    opacity: 1;
+    transform: translateY(20px);
   }
   100% {
-    top: 100vh;
-    opacity: 0;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Global overflow fix – removes horizontal scroll */
+/* Remove scrollbars and prevent overflow */
 html, body, tw-story {
-  overflow-x: hidden;
+  overflow: hidden;
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 
-/* Wide text style with seamless appearance */
+/* Wide-format styling + smooth, faster animation */
 tw-story[tags~="wide-text"] tw-passage {
   max-width: 90% !important;
   width: 90% !important;
@@ -168,19 +166,10 @@ tw-story[tags~="wide-text"] tw-passage {
   font-size: 1rem;
   line-height: 1.6;
 
-  /* Seamless faster animation */
   opacity: 0;
-  transform: translateY(10px);
-  animation: fadeUp 0.4s ease-out forwards;
+  animation: fadeInUpFast 0.25s ease-out forwards;
 }
 
-/* Animation keyframe */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 
 
