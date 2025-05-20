@@ -151,6 +151,16 @@ tw-passage {
         opacity: 0;
     }
 }
+tw-story[tags~="wide-text"] tw-passage {
+  max-width: 90% !important;
+  width: 90% !important;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 
 /* BRACKETS PASSAGE FORMATTING */
 tw-story\[tags\~="brackets"] {
@@ -664,7 +674,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and minimal formatting --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
   &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
