@@ -657,16 +657,18 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;cent
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
-// Style the passage text - smaller landscape format
-document.querySelector(&#39;tw-passage&#39;).style.maxWidth = &quot;40%&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.margin = &quot;10% auto 0 auto&quot;; // Adds top margin to push down
+// Create a more landscape-oriented text area without the box
+document.querySelector(&#39;tw-passage&#39;).style.width = &quot;50%&quot;;
+document.querySelector(&#39;tw-passage&#39;).style.maxWidth = &quot;600px&quot;; 
+document.querySelector(&#39;tw-passage&#39;).style.margin = &quot;20% auto 0 auto&quot;; // Push it down further
 document.querySelector(&#39;tw-passage&#39;).style.fontSize = &quot;0.75em&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;rgba(255, 255, 255, 0.5)&quot;; // Less opacity
-document.querySelector(&#39;tw-passage&#39;).style.padding = &quot;12px&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.borderRadius = &quot;5px&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.lineHeight = &quot;1.3&quot;; // Tighter line spacing
-document.querySelector(&#39;tw-passage&#39;).style.position = &quot;relative&quot;;
-document.querySelector(&#39;tw-passage&#39;).style.zIndex = &quot;10&quot;; // Ensure it&#39;s above other elements
+document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;; // Remove the box
+document.querySelector(&#39;tw-passage&#39;).style.color = &quot;#000&quot;; // Ensure text is black
+document.querySelector(&#39;tw-passage&#39;).style.textShadow = &quot;0 0 5px white, 0 0 5px white, 0 0 5px white&quot;; // Add white glow for readability
+document.querySelector(&#39;tw-passage&#39;).style.lineHeight = &quot;1.2&quot;; // Very tight line spacing
+document.querySelector(&#39;tw-passage&#39;).style.columnCount = &quot;2&quot;; // Split into two columns for landscape format
+document.querySelector(&#39;tw-passage&#39;).style.columnGap = &quot;20px&quot;; // Space between columns
+document.querySelector(&#39;tw-passage&#39;).style.textAlign = &quot;justify&quot;; // Justified text for cleaner columns
 &lt;/script&gt;
 
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
