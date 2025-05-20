@@ -1093,37 +1093,30 @@ Choking on tears, too exhausted to find the translation that says you hope you w
 /* Need to decide on styling */</tw-passagedata><tw-passagedata pid="26" name="next passage" tags="" position="600,2725" size="100,100">They take you to the cemetery. You sign across your chests. She kicks gravel stones with her toes, mutters prayers under her breath. Plotting DNA across the dirt floor, bones turned stone, heat insisting in open-mouthed heavy heaps of exhale . You pick dead petals from the flowers on the graves. More buried here than living.
 Another no-produce year for the olive fields- she looks up to the sky, [[looks up to ask for something.]]
 
-/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="video-background" position="600,3225" size="100,100">(live: 50ms)[
-  (if: (passage:) is &quot;The wild boar groans a loud goodbye.&quot;)[
-    (replace: ?page)[
-      &lt;style&gt;
-      body {
-        background-color: black;
-      }
-      #bg-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -1;
-      }
-      .passage {
-        background-color: rgba(0,0,0,0.5);
-        color: white;
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 800px;
-        margin: 20px auto;
-      }
-      &lt;/style&gt;
+/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="video-background" position="600,3225" size="100,100">&lt;style&gt;
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.passage {
+  background: transparent !important;
+}
+&lt;/style&gt;
+
 &lt;video id=&quot;bg-video&quot; autoplay loop muted&gt;
   &lt;source src=&quot;ending.mp4&quot; type=&quot;video/mp4&quot;&gt;
-&lt;/video&gt;
-    ]
-  ]
-]\</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
-</tw-passagedata></tw-storydata>
+&lt;/video&gt;</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">(after: 3s)[(goto: &quot;Intro&quot;)]
+</tw-passagedata><tw-passagedata pid="30" name="footer" tags="" position="700,3225" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
