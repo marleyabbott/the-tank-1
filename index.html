@@ -664,17 +664,15 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Snowfall Passage with single wide paragraph --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; width: 80%; left: 10%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
-    &lt;div style=&quot;display: block !important; width: 100% !important; max-width: 1200px !important; margin: 0 auto !important; column-count: 1 !important; white-space: normal !important; text-align: left !important; padding: 0 !important;&quot;&gt;
-      &lt;p style=&quot;margin-bottom: 1em !important; text-indent: 0 !important; padding: 0 !important; width: 100% !important; display: block !important;&quot;&gt;
-        On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back. The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue. Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine. You decline. You retract. You are drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up.
-      &lt;/p&gt;
-      &lt;p style=&quot;text-align: center !important; margin-top: 1em !important;&quot;&gt;
-        [[Bile tainted with track changes.]]
-      &lt;/p&gt;
-    &lt;/div&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+ &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
+ &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;/span&gt;
+ &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine.&lt;/span&gt;
+ &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;You decline. You retract. You are drunk.&lt;/span&gt;
+ &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up.&lt;/span&gt;
+ &lt;span style=&quot;display: block; margin-bottom: 15px; text-align: center;&quot;&gt;[[Bile tainted with track changes.]]&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
@@ -686,20 +684,6 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
-  
-  // Override any CSS that might be forcing column layout
-  var styleOverride = document.createElement(&#39;style&#39;);
-  styleOverride.textContent = `
-    #buttery-smooth-paragraph * {
-      column-count: 1 !important;
-      column-width: auto !important;
-      column-span: all !important;
-      white-space: normal !important;
-      text-align: left !important;
-      width: 100% !important;
-    }
-  `;
-  document.head.appendChild(styleOverride);
   
   // Animation code
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
