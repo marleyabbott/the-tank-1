@@ -148,7 +148,7 @@ tw-passage {
   }
 }
 
-/* Prevent scrolling */
+/* Prevent scrolling globally */
 html, body, tw-story {
   overflow: hidden !important;
   margin: 0;
@@ -156,7 +156,7 @@ html, body, tw-story {
   height: 100vh;
 }
 
-/* Wide format passage with smooth, fast animation */
+/* ONLY style passages with the 'wide-text' tag */
 tw-story[tags~="wide-text"] tw-passage {
   max-width: 90% !important;
   width: 90% !important;
@@ -166,10 +166,11 @@ tw-story[tags~="wide-text"] tw-passage {
   font-size: 1rem;
   line-height: 1.6;
 
-  opacity: 1; /* Make sure it's visible */
+  opacity: 1;
   animation: fadeInUpFast 0.25s ease-out forwards;
-  animation-fill-mode: forwards; /* Ensure final state sticks */
+  animation-fill-mode: forwards;
 }
+
 
 /* BRACKETS PASSAGE FORMATTING */
 tw-story\[tags\~="brackets"] {
