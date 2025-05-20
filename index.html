@@ -664,18 +664,17 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with explicit paragraph wrapping --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2" position="600,975" size="100,100">&lt;!-- Grid-based layout approach --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; right: 10%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
-    &lt;div style=&quot;max-width: 800px; margin: 0 auto; word-wrap: break-word; white-space: normal;&quot;&gt;
-      On the first night there is vomit. Before the vomit she talks at you in the language you
-      have pretended to understand since the morning at the train station where they picked you 
-      up and tossed your bags into the back. The couch is made of wooden pellets, covered in thin 
-      foam. Foam bubbles up and coats your tongue. Before talk there is sugo and melone and 
-      formaggio sliced thinly and a bottle of homemade red wine. You decline. You retract. You are 
-      drunk. A woman working in the bar corrects your sentences. You repeat after her. Swirl the 
-      words around your mouth. Chew on them, swallow, but they come rising back up.
-      &lt;span style=&quot;display: block; margin-top: 15px;&quot;&gt;[[Bile tainted with track changes.]]&lt;/span&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; color: #3C3633; padding: 20px; width: 80%; left: 10%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+    &lt;div style=&quot;display: grid; grid-template-columns: 1fr; gap: 0; max-width: 700px; margin: 0 auto;&quot;&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6;&quot;&gt;On the first night there is vomit.&lt;/div&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6;&quot;&gt;Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/div&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6;&quot;&gt;The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;/div&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6;&quot;&gt;Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine.&lt;/div&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6;&quot;&gt;You decline. You retract. You are drunk.&lt;/div&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6;&quot;&gt;A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up.&lt;/div&gt;
+      &lt;div style=&quot;grid-column: 1; line-height: 1.6; margin-top: 15px;&quot;&gt;[[Bile tainted with track changes.]]&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
