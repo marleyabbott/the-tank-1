@@ -1050,35 +1050,56 @@ Another no-produce year for the olive fields- she looks up to the sky, [[looks u
 /* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="27" name="looks up to ask for something." tags="" position="600,2850" size="100,100">[[messy table]]</tw-passagedata><tw-passagedata pid="28" name="The wild boar groans a loud goodbye." tags="" position="600,3225" size="100,100">back to tank. 
 
 /* Need to decide on styling */</tw-passagedata><tw-passagedata pid="29" name="Title" tags="background5" position="600,0" size="100,100">&lt;script&gt;
-// Function to advance to next passage
-function advanceToNextPassage() {
-    // Get all links in the passage
-    var links = document.querySelectorAll(&#39;tw-passage a&#39;);
+// Set the background image
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
+
+// Format the text
+var passage = document.querySelector(&#39;tw-passage&#39;);
+passage.style.width = &quot;60%&quot;; 
+passage.style.height = &quot;250px&quot;; 
+passage.style.position = &quot;absolute&quot;; 
+passage.style.top = &quot;50%&quot;; 
+passage.style.left = &quot;50%&quot;;
+passage.style.transform = &quot;translate(-50%, -50%)&quot;;
+passage.style.backgroundColor = &quot;transparent&quot;;
+passage.style.fontSize = &quot;0.75em&quot;; 
+passage.style.color = &quot;#000000&quot;;
+passage.style.lineHeight = &quot;1.7&quot;;
+passage.style.textAlign = &quot;center&quot;;
+passage.style.overflow = &quot;visible&quot;;
+passage.style.display = &quot;flex&quot;; 
+passage.style.flexDirection = &quot;column&quot;; 
+passage.style.justifyContent = &quot;center&quot;;
+
+// Function to go to next passage when any key is pressed
+function goToNextPassage(event) {
+    // The name of the passage you want to go to
+    var nextPassageName = &quot;Name of Your Next Passage&quot;; // CHANGE THIS to your actual passage name
     
-    // If there are any links, click the first one
-    if (links.length &gt; 0) {
-        links[0].click();
-    }
+    // Go to that passage using the Engine
+    Engine.goToPassage(nextPassageName);
 }
 
-// Add event listener for any keypress
-document.addEventListener(&#39;keydown&#39;, advanceToNextPassage);
+// Add keydown listener 
+document.addEventListener(&#39;keydown&#39;, goToNextPassage);
 
-// Clean up event listener when leaving this passage
-window.addEventListener(&#39;sm.passage.shown&#39;, function() {
-    document.removeEventListener(&#39;keydown&#39;, advanceToNextPassage);
-}, {once: true});
-&lt;/script&gt;
+// Save the current background to sessionStorage when user presses back
+window.onbeforeunload = function() {
+    sessionStorage.setItem(&#39;previousBackground&#39;, &#39;images/soccerborder.jpg&#39;);
+};
 
-[[Intro]]
-
-&lt;script&gt;
-// Hide all links in this passage
-var style = document.createElement(&#39;style&#39;);
-style.textContent = &#39;tw-passage a { opacity: 0; position: absolute; pointer-events: none; }&#39;;
-document.head.appendChild(style);
-
-// Rest of the code...
+// Check if coming back via back button
+if (document.referrer.includes(window.location.host)) {
+    // Restore background if needed
+    var savedBackground = sessionStorage.getItem(&#39;previousBackground&#39;);
+    if (savedBackground) {
+        document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;&quot; + savedBackground + &quot;&#39;)&quot;;
+    }
+}
 &lt;/script&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
