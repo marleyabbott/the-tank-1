@@ -673,47 +673,43 @@ but they come rising back up.
 &lt;/script&gt;
 
 /* Change styling to be more seamless */</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
-// Force background image for this passage only
-document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
-document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
-document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
-document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
-document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
-&lt;/script&gt;
-
-&lt;script&gt;
-// Force background image for this passage only
+// Force background image for this passage only (remove duplicate)
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
-// Text positioning in a safe zone
+// Text positioning in a safer zone
 var passage = document.querySelector(&#39;tw-passage&#39;);
-passage.style.width = &quot;30%&quot;; // Much narrower
-passage.style.maxWidth = &quot;350px&quot;;
-passage.style.position = &quot;absolute&quot;; // Absolute positioning
-passage.style.top = &quot;50%&quot;; // Center vertically
-passage.style.left = &quot;50%&quot;; // Center horizontally
-passage.style.transform = &quot;translate(-50%, -50%)&quot;; // Perfect centering
+passage.style.width = &quot;25%&quot;; // Even narrower
+passage.style.maxWidth = &quot;300px&quot;;
+passage.style.position = &quot;absolute&quot;; 
+passage.style.top = &quot;40%&quot;; // Higher up to avoid bottom images
+passage.style.left = &quot;50%&quot;;
+passage.style.transform = &quot;translate(-50%, -50%)&quot;;
 passage.style.backgroundColor = &quot;transparent&quot;;
 passage.style.boxShadow = &quot;none&quot;;
 passage.style.border = &quot;none&quot;;
 passage.style.padding = &quot;0&quot;;
-passage.style.fontSize = &quot;0.65em&quot;; // Even smaller text
+passage.style.fontSize = &quot;0.6em&quot;; // Even smaller text
 passage.style.color = &quot;#000&quot;;
 passage.style.textShadow = &quot;0 0 4px white, 0 0 4px white&quot;;
 passage.style.lineHeight = &quot;1.8&quot;;
 passage.style.textAlign = &quot;center&quot;;
-passage.style.margin = &quot;0&quot;; // Remove margins
-passage.style.overflow = &quot;visible&quot;; // Ensure no scrolling
+passage.style.margin = &quot;0&quot;;
+passage.style.overflow = &quot;visible&quot;;
 
-// Add paragraph spacing
-var content = passage.innerHTML;
-var paragraphs = content.split(&#39;\n\n&#39;);
-if (paragraphs.length &gt; 1) {
-    passage.innerHTML = paragraphs.join(&#39;&lt;br&gt;&lt;br&gt;&#39;);
+// Fix hyperlinks specifically
+var links = passage.querySelectorAll(&#39;a&#39;);
+for (var i = 0; i &lt; links.length; i++) {
+    links[i].style.display = &quot;inline-block&quot;;
+    links[i].style.color = &quot;#3C3633&quot;;
+    links[i].style.fontWeight = &quot;bold&quot;;
+    links[i].style.textDecoration = &quot;none&quot;;
+    links[i].style.marginTop = &quot;10px&quot;;
+    links[i].style.visibility = &quot;visible&quot;;
+    links[i].style.opacity = &quot;1&quot;;
 }
 &lt;/script&gt;
 
