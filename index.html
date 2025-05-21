@@ -469,35 +469,33 @@ tw-story\[tags\~="background3"]::before {
 }
 
 /* DOOR IMAGE GRID LAYOUT */
-  .doorknob-grid {
+.doorknob-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  margin: 3rem 0;
-  padding: 0 1rem;
+  gap: 16px;
+  margin-top: 40px;
 }
 
 .doorknob-item {
-  position: relative;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 .doorknob-item img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
-  transition: opacity 0.3s ease;
   object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-height: 300px;
 }
 
-.doorknob-item .caption {
-  display: none;
-  margin-top: 10px;
-  font-size: 0.9rem;
-  color: #3C3633;
-  font-family: 'CabrionLight', sans-serif;
-  line-height: 1.4;
+.caption {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #444;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -1057,18 +1055,24 @@ Snot greeting vomit and shit in your gut. Blood on the bedsheets, blood in betwe
 /* styling- maps, travel, timelines connecting, mess */</tw-passagedata><tw-passagedata pid="21" name="Fuck it- you cry." tags="" position="725,2225" size="100,100">staircase that leads nowhere...
 
 dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum back and forth ten times in an hour." tags="" position="600,2225" size="100,100">&lt;div class=&quot;original-content&quot;&gt;
-You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.  
-The number 4 is painted in red on the outside stucco wall.  
-Inside the bedroom sized house, she points to a small single mattress pushed against the corner and tells you that this was where your mother was born.
+  &lt;p&gt;You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.&lt;br&gt;
+  [[The number 4 is painted in red on the outside stucco wall.]]&lt;br&gt;
+  Inside the bedroom sized house, she points to a small single mattress pushed against the corner and tells you that this was where your mother was born.&lt;/p&gt;
 
-&lt;img src=&quot;door1.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot;&gt;
-&lt;p&gt;The front door of the small house. You can still see your fingerprints on the doorknob from when you nervously turned it.&lt;/p&gt;
+  &lt;div class=&quot;image-block&quot;&gt;
+    &lt;img src=&quot;images/door1.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot; alt=&quot;Front door of the small house&quot;&gt;
+    &lt;p&gt;The front door of the small house. You can still see your fingerprints on the doorknob from when you nervously turned it.&lt;/p&gt;
+  &lt;/div&gt;
 
-&lt;img src=&quot;door2.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot;&gt;
-&lt;p&gt;The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.&lt;/p&gt;
+  &lt;div class=&quot;image-block&quot;&gt;
+    &lt;img src=&quot;images/door2.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot; alt=&quot;Worn wooden frame&quot;&gt;
+    &lt;p&gt;The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.&lt;/p&gt;
+  &lt;/div&gt;
 
-&lt;img src=&quot;door3.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot;&gt;
-&lt;p&gt;The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.&lt;/p&gt;
+  &lt;div class=&quot;image-block&quot;&gt;
+    &lt;img src=&quot;images/door3.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot; alt=&quot;Old key with Matryoshka doll keyring&quot;&gt;
+    &lt;p&gt;The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.&lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;doorknob-grid&quot;&gt;
@@ -1084,7 +1088,8 @@ Inside the bedroom sized house, she points to a small single mattress pushed aga
     &lt;img src=&quot;images/door3.jpg&quot; alt=&quot;Doorknob 3&quot;&gt;
     &lt;div class=&quot;caption&quot;&gt;A rusted knob, stiff with salt and memory.&lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
 
 When you enter, the walls are covered with framed pictures of saints and Madonna, no white wall saved.   
 
