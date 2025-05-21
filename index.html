@@ -468,7 +468,37 @@ tw-story\[tags\~="background3"]::before {
     opacity: 1;
 }
 
-/* DOOR IMAGE GRID LAYOUT */</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
+/* DOOR IMAGE GRID LAYOUT */
+  .doorknob-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin: 3rem 0;
+  padding: 0 1rem;
+}
+
+.doorknob-item {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+
+.doorknob-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  transition: opacity 0.3s ease;
+  object-fit: cover;
+}
+
+.doorknob-item .caption {
+  display: none;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #3C3633;
+  font-family: 'CabrionLight', sans-serif;
+  line-height: 1.4;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
     if (!document.getElementById("bg-music")) {
@@ -1026,8 +1056,9 @@ Snot greeting vomit and shit in your gut. Blood on the bedsheets, blood in betwe
 
 /* styling- maps, travel, timelines connecting, mess */</tw-passagedata><tw-passagedata pid="21" name="Fuck it- you cry." tags="" position="725,2225" size="100,100">staircase that leads nowhere...
 
-dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum back and forth ten times in an hour." tags="" position="600,2225" size="100,100">You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.
-The number 4 is painted in red on the outside stucco wall.
+dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum back and forth ten times in an hour." tags="" position="600,2225" size="100,100">&lt;div class=&quot;original-content&quot;&gt;
+You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.  
+The number 4 is painted in red on the outside stucco wall.  
 Inside the bedroom sized house, she points to a small single mattress pushed against the corner and tells you that this was where your mother was born.
 
 &lt;img src=&quot;door1.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot;&gt;
@@ -1037,7 +1068,25 @@ Inside the bedroom sized house, she points to a small single mattress pushed aga
 &lt;p&gt;The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.&lt;/p&gt;
 
 &lt;img src=&quot;door3.jpg&quot; style=&quot;max-width:100%; margin:20px 0;&quot;&gt;
-&lt;p&gt;The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
+&lt;p&gt;The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;doorknob-grid&quot;&gt;
+  &lt;div class=&quot;doorknob-item&quot; onclick=&quot;this.querySelector(&#39;.caption&#39;).style.display=&#39;block&#39;&quot;&gt;
+    &lt;img src=&quot;images/doorknob1.jpg&quot; alt=&quot;Doorknob 1&quot;&gt;
+    &lt;div class=&quot;caption&quot;&gt;An ornate brass knob with faint floral etchings.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;doorknob-item&quot; onclick=&quot;this.querySelector(&#39;.caption&#39;).style.display=&#39;block&#39;&quot;&gt;
+    &lt;img src=&quot;images/doorknob2.jpg&quot; alt=&quot;Doorknob 2&quot;&gt;
+    &lt;div class=&quot;caption&quot;&gt;Frosted glass and nickel — a relic of colder houses.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;doorknob-item&quot; onclick=&quot;this.querySelector(&#39;.caption&#39;).style.display=&#39;block&#39;&quot;&gt;
+    &lt;img src=&quot;images/doorknob3.jpg&quot; alt=&quot;Doorknob 3&quot;&gt;
+    &lt;div class=&quot;caption&quot;&gt;A rusted knob, stiff with salt and memory.&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- Add more doorknob-item blocks as needed --&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
 
 When you enter, the walls are covered with framed pictures of saints and Madonna, no white wall saved.   
 
