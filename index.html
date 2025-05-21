@@ -469,53 +469,62 @@ tw-story\[tags\~="background3"]::before {
 }
 
 /* DOOR IMAGE GRID LAYOUT */
-  /* Image Gallery CSS */
-.gallery-container {
+/* Film Grid Styling */
+.film-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
   margin: 30px 0;
 }
 
-.gallery-item {
-  margin-bottom: 20px;
-}
-
-.gallery-item input {
-  display: none;
-}
-
-.gallery-item label {
-  display: block;
-  padding: 10px;
-  background-color: #eee;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  transition: background-color 0.3s;
-}
-
-.gallery-item label:hover {
-  background-color: #ddd;
-}
-
-.gallery-content {
-  max-height: 0;
+.film-cell {
+  width: 220px;
+  height: 220px;
+  position: relative;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  border: 5px solid #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: #f0f0f0;
 }
 
-.gallery-item input:checked ~ .gallery-content {
-  max-height: 1000px;
+.film-cell:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.gallery-content img {
+.film-cell img {
   width: 100%;
-  margin-top: 10px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.gallery-content .description {
-  background-color: #f5f5f5;
-  padding: 15px;
-  margin-top: 10px;
+.film-text {
+  background-color: #f8f8f8;
+  padding: 20px;
+  margin: 30px 0;
   border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Film strip decorative elements */
+.film-strip-top, .film-strip-bottom {
+  height: 20px;
+  background-color: #222;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.film-hole {
+  width: 15px;
+  height: 15px;
+  background-color: #555;
+  border-radius: 50%;
+  margin: 2.5px 20px;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -1074,45 +1083,64 @@ Snot greeting vomit and shit in your gut. Blood on the bedsheets, blood in betwe
 
 /* styling- maps, travel, timelines connecting, mess */</tw-passagedata><tw-passagedata pid="21" name="Fuck it- you cry." tags="" position="725,2225" size="100,100">staircase that leads nowhere...
 
-dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum back and forth ten times in an hour." tags="" position="600,2225" size="100,100"># The House
-
-You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.
+dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum back and forth ten times in an hour." tags="" position="600,2225" size="100,100">You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.
 The number 4 is painted in red on the outside stucco wall.
 Inside the bedroom sized house, she points to a small single mattress pushed against the corner and tells you that this was where your mother was born.
 
-&lt;div class=&quot;gallery-container&quot;&gt;
-  &lt;div class=&quot;gallery-item&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;door1-check&quot;&gt;
-    &lt;label for=&quot;door1-check&quot;&gt;Examine the front door&lt;/label&gt;
-    &lt;div class=&quot;gallery-content&quot;&gt;
-      &lt;img src=&quot;door1.jpg&quot; alt=&quot;Front Door&quot;&gt;
-      &lt;div class=&quot;description&quot;&gt;
-        The front door of the small house. You can still see your fingerprints on the doorknob from when you nervously turned it.
-      &lt;/div&gt;
-    &lt;/div&gt;
+(set: $selectedImage to &quot;&quot;)
+
+&lt;div class=&quot;film-strip-top&quot;&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;film-grid&quot;&gt;
+  &lt;div class=&quot;film-cell&quot;&gt;
+    &lt;img src=&quot;door1.jpg&quot; alt=&quot;Front Door&quot; 
+      (click: ?this)[
+        (set: $selectedImage to &quot;door1&quot;)
+        (replace: ?passage-text)[
+          The front door of the small house. You can still see your fingerprints on the doorknob from when you nervously turned it.
+        ]
+      ]&gt;
   &lt;/div&gt;
   
-  &lt;div class=&quot;gallery-item&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;door2-check&quot;&gt;
-    &lt;label for=&quot;door2-check&quot;&gt;Examine the doorway&lt;/label&gt;
-    &lt;div class=&quot;gallery-content&quot;&gt;
-      &lt;img src=&quot;door2.jpg&quot; alt=&quot;Doorway&quot;&gt;
-      &lt;div class=&quot;description&quot;&gt;
-        The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.
-      &lt;/div&gt;
-    &lt;/div&gt;
+  &lt;div class=&quot;film-cell&quot;&gt;
+    &lt;img src=&quot;door2.jpg&quot; alt=&quot;Doorway&quot; 
+      (click: ?this)[
+        (set: $selectedImage to &quot;door2&quot;)
+        (replace: ?passage-text)[
+          The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.
+        ]
+      ]&gt;
   &lt;/div&gt;
   
-  &lt;div class=&quot;gallery-item&quot;&gt;
-    &lt;input type=&quot;checkbox&quot; id=&quot;door3-check&quot;&gt;
-    &lt;label for=&quot;door3-check&quot;&gt;Examine the key&lt;/label&gt;
-    &lt;div class=&quot;gallery-content&quot;&gt;
-      &lt;img src=&quot;door3.jpg&quot; alt=&quot;Key&quot;&gt;
-      &lt;div class=&quot;description&quot;&gt;
-        The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.
-      &lt;/div&gt;
-    &lt;/div&gt;
+  &lt;div class=&quot;film-cell&quot;&gt;
+    &lt;img src=&quot;door3.jpg&quot; alt=&quot;Key&quot; 
+      (click: ?this)[
+        (set: $selectedImage to &quot;door3&quot;)
+        (replace: ?passage-text)[
+          The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.
+        ]
+      ]&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;film-strip-bottom&quot;&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;film-hole&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;film-text&quot;&gt;
+  &lt;span id=&quot;passage-text&quot;&gt;
+    Click on any image above to explore details.
+  &lt;/span&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
 
 When you enter, the walls are covered with framed pictures of saints and Madonna, no white wall saved.   
