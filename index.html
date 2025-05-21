@@ -469,47 +469,50 @@ tw-story\[tags\~="background3"]::before {
 }
 
 /* DOOR IMAGE GRID LAYOUT */
-/* Clean image block styling */
-/* Don't let images zoom or overflow */
+/* Keep image size sane */
 img {
   max-width: 100%;
   height: auto;
   object-fit: cover;
-}
-
-/* Prevent weird zooming or massive images */
-.image-block img,
-.grid-item img {
-  width: 100%;
-  border-radius: 4px;
   display: block;
 }
 
-/* Grid container */
-.image-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 30px;
+/* Fixes Harlowe's centered passage problem */
+.passage {
+  text-align: left;
 }
 
-/* Each grid item takes up 1/3 of the row with a small gap */
-.grid-item {
-  flex: 1 1 calc(33.333% - 10px);
-  box-sizing: border-box;
-}
-
-/* Optional: Keep captions normal outside grid */
-.image-block p {
-  margin-top: 6px;
-  font-size: 0.9em;
-  color: #444;
-}
-
-/* Optional: prevent global centering issues */
-.original-content, .image-grid {
-  max-width: 900px;
+/* Fix formatting issues */
+.original-content {
+  max-width: 700px;
   margin: 0 auto;
+}
+
+/* Pinterest-style image grid */
+.doorknob-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+/* Grid image styling */
+.doorknob-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Captioned blocks for main images */
+.image-block {
+  margin-bottom: 1.5em;
+}
+
+.image-block p {
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 6px;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -1091,14 +1094,14 @@ dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum 
   &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;!-- Pinterest-style Grid --&gt;
-&lt;div class=&quot;image-grid&quot;&gt;
-  &lt;div class=&quot;grid-item&quot;&gt;&lt;img src=&quot;images/door1.jpg&quot; alt=&quot;Door 1&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;grid-item&quot;&gt;&lt;img src=&quot;images/door2.jpg&quot; alt=&quot;Door 2&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;grid-item&quot;&gt;&lt;img src=&quot;images/door3.jpg&quot; alt=&quot;Door 3&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;grid-item&quot;&gt;&lt;img src=&quot;images/door4.jpg&quot; alt=&quot;Door 4&quot;&gt;&lt;/div&gt;
-  &lt;div class=&quot;grid-item&quot;&gt;&lt;img src=&quot;images/stucco.jpg&quot; alt=&quot;Stucco Wall&quot;&gt;&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
+&lt;div class=&quot;doorknob-grid&quot;&gt;
+  &lt;div&gt;&lt;img src=&quot;images/door1.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;img src=&quot;images/door2.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;img src=&quot;images/door3.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;img src=&quot;images/door4.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;img src=&quot;images/stucco.jpg&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
 
 When you enter, the walls are covered with framed pictures of saints and Madonna, no white wall saved.   
 
