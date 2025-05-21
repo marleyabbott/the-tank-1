@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="12" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="22" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -1029,31 +1029,42 @@ Snot greeting vomit and shit in your gut. Blood on the bedsheets, blood in betwe
 dead end, turn back</tw-passagedata><tw-passagedata pid="22" name="You pendulum back and forth ten times in an hour." tags="" position="600,2225" size="100,100"># The House
 
 You open the door with the key looped on the Matryoshka doll keyring. The key your cousin gave to you, and you promised not to lose by keeping it in the wallet with the GPS tile tracker. There are no bars when you check your phone.
-[[The number 4 is painted in red on the outside stucco wall.]]
+The number 4 is painted in red on the outside stucco wall.
 Inside the bedroom sized house, she points to a small single mattress pushed against the corner and tells you that this was where your mother was born.
 
-(link: &quot;View the front door&quot;)[(show: ?door1)]
-(link: &quot;View the doorway&quot;)[(show: ?door2)]
-(link: &quot;View the key&quot;)[(show: ?door3)]
+(set: $image to &quot;none&quot;)
 
-(hidden:)[
-&lt;div id=&quot;door1&quot;&gt;
-&lt;img src=&quot;door1.jpg&quot; alt=&quot;Door 1&quot; style=&quot;max-width: 100%; margin: 20px 0;&quot;&gt;
-&lt;p&gt;&lt;em&gt;The front door of the small house. You can still see your fingerprints on the doorknob from when you nervously turned it.&lt;/em&gt;&lt;/p&gt;
+Choose an item to examine:
+&lt;div style=&quot;margin:20px 0&quot;&gt;
+(link-repeat: &quot;The front door&quot;)[(set: $image to &quot;door1&quot;)]
+(link-repeat: &quot;The doorway&quot;)[(set: $image to &quot;door2&quot;)]
+(link-repeat: &quot;The key&quot;)[(set: $image to &quot;door3&quot;)]
+&lt;/div&gt;
+
+(if: $image is &quot;door1&quot;)[
+&lt;img src=&quot;door1.jpg&quot; style=&quot;max-width:100%; margin:10px 0&quot;&gt;
+&lt;div style=&quot;background-color:#f5f5f5; padding:10px; border-radius:5px;&quot;&gt;
+The front door of the small house. You can still see your fingerprints on the doorknob from when you nervously turned it.
 &lt;/div&gt;
 ]
 
-(hidden:)[
-&lt;div id=&quot;door2&quot;&gt;
-&lt;img src=&quot;door2.jpg&quot; alt=&quot;Door 2&quot; style=&quot;max-width: 100%; margin: 20px 0;&quot;&gt;
-&lt;p&gt;&lt;em&gt;The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.&lt;/em&gt;&lt;/p&gt;
+(if: $image is &quot;door2&quot;)[
+&lt;img src=&quot;door2.jpg&quot; style=&quot;max-width:100%; margin:10px 0&quot;&gt;
+&lt;div style=&quot;background-color:#f5f5f5; padding:10px; border-radius:5px;&quot;&gt;
+The worn wooden frame of the doorway. Years of paint have chipped away, revealing layers of different colors underneath.
 &lt;/div&gt;
 ]
 
-(hidden:)[
-&lt;div id=&quot;door3&quot;&gt;
-&lt;img src=&quot;door3.jpg&quot; alt=&quot;Door 3&quot; style=&quot;max-width: 100%; margin: 20px 0;&quot;&gt;
-&lt;p&gt;&lt;em&gt;The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.&lt;/em&gt;&lt;/p&gt;
+(if: $image is &quot;door3&quot;)[
+&lt;img src=&quot;door3.jpg&quot; style=&quot;max-width:100%; margin:10px 0&quot;&gt;
+&lt;div style=&quot;background-color:#f5f5f5; padding:10px; border-radius:5px;&quot;&gt;
+The old key with the Matryoshka doll keyring. The metal is tarnished from years of use.
+&lt;/div&gt;
+]
+
+(if: $image is &quot;none&quot;)[
+&lt;div style=&quot;background-color:#f5f5f5; padding:10px; border-radius:5px; margin-top:10px&quot;&gt;
+Select an item from above to examine it more closely.
 &lt;/div&gt;
 ]</tw-passagedata><tw-passagedata pid="23" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2350" size="100,100">They lead you up the sloped street and you wait outside another small house while Zia calls out.  
 
