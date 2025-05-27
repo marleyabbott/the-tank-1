@@ -502,164 +502,6 @@ tw-story\[tags\~="background3"]::before {
   height: 100% !important;
   object-fit: cover !important;
   border-radius: 8px !important;
-}
-/* BROKEN GLASS EFFECT - Add this to your existing CSS */
-/* Only affects passages tagged with 'broken-glass' */
-
-/* First test - simple background color change to verify tag is working */
-tw-story[tags~="broken-glass"] {
-    background-color: #f0f0f0 !important;
-}
-
-tw-story[tags~="broken-glass"] tw-passage {
-    position: relative;
-    z-index: 2;
-    /* Ensure text stays above the glass effect */
-    border: 2px solid red; /* Test border to confirm targeting */
-}
-
-/* Main glass container - positioned behind the text */
-tw-story[tags~="broken-glass"] tw-passage::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-/* Individual glass shards using multiple pseudo-elements and box-shadows */
-tw-story[tags~="broken-glass"] tw-passage::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    z-index: -1;
-    pointer-events: none;
-    
-    /* Create multiple glass shards using box-shadow */
-    box-shadow: 
-        /* Large central crack */
-        -120px 80px 0 15px rgba(255, 255, 255, 0.3),
-        -100px 60px 0 8px rgba(255, 255, 255, 0.4),
-        -80px 40px 0 12px rgba(255, 255, 255, 0.2),
-        
-        /* Medium shards - left side */
-        -200px 20px 0 10px rgba(255, 255, 255, 0.25),
-        -180px 100px 0 6px rgba(255, 255, 255, 0.35),
-        -160px -20px 0 8px rgba(255, 255, 255, 0.3),
-        -220px 60px 0 4px rgba(255, 255, 255, 0.4),
-        
-        /* Medium shards - right side */
-        120px 30px 0 12px rgba(255, 255, 255, 0.3),
-        100px 90px 0 7px rgba(255, 255, 255, 0.25),
-        140px -10px 0 9px rgba(255, 255, 255, 0.35),
-        180px 70px 0 5px rgba(255, 255, 255, 0.4),
-        
-        /* Small scattered pieces */
-        -50px 120px 0 3px rgba(255, 255, 255, 0.4),
-        30px 110px 0 4px rgba(255, 255, 255, 0.3),
-        -30px -40px 0 2px rgba(255, 255, 255, 0.5),
-        60px -30px 0 3px rgba(255, 255, 255, 0.4),
-        -90px 150px 0 2px rgba(255, 255, 255, 0.3),
-        90px 140px 0 2px rgba(255, 255, 255, 0.35),
-        
-        /* Tiny fragments */
-        -250px 40px 0 1px rgba(255, 255, 255, 0.6),
-        250px 50px 0 1px rgba(255, 255, 255, 0.5),
-        -15px 160px 0 1px rgba(255, 255, 255, 0.4),
-        15px -60px 0 1px rgba(255, 255, 255, 0.6),
-        
-        /* Additional scattered pieces for density */
-        -140px 130px 0 3px rgba(255, 255, 255, 0.25),
-        160px 120px 0 4px rgba(255, 255, 255, 0.3),
-        -70px -10px 0 2px rgba(255, 255, 255, 0.4),
-        70px 160px 0 2px rgba(255, 255, 255, 0.35);
-    
-    /* Subtle animation - glass settling */
-    animation: glassSettle 8s ease-in-out infinite alternate;
-}
-
-/* Subtle settling animation */
-@keyframes glassSettle {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-        opacity: 0.7;
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(0.5deg);
-        opacity: 0.5;
-    }
-}
-
-/* Add crack lines using a second pseudo-element on the passage container */
-tw-story[tags~="broken-glass"]::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    pointer-events: none;
-    background-image: 
-        /* Main diagonal cracks */
-        linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.3) 49%, rgba(255, 255, 255, 0.3) 51%, transparent 52%),
-        linear-gradient(-45deg, transparent 48%, rgba(255, 255, 255, 0.2) 49%, rgba(255, 255, 255, 0.2) 51%, transparent 52%),
-        /* Secondary cracks */
-        linear-gradient(30deg, transparent 49%, rgba(255, 255, 255, 0.15) 50%, transparent 51%),
-        linear-gradient(-30deg, transparent 49%, rgba(255, 255, 255, 0.15) 50%, transparent 51%),
-        linear-gradient(60deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%);
-    opacity: 0.6;
-    animation: crackFlicker 12s ease-in-out infinite alternate;
-}
-
-/* Subtle crack flickering effect */
-@keyframes crackFlicker {
-    0%, 100% {
-        opacity: 0.6;
-    }
-    50% {
-        opacity: 0.3;
-    }
-}
-
-/* Optional: Add a subtle glass reflection effect */
-tw-story[tags~="broken-glass"] {
-    background-image: 
-        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-}
-
-/* Ensure links still work properly with the glass effect */
-tw-story[tags~="broken-glass"] tw-link,
-tw-story[tags~="broken-glass"] .enchantment-link {
-    position: relative;
-    z-index: 10;
-}
-.broken-glass-effect {
-    position: relative;
-}
-
-.broken-glass-effect::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-image: 
-        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.4) 2px, transparent 2px),
-        radial-gradient(circle at 75% 25%, rgba(255,255,255,0.3) 3px, transparent 3px),
-        radial-gradient(circle at 25% 75%, rgba(255,255,255,0.5) 1px, transparent 1px),
-        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.3) 2px, transparent 2px);
-    background-size: 50px 50px;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -1093,12 +935,43 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
   }
 &lt;/script&gt;
 
-/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="broken-glass" position="600,1350" size="100,100">&lt;div class=&quot;broken-glass-effect&quot;&gt;
+/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;div id=&quot;broken-glass-container&quot;&gt;
 Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip.  
 Everything is covered in a towel. Your bowl of half-eaten insalata, the table in the morning already set for dinner, the fruit bowl, the 3-story cart of tomatoes. 
 You catch her one morning before she knows you are up, tearing squares of the towel from the roll and covering the piles. A cloth concealing the body at the funeral- the red blanket on the couch, the lid of the tank covering the questions, hiding the story. 
 You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
+&lt;/div&gt;
+
+&lt;script&gt;
+// Create broken glass effect
+const container = document.getElementById(&#39;broken-glass-container&#39;);
+container.style.position = &#39;relative&#39;;
+
+// Create glass overlay
+const glassOverlay = document.createElement(&#39;div&#39;);
+glassOverlay.style.position = &#39;absolute&#39;;
+glassOverlay.style.top = &#39;0&#39;;
+glassOverlay.style.left = &#39;0&#39;;
+glassOverlay.style.right = &#39;0&#39;;
+glassOverlay.style.bottom = &#39;0&#39;;
+glassOverlay.style.pointerEvents = &#39;none&#39;;
+glassOverlay.style.zIndex = &#39;-1&#39;;
+
+// Create multiple glass shards
+for (let i = 0; i &lt; 20; i++) {
+    const shard = document.createElement(&#39;div&#39;);
+    shard.style.position = &#39;absolute&#39;;
+    shard.style.width = Math.random() * 8 + 2 + &#39;px&#39;;
+    shard.style.height = Math.random() * 8 + 2 + &#39;px&#39;;
+    shard.style.backgroundColor = &#39;rgba(255, 255, 255, &#39; + (Math.random() * 0.5 + 0.2) + &#39;)&#39;;
+    shard.style.left = Math.random() * 100 + &#39;%&#39;;
+    shard.style.top = Math.random() * 100 + &#39;%&#39;;
+    shard.style.borderRadius = &#39;50%&#39;;
+    glassOverlay.appendChild(shard);
+}
+
+container.appendChild(glassOverlay);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
 
 Zio slams on the breaks. He points. You roll down the window.
 
