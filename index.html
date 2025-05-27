@@ -936,14 +936,22 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
 &lt;/script&gt;
 
 /* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
-tw-passage {
-    position: relative;
+body {
     background-image: 
-        linear-gradient(45deg, transparent 49%, white 50%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, white 50%, transparent 51%),
-        linear-gradient(30deg, transparent 49.5%, white 50%, transparent 50.5%),
-        linear-gradient(-30deg, transparent 49.5%, white 50%, transparent 50.5%);
-    background-size: 100px 100px, 80px 80px, 60px 60px, 120px 120px;
+        /* Main diagonal cracks */
+        linear-gradient(23deg, transparent 40%, rgba(255,255,255,0.7) 41%, rgba(255,255,255,0.7) 43%, transparent 44%),
+        linear-gradient(-67deg, transparent 30%, rgba(255,255,255,0.6) 31%, rgba(255,255,255,0.6) 33%, transparent 34%),
+        linear-gradient(45deg, transparent 60%, rgba(255,255,255,0.5) 61%, rgba(255,255,255,0.5) 62%, transparent 63%),
+        linear-gradient(-23deg, transparent 70%, rgba(255,255,255,0.4) 71%, rgba(255,255,255,0.4) 72%, transparent 73%),
+        linear-gradient(67deg, transparent 20%, rgba(255,255,255,0.6) 21%, rgba(255,255,255,0.6) 22%, transparent 23%),
+        linear-gradient(-45deg, transparent 80%, rgba(255,255,255,0.5) 81%, rgba(255,255,255,0.5) 82%, transparent 83%),
+        /* Smaller spider web cracks */
+        linear-gradient(12deg, transparent 48%, rgba(255,255,255,0.3) 49%, rgba(255,255,255,0.3) 51%, transparent 52%),
+        linear-gradient(-78deg, transparent 48%, rgba(255,255,255,0.3) 49%, rgba(255,255,255,0.3) 51%, transparent 52%),
+        linear-gradient(34deg, transparent 48%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.2) 51%, transparent 52%),
+        linear-gradient(-56deg, transparent 48%, rgba(255,255,255,0.2) 49%, rgba(255,255,255,0.2) 51%, transparent 52%);
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
 }
 &lt;/style&gt;
 
