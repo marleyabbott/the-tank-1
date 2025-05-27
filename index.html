@@ -937,17 +937,25 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
 
 /* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">(text-style:&quot;blur&quot;)[.]
 &lt;style&gt;
-tw-passage {
+tw-passage::before {
+    content: &quot;&quot;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
     background-image: 
-        radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.8) 3px, transparent 4px),
-        radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.6) 5px, transparent 6px),
-        radial-gradient(ellipse at 30% 80%, rgba(255,255,255,0.7) 2px, transparent 3px),
-        radial-gradient(ellipse at 70% 60%, rgba(255,255,255,0.5) 4px, transparent 5px),
-        radial-gradient(ellipse at 15% 70%, rgba(255,255,255,0.6) 2px, transparent 3px),
-        radial-gradient(ellipse at 85% 40%, rgba(255,255,255,0.4) 3px, transparent 4px),
-        radial-gradient(ellipse at 50% 10%, rgba(255,255,255,0.7) 1px, transparent 2px),
-        radial-gradient(ellipse at 40% 90%, rgba(255,255,255,0.5) 3px, transparent 4px);
-    background-size: 60px 40px, 80px 60px, 45px 30px, 70px 50px, 35px 25px, 55px 40px, 30px 20px, 65px 45px;
+        linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.6) 49%, rgba(255,255,255,0.6) 51%, transparent 52%),
+        linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.4) 49%, rgba(255,255,255,0.4) 51%, transparent 52%),
+        linear-gradient(30deg, transparent 49%, rgba(255,255,255,0.3) 50%, transparent 51%),
+        linear-gradient(-30deg, transparent 49%, rgba(255,255,255,0.3) 50%, transparent 51%),
+        linear-gradient(60deg, transparent 49%, rgba(255,255,255,0.2) 50%, transparent 51%);
+    background-size: 80px 80px, 120px 120px, 60px 60px, 100px 100px, 40px 40px;
+}
+
+tw-passage {
+    position: relative;
 }
 &lt;/style&gt;
 
