@@ -944,10 +944,10 @@ const ctx = canvas.getContext(&#39;2d&#39;);
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.7)&#39;;
-ctx.lineWidth = 1;
+ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.8)&#39;;
+ctx.lineWidth = 4;
 
-// Draw straight jagged cracks like real broken glass
+// Draw thick jagged cracks like real broken glass
 ctx.beginPath();
 
 // Main diagonal crack across screen
@@ -974,9 +974,9 @@ ctx.lineTo(canvas.width * 0.8, canvas.height * 0.3);
 ctx.lineTo(canvas.width, canvas.height * 0.6);
 ctx.stroke();
 
-// Smaller connecting cracks
-ctx.lineWidth = 0.5;
-ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.5)&#39;;
+// Medium connecting cracks
+ctx.lineWidth = 3;
+ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.7)&#39;;
 
 // Connect some points
 ctx.beginPath();
@@ -992,6 +992,14 @@ ctx.stroke();
 ctx.beginPath();
 ctx.moveTo(canvas.width * 0.25, canvas.height * 0.7);
 ctx.lineTo(canvas.width * 0.6, canvas.height * 0.4);
+ctx.stroke();
+
+// Add more thick cracks
+ctx.lineWidth = 3;
+ctx.beginPath();
+ctx.moveTo(canvas.width * 0.1, canvas.height * 0.1);
+ctx.lineTo(canvas.width * 0.5, canvas.height * 0.3);
+ctx.lineTo(canvas.width * 0.8, canvas.height * 0.8);
 ctx.stroke();
 &lt;/script&gt;
 
