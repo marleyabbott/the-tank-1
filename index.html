@@ -935,43 +935,22 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
   }
 &lt;/script&gt;
 
-/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;div id=&quot;broken-glass-container&quot;&gt;
+/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">(text-style:&quot;blur&quot;)[.]
+&lt;style&gt;
+tw-passage {
+    background-image: 
+        radial-gradient(circle at 20% 30%, white 1px, transparent 1px),
+        radial-gradient(circle at 80% 20%, white 1px, transparent 1px),
+        radial-gradient(circle at 30% 80%, white 1px, transparent 1px),
+        radial-gradient(circle at 70% 60%, white 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+&lt;/style&gt;
+
 Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip.  
 Everything is covered in a towel. Your bowl of half-eaten insalata, the table in the morning already set for dinner, the fruit bowl, the 3-story cart of tomatoes. 
 You catch her one morning before she knows you are up, tearing squares of the towel from the roll and covering the piles. A cloth concealing the body at the funeral- the red blanket on the couch, the lid of the tank covering the questions, hiding the story. 
-You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]
-&lt;/div&gt;
-
-&lt;script&gt;
-// Create broken glass effect
-const container = document.getElementById(&#39;broken-glass-container&#39;);
-container.style.position = &#39;relative&#39;;
-
-// Create glass overlay
-const glassOverlay = document.createElement(&#39;div&#39;);
-glassOverlay.style.position = &#39;absolute&#39;;
-glassOverlay.style.top = &#39;0&#39;;
-glassOverlay.style.left = &#39;0&#39;;
-glassOverlay.style.right = &#39;0&#39;;
-glassOverlay.style.bottom = &#39;0&#39;;
-glassOverlay.style.pointerEvents = &#39;none&#39;;
-glassOverlay.style.zIndex = &#39;-1&#39;;
-
-// Create multiple glass shards
-for (let i = 0; i &lt; 20; i++) {
-    const shard = document.createElement(&#39;div&#39;);
-    shard.style.position = &#39;absolute&#39;;
-    shard.style.width = Math.random() * 8 + 2 + &#39;px&#39;;
-    shard.style.height = Math.random() * 8 + 2 + &#39;px&#39;;
-    shard.style.backgroundColor = &#39;rgba(255, 255, 255, &#39; + (Math.random() * 0.5 + 0.2) + &#39;)&#39;;
-    shard.style.left = Math.random() * 100 + &#39;%&#39;;
-    shard.style.top = Math.random() * 100 + &#39;%&#39;;
-    shard.style.borderRadius = &#39;50%&#39;;
-    glassOverlay.appendChild(shard);
-}
-
-container.appendChild(glassOverlay);
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
+You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
 
 Zio slams on the breaks. He points. You roll down the window.
 
