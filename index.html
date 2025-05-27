@@ -641,6 +641,25 @@ tw-story[tags~="broken-glass"] tw-link,
 tw-story[tags~="broken-glass"] .enchantment-link {
     position: relative;
     z-index: 10;
+}
+.broken-glass-effect {
+    position: relative;
+}
+
+.broken-glass-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.4) 2px, transparent 2px),
+        radial-gradient(circle at 75% 25%, rgba(255,255,255,0.3) 3px, transparent 3px),
+        radial-gradient(circle at 25% 75%, rgba(255,255,255,0.5) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.3) 2px, transparent 2px);
+    background-size: 50px 50px;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
 window.onload = function() {
     // Check if audio already exists
@@ -1074,15 +1093,12 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
   }
 &lt;/script&gt;
 
-/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="broken-glass" position="600,1350" size="100,100">Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip.  
-
+/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="broken-glass" position="600,1350" size="100,100">&lt;div class=&quot;broken-glass-effect&quot;&gt;
+Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip.  
 Everything is covered in a towel. Your bowl of half-eaten insalata, the table in the morning already set for dinner, the fruit bowl, the 3-story cart of tomatoes. 
-
 You catch her one morning before she knows you are up, tearing squares of the towel from the roll and covering the piles. A cloth concealing the body at the funeral- the red blanket on the couch, the lid of the tank covering the questions, hiding the story. 
-
-You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn’t appropriate. [[You sense that your questions do not have answers.]]
-
-/* Need to decide on styling... maybe broken crockery effect?? */</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
+You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,3100" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
 
 Zio slams on the breaks. He points. You roll down the window.
 
