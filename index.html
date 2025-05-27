@@ -506,10 +506,16 @@ tw-story\[tags\~="background3"]::before {
 /* BROKEN GLASS EFFECT - Add this to your existing CSS */
 /* Only affects passages tagged with 'broken-glass' */
 
+/* First test - simple background color change to verify tag is working */
+tw-story[tags~="broken-glass"] {
+    background-color: #f0f0f0 !important;
+}
+
 tw-story[tags~="broken-glass"] tw-passage {
     position: relative;
     z-index: 2;
     /* Ensure text stays above the glass effect */
+    border: 2px solid red; /* Test border to confirm targeting */
 }
 
 /* Main glass container - positioned behind the text */
