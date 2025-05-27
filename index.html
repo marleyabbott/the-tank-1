@@ -935,27 +935,15 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
   }
 &lt;/script&gt;
 
-/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">(text-style:&quot;blur&quot;)[.]
-&lt;style&gt;
-tw-passage::before {
-    content: &quot;&quot;;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-image: 
-        linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.6) 49%, rgba(255,255,255,0.6) 51%, transparent 52%),
-        linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.4) 49%, rgba(255,255,255,0.4) 51%, transparent 52%),
-        linear-gradient(30deg, transparent 49%, rgba(255,255,255,0.3) 50%, transparent 51%),
-        linear-gradient(-30deg, transparent 49%, rgba(255,255,255,0.3) 50%, transparent 51%),
-        linear-gradient(60deg, transparent 49%, rgba(255,255,255,0.2) 50%, transparent 51%);
-    background-size: 80px 80px, 120px 120px, 60px 60px, 100px 100px, 40px 40px;
-}
-
+/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
 tw-passage {
     position: relative;
+    background-image: 
+        linear-gradient(45deg, transparent 49%, white 50%, transparent 51%),
+        linear-gradient(-45deg, transparent 49%, white 50%, transparent 51%),
+        linear-gradient(30deg, transparent 49.5%, white 50%, transparent 50.5%),
+        linear-gradient(-30deg, transparent 49.5%, white 50%, transparent 50.5%);
+    background-size: 100px 100px, 80px 80px, 60px 60px, 120px 120px;
 }
 &lt;/style&gt;
 
