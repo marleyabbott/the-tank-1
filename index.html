@@ -935,31 +935,51 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
   }
 &lt;/script&gt;
 
-/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
-tw-story::before {
-    content: &quot;&quot;;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        linear-gradient(23deg, transparent 49.8%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.6) 50.2%, transparent 50.4%),
-        linear-gradient(-67deg, transparent 49.8%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.5) 50.2%, transparent 50.4%),
-        linear-gradient(156deg, transparent 49.8%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 50.2%, transparent 50.4%),
-        linear-gradient(-12deg, transparent 49.8%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.3) 50.2%, transparent 50.4%),
-        linear-gradient(89deg, transparent 49.8%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 50.2%, transparent 50.4%),
-        linear-gradient(-134deg, transparent 49.8%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.3) 50.2%, transparent 50.4%);
-    background-size: 100vw 100vh;
-    pointer-events: none;
-    z-index: 1;
+/* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;canvas id=&quot;glassCanvas&quot; style=&quot;position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;&quot;&gt;&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas = document.getElementById(&#39;glassCanvas&#39;);
+const ctx = canvas.getContext(&#39;2d&#39;);
+
+// Set canvas size
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// Draw broken glass effect
+ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.6)&#39;;
+ctx.lineWidth = 1;
+
+// Main crack lines
+ctx.beginPath();
+ctx.moveTo(100, 50);
+ctx.lineTo(canvas.width - 100, canvas.height - 50);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(50, 200);
+ctx.lineTo(canvas.width - 50, canvas.height - 200);
+ctx.stroke();
+
+// Secondary cracks
+ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.4)&#39;;
+ctx.lineWidth = 0.5;
+
+for(let i = 0; i &lt; 10; i++) {
+    ctx.beginPath();
+    ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.stroke();
 }
 
-tw-passage {
-    position: relative;
-    z-index: 2;
+// Small fragments
+ctx.strokeStyle = &#39;rgba(255, 255, 255, 0.3)&#39;;
+for(let i = 0; i &lt; 20; i++) {
+    ctx.beginPath();
+    ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
+    ctx.stroke();
 }
-&lt;/style&gt;
+&lt;/script&gt;
 
 Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip.  
 Everything is covered in a towel. Your bowl of half-eaten insalata, the table in the morning already set for dinner, the fruit bowl, the 3-story cart of tomatoes. 
