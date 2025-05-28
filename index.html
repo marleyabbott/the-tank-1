@@ -938,7 +938,12 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
   }
 &lt;/script&gt;
 
-(after: 16s)[(goto: &quot;ending&quot;)]</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
+{
+(live: 16s)[
+  (goto: &quot;ending&quot;)
+  (stop:)
+]
+}</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
