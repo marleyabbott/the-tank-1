@@ -909,25 +909,8 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
         // Next image
         currentIndex++;
         setTimeout(showImage, 500);
-      } else {
-        // All images have been shown - wait a moment then advance to next passage
-        setTimeout(function() {
-          // Create and trigger a passage link programmatically
-          var passageContainer = document.querySelector(&#39;tw-passage&#39;);
-          var link = document.createElement(&#39;tw-link&#39;);
-          link.setAttribute(&#39;passage-name&#39;, &#39;NextPassageName&#39;); // Replace with your actual passage name
-          link.style.display = &#39;none&#39;;
-          passageContainer.appendChild(link);
-          
-          // Trigger the link
-          var event = new MouseEvent(&#39;click&#39;, {
-            view: window,
-            bubbles: true,
-            cancelable: true
-          });
-          link.dispatchEvent(event);
-        }, 2000); // Wait 2 seconds after last image appears before advancing
       }
+      // Removed the else block - let Harlowe handle the navigation
     }
     
     // Start showing images
@@ -953,7 +936,9 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
       }
     });
   }
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
+&lt;/script&gt;
+
+(after: 16s)[(goto: &quot;ending&quot;)]</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
