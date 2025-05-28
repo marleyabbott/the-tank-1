@@ -912,8 +912,20 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
       } else {
         // All images have been shown - wait a moment then advance to next passage
         setTimeout(function() {
-          // Replace &#39;NextPassageName&#39; with the actual name of your next passage
-          Engine.play(&#39;NextPassageName&#39;);
+          // Create and trigger a passage link programmatically
+          var passageContainer = document.querySelector(&#39;tw-passage&#39;);
+          var link = document.createElement(&#39;tw-link&#39;);
+          link.setAttribute(&#39;passage-name&#39;, &#39;NextPassageName&#39;); // Replace with your actual passage name
+          link.style.display = &#39;none&#39;;
+          passageContainer.appendChild(link);
+          
+          // Trigger the link
+          var event = new MouseEvent(&#39;click&#39;, {
+            view: window,
+            bubbles: true,
+            cancelable: true
+          });
+          link.dispatchEvent(event);
         }, 2000); // Wait 2 seconds after last image appears before advancing
       }
     }
