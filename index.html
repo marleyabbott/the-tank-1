@@ -963,7 +963,28 @@ tw-story[tags~=&quot;background8&quot;] {
 Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip.  
 Everything is covered in a towel. Your bowl of half-eaten insalata, the table in the morning already set for dinner, the fruit bowl, the 3-story cart of tomatoes. 
 You catch her one morning before she knows you are up, tearing squares of the towel from the roll and covering the piles. A cloth concealing the body at the funeral- the red blanket on the couch, the lid of the tank covering the questions, hiding the story. 
-You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,2975" size="100,100">You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
+You create the tank in your own image. Wondering requires more senses than listening to the story does. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]</tw-passagedata><tw-passagedata pid="14" name="ending" tags="" position="600,2975" size="100,100">&lt;script&gt;
+// Clean up everything from the previous passage
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;&quot;;
+
+// Remove all the scattered images
+var images = document.querySelectorAll(&#39;.tablecloth-image&#39;);
+images.forEach(function(img) {
+  img.remove();
+});
+
+// Restore scrolling
+document.body.style.overflow = &#39;&#39;;
+document.documentElement.style.overflow = &#39;&#39;;
+
+// Make sure passage background is back to normal
+document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;&quot;;
+&lt;/script&gt;
+
+You look out the back window while they drive away from the village. The mountains scream dry. Fichi d&#39;india line the road. The sky fades blue into yellow, yellow into pink. 
 
 Zio slams on the breaks. He points. You roll down the window.
 
