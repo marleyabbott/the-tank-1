@@ -939,10 +939,18 @@ Mid shower, the water runs out. You stand naked in front of the tiny sink rinsin
 
 /* Need to decide on connecting to next passage */</tw-passagedata><tw-passagedata pid="13" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
 tw-story {
-  background: url(&#39;./images/broken.jpg&#39;) center center / cover no-repeat fixed;
+  background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
 }
 tw-passage {
-  background: transparent;
+  background: transparent !important;
+}
+/* Clear any previous background styles */
+tw-story[tags] {
+  background-image: none;
+}
+tw-story[tags~=&quot;background8&quot;] {
+  background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
 }
 &lt;/style&gt;
 
