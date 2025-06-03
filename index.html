@@ -811,9 +811,15 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
-  // Prevent scrolling on this passage
-  document.body.style.overflow = &#39;hidden&#39;;
-  document.documentElement.style.overflow = &#39;hidden&#39;;
+  // FORCE prevent scrolling with high specificity
+  document.body.style.setProperty(&#39;overflow&#39;, &#39;hidden&#39;, &#39;important&#39;);
+  document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;hidden&#39;, &#39;important&#39;);
+  
+  // Override passage-specific CSS that might interfere
+  var passage = document.querySelector(&#39;tw-passage&#39;);
+  passage.style.setProperty(&#39;overflow&#39;, &#39;hidden&#39;, &#39;important&#39;);
+  passage.style.setProperty(&#39;padding-bottom&#39;, &#39;0&#39;, &#39;important&#39;);
+  passage.style.setProperty(&#39;height&#39;, &#39;100vh&#39;, &#39;important&#39;);
   
   // Simply set background just for this passage
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
@@ -822,46 +828,36 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
   
   // Make sure passage has transparent background
-  document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
-  document.querySelector(&#39;tw-passage&#39;).style.overflow = &quot;hidden&quot;;
+  passage.style.backgroundColor = &quot;transparent&quot;;
   
-  // Animation code - Slow drift upward
+  // Animation code - Use CSS animation instead of JavaScript
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
-  var startTime = null;
-  var duration = 120000;  // 120 seconds (2 minutes) - very slow
-  var startY = 0;
   
-  function animateText(timestamp) {
-    if (!startTime) startTime = timestamp;
-    var elapsed = timestamp - startTime;
-    var progress = Math.min(elapsed / duration, 1);
-    
-    // Calculate end position dynamically each frame to ensure accuracy
-    var viewportHeight = window.innerHeight;
-    var elementHeight = paragraph.offsetHeight;
-    var endY = -(elementHeight + viewportHeight + 100); // Move completely off screen
-    
-    // Use easeOut for more natural smoke-like movement
-    var easeProgress = 1 - Math.pow(1 - progress, 3); // Changed to cubic for even slower start
-    
-    var yPosition = startY + (easeProgress * (endY - startY));
-    paragraph.style.transform = &#39;translateY(&#39; + yPosition + &#39;px)&#39;;
-    
-    // Debug: uncomment to see values
-    // console.log(&#39;Progress:&#39;, progress.toFixed(3), &#39;Y:&#39;, yPosition.toFixed(1), &#39;EndY:&#39;, endY);
-    
-    if (progress &lt; 1) {
-      window.requestAnimationFrame(animateText);
+  // Create CSS animation dynamically
+  var style = document.createElement(&#39;style&#39;);
+  style.textContent = `
+    @keyframes slowRiseUp {
+      0% { 
+        transform: translateY(0px); 
+        opacity: 1;
+      }
+      100% { 
+        transform: translateY(-${window.innerHeight + 500}px); 
+        opacity: 0.8;
+      }
     }
-  }
+    
+    #buttery-smooth-paragraph {
+      animation: slowRiseUp 120s linear forwards !important;
+    }
+  `;
+  document.head.appendChild(style);
   
   // Optional: Clean up scroll prevention when leaving passage
   window.addEventListener(&#39;beforeunload&#39;, function() {
     document.body.style.overflow = &#39;&#39;;
     document.documentElement.style.overflow = &#39;&#39;;
   });
-  
-  window.requestAnimationFrame(animateText);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
