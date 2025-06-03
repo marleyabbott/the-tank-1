@@ -829,9 +829,9 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   // Animation code - Much faster now!
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
-  var duration = 90000;  // 90 seconds - very slow drift
+  var duration = 120000;  // Back to 120 seconds (2 minutes) - very slow like original
   var startY = 0;
-  var endY = -(paragraph.offsetHeight + window.innerHeight + 200); // Move way past the top with extra buffer
+  var endY = -(paragraph.offsetHeight + window.innerHeight + 500); // Move way past the top with huge buffer
   
   function animateText(timestamp) {
     if (!startTime) startTime = timestamp;
