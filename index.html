@@ -725,7 +725,14 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   &lt;/div&gt;
 &lt;/div&gt;
 
-/* Change styling to be a little more like editorial look */</tw-passagedata><tw-passagedata pid="7" name="they asked him if they could save it" tags="" position="600,350" size="100,100">&lt;script&gt;
+&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="they asked him if they could save it" tags="" position="600,350" size="100,100">&lt;script&gt;
 // Reset background ONLY - no text styling
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 &lt;/script&gt;
