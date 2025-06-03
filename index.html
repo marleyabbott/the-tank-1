@@ -800,10 +800,6 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.documentElement.style.overflow = &#39;&#39;;
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;script&gt;
-// Hide passage initially to prevent glitch
-var passage = document.querySelector(&#39;tw-passage&#39;);
-passage.style.opacity = &quot;0&quot;;
-
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
@@ -812,6 +808,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fi
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
 // LANDSCAPE text positioning with fixes
+var passage = document.querySelector(&#39;tw-passage&#39;);
 passage.style.width = &quot;60%&quot;; 
 passage.style.height = &quot;250px&quot;; 
 passage.style.position = &quot;absolute&quot;; 
@@ -869,11 +866,9 @@ if (backButton) {
     backButton.style.pointerEvents = &quot;auto&quot;;
 }
 
-// Show passage with smooth fade-in after all styling is complete
-setTimeout(function() {
-    passage.style.transition = &quot;opacity 0.3s ease&quot;;
-    passage.style.opacity = &quot;1&quot;;
-}, 50);
+// Ensure passage is visible (no hiding/showing)
+passage.style.opacity = &quot;1&quot;;
+passage.style.visibility = &quot;visible&quot;;
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
