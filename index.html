@@ -801,7 +801,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden; opacity: 0;&quot;&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;/span&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine.&lt;/span&gt;
@@ -833,28 +833,20 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   // Animation code - Use CSS animation instead of JavaScript
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   
-  // Create CSS animation dynamically - slower and smoother
+  // Create CSS animation dynamically - much slower
   var style = document.createElement(&#39;style&#39;);
   style.textContent = `
     @keyframes slowRiseUp {
       0% { 
         transform: translateY(0px); 
-        opacity: 0;
-      }
-      2% {
-        opacity: 1;
-      }
-      98% {
-        opacity: 1;
       }
       100% { 
         transform: translateY(-${window.innerHeight + 1500}px); 
-        opacity: 0;
       }
     }
     
     #buttery-smooth-paragraph {
-      animation: slowRiseUp 200s ease-out forwards !important;
+      animation: slowRiseUp 300s linear forwards !important;
     }
   `;
   document.head.appendChild(style);
