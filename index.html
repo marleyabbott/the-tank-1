@@ -1269,6 +1269,13 @@ or is it the third ?
  max-width: 400px !important;
  float: right !important;
  margin-left: 20px !important;
+ cursor: pointer !important;
+ transition: transform 0.2s ease !important;
+}
+
+.article-embed:hover {
+ transform: rotate(-1deg) scale(1.02) !important;
+ box-shadow: 4px 4px 15px rgba(0,0,0,0.3) !important;
 }
 
 .article-header {
@@ -1296,7 +1303,7 @@ document.documentElement.style.overflow = &#39;auto&#39;;
 
 Brown-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked over-head. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet.
 
-&lt;div class=&quot;article-embed&quot;&gt;
+&lt;div class=&quot;article-embed&quot; onclick=&quot;window.open(&#39;https://edgeofhumanity.com/2018/08/15/italy-14/&#39;, &#39;_blank&#39;)&quot;&gt;
  &lt;div class=&quot;article-header&quot;&gt;Edge of Humanity Magazine&lt;/div&gt;
  &lt;p&gt;&lt;strong&gt;Nardodipace, Italy&lt;/strong&gt; — Considered one of the poorest comune in Italy, Nardodipace has just more than 1,000 inhabitants distributed in 5 small cities. A place where one can still perceive an ancient simplicity in everyday gestures. The love for the land is so strong that sometimes who lives there renounces to dream of a different life... where the non-local is called &quot;Forestieru&quot; but where the initial mistrust is transformed, with human sincerity, in courtesy, welcome and familiarity.&lt;/p&gt;
 &lt;/div&gt;
