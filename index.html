@@ -1259,56 +1259,54 @@ or is it the third ?
   background: #f8f5ef !important;
   padding: 15px !important;
   margin: 20px 0 !important;
-  transform: rotate(-1.5deg) !important;
+  transform: rotate(-2deg) !important;
   font-family: &#39;Times New Roman&#39;, serif !important;
+  font-size: 0.55em !important;
+  line-height: 1.2 !important;
   color: #1a1a1a !important;
-  width: 380px !important;
-  height: 250px !important;
+  max-width: 320px !important;
   float: right !important;
   margin-left: 20px !important;
   cursor: pointer !important;
   transition: transform 0.2s ease !important;
   overflow: hidden !important;
-  position: relative !important;
 }
 
 .article-embed:hover {
-  transform: rotate(-1.5deg) scale(1.02) !important;
+  transform: rotate(-2deg) scale(1.02) !important;
 }
 
-.falling-word {
-  position: absolute !important;
+.article-header {
+  font-weight: bold !important;
+  font-size: 0.9em !important;
+  margin-bottom: 10px !important;
+  color: #1a1a1a !important;
+  letter-spacing: 0.3px !important;
+  text-transform: uppercase !important;
+  text-align: center !important;
+}
+
+.falling-text {
   margin: 0 !important;
-  padding: 0 !important;
-  line-height: 1 !important;
+  color: #1a1a1a !important;
   font-weight: normal !important;
 }
 
-.w1 { top: 10px; left: 20px; font-size: 14px; }
-.w2 { top: 25px; left: 100px; font-size: 11px; transform: rotate(-3deg); }
-.w3 { top: 35px; left: 50px; font-size: 16px; font-weight: bold; }
-.w4 { top: 45px; left: 150px; font-size: 9px; }
-.w5 { top: 55px; left: 80px; font-size: 13px; transform: rotate(7deg); }
-.w6 { top: 60px; left: 200px; font-size: 12px; }
-.w7 { top: 70px; left: 30px; font-size: 10px; font-style: italic; }
-.w8 { top: 75px; left: 180px; font-size: 15px; }
-.w9 { top: 85px; left: 60px; font-size: 8px; transform: rotate(-5deg); }
-.w10 { top: 90px; left: 250px; font-size: 11px; }
-.w11 { top: 100px; left: 40px; font-size: 13px; }
-.w12 { top: 105px; left: 140px; font-size: 9px; transform: rotate(4deg); }
-.w13 { top: 115px; left: 90px; font-size: 12px; font-weight: bold; }
-.w14 { top: 120px; left: 220px; font-size: 10px; }
-.w15 { top: 130px; left: 70px; font-size: 14px; font-style: italic; }
-.w16 { top: 135px; left: 160px; font-size: 8px; }
-.w17 { top: 145px; left: 30px; font-size: 11px; transform: rotate(-8deg); }
-.w18 { top: 150px; left: 200px; font-size: 13px; }
-.w19 { top: 160px; left: 110px; font-size: 9px; }
-.w20 { top: 165px; left: 260px; font-size: 12px; transform: rotate(6deg); }
-.w21 { top: 175px; left: 50px; font-size: 10px; }
-.w22 { top: 180px; left: 170px; font-size: 15px; font-weight: bold; }
-.w23 { top: 190px; left: 80px; font-size: 8px; font-style: italic; }
-.w24 { top: 195px; left: 240px; font-size: 11px; }
-.w25 { top: 205px; left: 40px; font-size: 13px; transform: rotate(-4deg); }
+.line-1 { margin-left: 0px !important; margin-bottom: 3px !important; }
+.line-2 { margin-left: 25px !important; margin-bottom: 4px !important; }
+.line-3 { margin-left: 8px !important; margin-bottom: 2px !important; }
+.line-4 { margin-left: 35px !important; margin-bottom: 5px !important; }
+.line-5 { margin-left: 15px !important; margin-bottom: 3px !important; }
+.line-6 { margin-left: 5px !important; margin-bottom: 4px !important; }
+.line-7 { margin-left: 30px !important; margin-bottom: 2px !important; }
+.line-8 { margin-left: 12px !important; margin-bottom: 6px !important; }
+.line-9 { margin-left: 40px !important; margin-bottom: 3px !important; }
+.line-10 { margin-left: 20px !important; margin-bottom: 4px !important; }
+
+.article-location {
+  font-weight: bold !important;
+  font-style: italic !important;
+}
 &lt;/style&gt;
 
 &lt;script&gt;
@@ -1328,31 +1326,31 @@ document.documentElement.style.overflow = &#39;auto&#39;;
 Brown-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked over-head. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet.
 
 &lt;div class=&quot;article-embed&quot; onclick=&quot;window.open(&#39;https://edgeofhumanity.com/2018/08/15/italy-14/&#39;, &#39;_blank&#39;)&quot;&gt;
-  &lt;span class=&quot;falling-word w1&quot;&gt;Nardodipace&lt;/span&gt;
-  &lt;span class=&quot;falling-word w2&quot;&gt;considered&lt;/span&gt;
-  &lt;span class=&quot;falling-word w3&quot;&gt;poorest&lt;/span&gt;
-  &lt;span class=&quot;falling-word w4&quot;&gt;comune&lt;/span&gt;
-  &lt;span class=&quot;falling-word w5&quot;&gt;Italy&lt;/span&gt;
-  &lt;span class=&quot;falling-word w6&quot;&gt;1,000&lt;/span&gt;
-  &lt;span class=&quot;falling-word w7&quot;&gt;inhabitants&lt;/span&gt;
-  &lt;span class=&quot;falling-word w8&quot;&gt;distributed&lt;/span&gt;
-  &lt;span class=&quot;falling-word w9&quot;&gt;small&lt;/span&gt;
-  &lt;span class=&quot;falling-word w10&quot;&gt;cities&lt;/span&gt;
-  &lt;span class=&quot;falling-word w11&quot;&gt;place&lt;/span&gt;
-  &lt;span class=&quot;falling-word w12&quot;&gt;perceive&lt;/span&gt;
-  &lt;span class=&quot;falling-word w13&quot;&gt;ancient&lt;/span&gt;
-  &lt;span class=&quot;falling-word w14&quot;&gt;simplicity&lt;/span&gt;
-  &lt;span class=&quot;falling-word w15&quot;&gt;gestures&lt;/span&gt;
-  &lt;span class=&quot;falling-word w16&quot;&gt;time&lt;/span&gt;
-  &lt;span class=&quot;falling-word w17&quot;&gt;precious&lt;/span&gt;
-  &lt;span class=&quot;falling-word w18&quot;&gt;farmers&lt;/span&gt;
-  &lt;span class=&quot;falling-word w19&quot;&gt;work&lt;/span&gt;
-  &lt;span class=&quot;falling-word w20&quot;&gt;land&lt;/span&gt;
-  &lt;span class=&quot;falling-word w21&quot;&gt;severe&lt;/span&gt;
-  &lt;span class=&quot;falling-word w22&quot;&gt;cruel&lt;/span&gt;
-  &lt;span class=&quot;falling-word w23&quot;&gt;love&lt;/span&gt;
-  &lt;span class=&quot;falling-word w24&quot;&gt;strong&lt;/span&gt;
-  &lt;span class=&quot;falling-word w25&quot;&gt;Forestieru&lt;/span&gt;
+  &lt;div class=&quot;article-header&quot;&gt;Edge of Humanity Magazine&lt;/div&gt;
+  &lt;p class=&quot;falling-text line-1&quot;&gt;&lt;span class=&quot;article-location&quot;&gt;Nardodipace, Italy&lt;/span&gt; — Considered one of the&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-2&quot;&gt;poorest comune in Italy, Nardodipace has just&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-3&quot;&gt;more than 1,000 inhabitants distributed&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-4&quot;&gt;in 5 small cities (Cassari, Ragonà,&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-5&quot;&gt;Vecchio Abitato, Santo Todaro, Ciano).&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-6&quot;&gt;A place where one can still perceive an&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-7&quot;&gt;ancient simplicity in everyday gestures.&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-8&quot;&gt;Time is precious here, inhabited mostly&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-9&quot;&gt;by humble farmers who work a land&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-10&quot;&gt;that is often severe, sometimes cruel.&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-1&quot;&gt;The love for the land is so strong that&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-3&quot;&gt;sometimes who lives there renounces to&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-5&quot;&gt;dream of a different life, even cursing&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-7&quot;&gt;himself for the too many lives he has&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-9&quot;&gt;taken away, but also because of the&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-2&quot;&gt;isolation forced by difficulty, unsavory&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-4&quot;&gt;and abandoned roads. Shaking hands&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-6&quot;&gt;and the word given is more valuable&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-8&quot;&gt;than anything else: a place where the&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-10&quot;&gt;non-local is called &quot;Forestieru&quot; but&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-1&quot;&gt;where the initial mistrust is transformed,&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-3&quot;&gt;with human sincerity, in courtesy,&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-5&quot;&gt;welcome and familiarity, with a great&lt;/p&gt;
+  &lt;p class=&quot;falling-text line-7&quot;&gt;desire to tell and be heard.&lt;/p&gt;
 &lt;/div&gt;
 
 She lies on a beach chair and tells you that he has gone to find [[other villagers]] on the beach for you to meet.</tw-passagedata><tw-passagedata pid="19" name="other villagers" tags="" position="600,1975" size="100,100">&lt;!-- Brackets with Rotation --&gt;
