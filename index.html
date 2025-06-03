@@ -801,7 +801,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
+  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden; opacity: 0;&quot;&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;/span&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine.&lt;/span&gt;
@@ -833,22 +833,28 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   // Animation code - Use CSS animation instead of JavaScript
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   
-  // Create CSS animation dynamically
+  // Create CSS animation dynamically - slower and smoother
   var style = document.createElement(&#39;style&#39;);
   style.textContent = `
     @keyframes slowRiseUp {
       0% { 
         transform: translateY(0px); 
+        opacity: 0;
+      }
+      2% {
+        opacity: 1;
+      }
+      98% {
         opacity: 1;
       }
       100% { 
         transform: translateY(-${window.innerHeight + 1500}px); 
-        opacity: 0.8;
+        opacity: 0;
       }
     }
     
     #buttery-smooth-paragraph {
-      animation: slowRiseUp 120s linear forwards !important;
+      animation: slowRiseUp 200s ease-out forwards !important;
     }
   `;
   document.head.appendChild(style);
@@ -875,75 +881,17 @@ passage.style.top = &quot;50%&quot;;
 passage.style.left = &quot;50%&quot;;
 passage.style.transform = &quot;translate(-50%, -50%)&quot;;
 passage.style.backgroundColor = &quot;transparent&quot;;
-passage.style.boxShadow = &quot;none&quot;;
-passage.style.border = &quot;none&quot;;
-passage.style.padding = &quot;0&quot;;
 passage.style.fontSize = &quot;0.75em&quot;; 
 passage.style.color = &quot;#000000&quot;;
-passage.style.textShadow = &quot;none&quot;;
-passage.style.lineHeight = &quot;1.7&quot;;
 passage.style.textAlign = &quot;center&quot;;
-passage.style.margin = &quot;0&quot;;
-passage.style.overflow = &quot;visible&quot;;
 passage.style.display = &quot;flex&quot;; 
 passage.style.flexDirection = &quot;column&quot;; 
 passage.style.justifyContent = &quot;center&quot;;
-
-// Fix hyperlinks
-var links = passage.querySelectorAll(&#39;a&#39;);
-for (var i = 0; i &lt; links.length; i++) {
-    links[i].style.color = &quot;#3C3633&quot;;
-    links[i].style.fontWeight = &quot;bold&quot;;
-    links[i].style.textDecoration = &quot;none&quot;;
-    links[i].style.marginTop = &quot;10px&quot;;
-    links[i].style.marginBottom = &quot;10px&quot;;
-    links[i].style.display = &quot;inline&quot;;
-}
-
-// Fix back button positioning
-var sidebar = document.querySelector(&#39;tw-sidebar&#39;);
-if (sidebar) {
-    sidebar.style.position = &quot;fixed&quot;;
-    sidebar.style.top = &quot;30px&quot;;
-    sidebar.style.left = &quot;50px&quot;;
-    sidebar.style.zIndex = &quot;9999&quot;;
-    sidebar.style.width = &quot;auto&quot;;
-    sidebar.style.height = &quot;auto&quot;;
-    sidebar.style.backgroundColor = &quot;transparent&quot;;
-}
-
-// Ensure back button is visible and properly aligned
-var backButton = document.querySelector(&#39;tw-sidebar [role=button]&#39;);
-if (backButton) {
-    backButton.style.position = &quot;relative&quot;;
-    backButton.style.left = &quot;0&quot;;
-    backButton.style.top = &quot;0&quot;;
-    backButton.style.margin = &quot;5px&quot;;
-    backButton.style.padding = &quot;5px&quot;;
-    backButton.style.visibility = &quot;visible&quot;;
-    backButton.style.opacity = &quot;1&quot;;
-    backButton.style.pointerEvents = &quot;auto&quot;;
-}
-
-// Ensure passage is visible (remove any opacity issues)
-passage.style.opacity = &quot;1&quot;;
-passage.style.visibility = &quot;visible&quot;;
 &lt;/script&gt;
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
 She walks in mid-vomit and comforts you with words that feel-are familiar.
 Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends.
-[[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]
-&lt;script&gt;
-// Remove page scroll
-document.body.style.overflow = &#39;hidden&#39;;
-document.documentElement.style.overflow = &#39;hidden&#39;;
-
-// Clean up when leaving passage
-window.addEventListener(&#39;beforeunload&#39;, function() {
-  document.body.style.overflow = &#39;&#39;;
-  document.documentElement.style.overflow = &#39;&#39;;
-});
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="looks up to ask for something..." tags="background3" position="600,2850" size="100,100">&lt;script&gt;
+[[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]</tw-passagedata><tw-passagedata pid="12" name="looks up to ask for something..." tags="background3" position="600,2850" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
   var passage = document.querySelector(&#39;tw-passage&#39;);
   var story = document.querySelector(&#39;tw-story&#39;);
