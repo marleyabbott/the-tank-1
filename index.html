@@ -1206,7 +1206,15 @@ The tank is cut in half and then turned on its side. There is no overflowing the
 
 But she sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. 
 
-That’s the problem with Sacrifice. You realise she wonders the same thing.</tw-passagedata><tw-passagedata pid="16" name="By the morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&lt;style&gt;
+That’s the problem with Sacrifice. You realise she wonders the same thing.
+&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="By the morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/timelines.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
