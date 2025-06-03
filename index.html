@@ -799,8 +799,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.body.style.overflow = &#39;&#39;;
   document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">
-&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
   &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
@@ -826,23 +825,30 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
   document.querySelector(&#39;tw-passage&#39;).style.overflow = &quot;hidden&quot;;
   
-  // Animation code - Much faster now!
+  // Animation code - Slow drift upward
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
-  var duration = 120000;  // Back to 120 seconds (2 minutes) - very slow like original
+  var duration = 120000;  // 120 seconds (2 minutes) - very slow
   var startY = 0;
-  var endY = -(paragraph.offsetHeight + window.innerHeight + 500); // Move way past the top with huge buffer
   
   function animateText(timestamp) {
     if (!startTime) startTime = timestamp;
     var elapsed = timestamp - startTime;
     var progress = Math.min(elapsed / duration, 1);
     
+    // Calculate end position dynamically each frame to ensure accuracy
+    var viewportHeight = window.innerHeight;
+    var elementHeight = paragraph.offsetHeight;
+    var endY = -(elementHeight + viewportHeight + 100); // Move completely off screen
+    
     // Use easeOut for more natural smoke-like movement
-    var easeProgress = 1 - Math.pow(1 - progress, 2);
+    var easeProgress = 1 - Math.pow(1 - progress, 3); // Changed to cubic for even slower start
     
     var yPosition = startY + (easeProgress * (endY - startY));
     paragraph.style.transform = &#39;translateY(&#39; + yPosition + &#39;px)&#39;;
+    
+    // Debug: uncomment to see values
+    // console.log(&#39;Progress:&#39;, progress.toFixed(3), &#39;Y:&#39;, yPosition.toFixed(1), &#39;EndY:&#39;, endY);
     
     if (progress &lt; 1) {
       window.requestAnimationFrame(animateText);
@@ -857,6 +863,10 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   
   window.requestAnimationFrame(animateText);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
+// Hide passage initially to prevent glitch
+var passage = document.querySelector(&#39;tw-passage&#39;);
+passage.style.opacity = &quot;0&quot;;
+
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
@@ -865,7 +875,6 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fi
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
 
 // LANDSCAPE text positioning with fixes
-var passage = document.querySelector(&#39;tw-passage&#39;);
 passage.style.width = &quot;60%&quot;; 
 passage.style.height = &quot;250px&quot;; 
 passage.style.position = &quot;absolute&quot;; 
@@ -922,15 +931,13 @@ if (backButton) {
     backButton.style.opacity = &quot;1&quot;;
     backButton.style.pointerEvents = &quot;auto&quot;;
 }
-&lt;/script&gt;
 
-You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
-
-She walks in mid-vomit and comforts you with words that feel-are familiar.
-
-Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends.
-
-[[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]</tw-passagedata><tw-passagedata pid="12" name="looks up to ask for something..." tags="background3" position="600,2850" size="100,100">&lt;script&gt;
+// Show passage with smooth fade-in after all styling is complete
+setTimeout(function() {
+    passage.style.transition = &quot;opacity 0.3s ease&quot;;
+    passage.style.opacity = &quot;1&quot;;
+}, 50);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="looks up to ask for something..." tags="background3" position="600,2850" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
   var passage = document.querySelector(&#39;tw-passage&#39;);
   var story = document.querySelector(&#39;tw-story&#39;);
