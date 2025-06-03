@@ -833,7 +833,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   // Animation code - Use CSS animation instead of JavaScript
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   
-  // Create CSS animation dynamically
+  // Create CSS animation dynamically - use a fixed large distance
   var style = document.createElement(&#39;style&#39;);
   style.textContent = `
     @keyframes slowRiseUp {
@@ -842,7 +842,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
         opacity: 1;
       }
       100% { 
-        transform: translateY(-${window.innerHeight + 500}px); 
+        transform: translateY(-3000px); 
         opacity: 0.8;
       }
     }
