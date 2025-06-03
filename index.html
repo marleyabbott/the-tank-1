@@ -873,12 +873,59 @@ passage.style.top = &quot;50%&quot;;
 passage.style.left = &quot;50%&quot;;
 passage.style.transform = &quot;translate(-50%, -50%)&quot;;
 passage.style.backgroundColor = &quot;transparent&quot;;
+passage.style.boxShadow = &quot;none&quot;;
+passage.style.border = &quot;none&quot;;
+passage.style.padding = &quot;0&quot;;
 passage.style.fontSize = &quot;0.75em&quot;; 
 passage.style.color = &quot;#000000&quot;;
+passage.style.textShadow = &quot;none&quot;;
+passage.style.lineHeight = &quot;1.7&quot;;
 passage.style.textAlign = &quot;center&quot;;
+passage.style.margin = &quot;0&quot;;
+passage.style.overflow = &quot;visible&quot;;
 passage.style.display = &quot;flex&quot;; 
 passage.style.flexDirection = &quot;column&quot;; 
 passage.style.justifyContent = &quot;center&quot;;
+
+// Fix hyperlinks
+var links = passage.querySelectorAll(&#39;a&#39;);
+for (var i = 0; i &lt; links.length; i++) {
+    links[i].style.color = &quot;#3C3633&quot;;
+    links[i].style.fontWeight = &quot;bold&quot;;
+    links[i].style.textDecoration = &quot;none&quot;;
+    links[i].style.marginTop = &quot;10px&quot;;
+    links[i].style.marginBottom = &quot;10px&quot;;
+    links[i].style.display = &quot;inline&quot;;
+}
+
+// Fix back button positioning
+var sidebar = document.querySelector(&#39;tw-sidebar&#39;);
+if (sidebar) {
+    sidebar.style.position = &quot;fixed&quot;;
+    sidebar.style.top = &quot;30px&quot;;
+    sidebar.style.left = &quot;50px&quot;;
+    sidebar.style.zIndex = &quot;9999&quot;;
+    sidebar.style.width = &quot;auto&quot;;
+    sidebar.style.height = &quot;auto&quot;;
+    sidebar.style.backgroundColor = &quot;transparent&quot;;
+}
+
+// Ensure back button is visible and properly aligned
+var backButton = document.querySelector(&#39;tw-sidebar [role=button]&#39;);
+if (backButton) {
+    backButton.style.position = &quot;relative&quot;;
+    backButton.style.left = &quot;0&quot;;
+    backButton.style.top = &quot;0&quot;;
+    backButton.style.margin = &quot;5px&quot;;
+    backButton.style.padding = &quot;5px&quot;;
+    backButton.style.visibility = &quot;visible&quot;;
+    backButton.style.opacity = &quot;1&quot;;
+    backButton.style.pointerEvents = &quot;auto&quot;;
+}
+
+// Ensure passage is visible
+passage.style.opacity = &quot;1&quot;;
+passage.style.visibility = &quot;visible&quot;;
 &lt;/script&gt;
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea that the remedial massage therapist you used to date taught you. You press down on your right wrist with your left thumb.
 She walks in mid-vomit and comforts you with words that feel-are familiar.
