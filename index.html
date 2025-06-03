@@ -799,65 +799,81 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.body.style.overflow = &#39;&#39;;
   document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
-&lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
-  &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
- &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
- &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;/span&gt;
- &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;Before talk there is sugo and melone and formaggio sliced thinly and a bottle of homemade red wine.&lt;/span&gt;
- &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;You decline. You retract. You are drunk.&lt;/span&gt;
- &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up.&lt;/span&gt;
- &lt;span style=&quot;display: block; margin-bottom: 15px; text-align: center;&quot;&gt;[[Bile tainted with track changes.]]&lt;/span&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;script&gt;
-  // FORCE prevent scrolling with high specificity
-  document.body.style.setProperty(&#39;overflow&#39;, &#39;hidden&#39;, &#39;important&#39;);
-  document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;hidden&#39;, &#39;important&#39;);
-  
-  // Override passage-specific CSS that might interfere
-  var passage = document.querySelector(&#39;tw-passage&#39;);
-  passage.style.setProperty(&#39;overflow&#39;, &#39;hidden&#39;, &#39;important&#39;);
-  passage.style.setProperty(&#39;padding-bottom&#39;, &#39;0&#39;, &#39;important&#39;);
-  passage.style.setProperty(&#39;height&#39;, &#39;100vh&#39;, &#39;important&#39;);
-  
-  // Simply set background just for this passage
-  document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
-  document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
-  
-  // Make sure passage has transparent background
-  passage.style.backgroundColor = &quot;transparent&quot;;
-  
-  // Animation code - Use CSS animation instead of JavaScript
-  var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
-  
-  // Create CSS animation dynamically - much slower and different approach
-  var style = document.createElement(&#39;style&#39;);
-  style.textContent = `
-    @keyframes slowRiseUp {
-      0% { 
-        top: 20px; 
-        opacity: 1;
-      }
-      100% { 
-        top: -100vh; 
-        opacity: 1;
-      }
-    }
-    
-    #buttery-smooth-paragraph {
-      animation: slowRiseUp 180s linear forwards !important;
-    }
-  `;
-  document.head.appendChild(style);
-  
-  // Optional: Clean up scroll prevention when leaving passage
-  window.addEventListener(&#39;beforeunload&#39;, function() {
-    document.body.style.overflow = &#39;&#39;;
-    document.documentElement.style.overflow = &#39;&#39;;
-  });
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;script&gt;
+// Hide passage initially to prevent glitch
+var passage = document.querySelector(&#39;tw-passage&#39;);
+passage.style.opacity = &quot;0&quot;;
+
+// Force background image for this passage only
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
+
+// LANDSCAPE text positioning with fixes
+passage.style.width = &quot;60%&quot;; 
+passage.style.height = &quot;250px&quot;; 
+passage.style.position = &quot;absolute&quot;; 
+passage.style.top = &quot;50%&quot;; 
+passage.style.left = &quot;50%&quot;;
+passage.style.transform = &quot;translate(-50%, -50%)&quot;;
+passage.style.backgroundColor = &quot;transparent&quot;;
+passage.style.boxShadow = &quot;none&quot;;
+passage.style.border = &quot;none&quot;;
+passage.style.padding = &quot;0&quot;;
+passage.style.fontSize = &quot;0.75em&quot;; 
+passage.style.color = &quot;#000000&quot;;
+passage.style.textShadow = &quot;none&quot;;
+passage.style.lineHeight = &quot;1.7&quot;;
+passage.style.textAlign = &quot;center&quot;;
+passage.style.margin = &quot;0&quot;;
+passage.style.overflow = &quot;visible&quot;;
+passage.style.display = &quot;flex&quot;; 
+passage.style.flexDirection = &quot;column&quot;; 
+passage.style.justifyContent = &quot;center&quot;;
+
+// Fix hyperlinks
+var links = passage.querySelectorAll(&#39;a&#39;);
+for (var i = 0; i &lt; links.length; i++) {
+    links[i].style.color = &quot;#3C3633&quot;;
+    links[i].style.fontWeight = &quot;bold&quot;;
+    links[i].style.textDecoration = &quot;none&quot;;
+    links[i].style.marginTop = &quot;10px&quot;;
+    links[i].style.marginBottom = &quot;10px&quot;;
+    links[i].style.display = &quot;inline&quot;;
+}
+
+// Fix back button positioning
+var sidebar = document.querySelector(&#39;tw-sidebar&#39;);
+if (sidebar) {
+    sidebar.style.position = &quot;fixed&quot;;
+    sidebar.style.top = &quot;30px&quot;;
+    sidebar.style.left = &quot;50px&quot;;
+    sidebar.style.zIndex = &quot;9999&quot;;
+    sidebar.style.width = &quot;auto&quot;;
+    sidebar.style.height = &quot;auto&quot;;
+    sidebar.style.backgroundColor = &quot;transparent&quot;;
+}
+
+// Ensure back button is visible and properly aligned
+var backButton = document.querySelector(&#39;tw-sidebar [role=button]&#39;);
+if (backButton) {
+    backButton.style.position = &quot;relative&quot;;
+    backButton.style.left = &quot;0&quot;;
+    backButton.style.top = &quot;0&quot;;
+    backButton.style.margin = &quot;5px&quot;;
+    backButton.style.padding = &quot;5px&quot;;
+    backButton.style.visibility = &quot;visible&quot;;
+    backButton.style.opacity = &quot;1&quot;;
+    backButton.style.pointerEvents = &quot;auto&quot;;
+}
+
+// Show passage with smooth fade-in after all styling is complete
+setTimeout(function() {
+    passage.style.transition = &quot;opacity 0.3s ease&quot;;
+    passage.style.opacity = &quot;1&quot;;
+}, 50);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
 // Force background image for this passage only
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/soccerborder.jpg&#39;)&quot;;
