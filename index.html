@@ -724,7 +724,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 (after: 8s)[
   (replace: ?fadeOut)[]
   (goto: &quot;bed&quot;)
-]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Simple Snowfall Passage with background and minimal formatting --&gt;
+]</tw-passagedata><tw-passagedata pid="10" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
   &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
  &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
@@ -736,6 +736,10 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;script&gt;
+  // Prevent scrolling on this passage
+  document.body.style.overflow = &#39;hidden&#39;;
+  document.documentElement.style.overflow = &#39;hidden&#39;;
+  
   // Simply set background just for this passage
   document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/sky.jpg&#39;)&quot;;
   document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
@@ -744,26 +748,36 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
   
   // Make sure passage has transparent background
   document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
+  document.querySelector(&#39;tw-passage&#39;).style.overflow = &quot;hidden&quot;;
   
-  // Animation code
+  // Animation code - Much faster now!
   var paragraph = document.getElementById(&#39;buttery-smooth-paragraph&#39;);
   var startTime = null;
-  var duration = 120000;  // 120 seconds in milliseconds
+  var duration = 15000;  // 15 seconds instead of 120 seconds
   var startY = 0;
-  var endY = window.innerHeight - paragraph.offsetHeight - 50;
+  var endY = -(paragraph.offsetHeight + 100); // Move completely off screen upward
   
   function animateText(timestamp) {
     if (!startTime) startTime = timestamp;
     var elapsed = timestamp - startTime;
     var progress = Math.min(elapsed / duration, 1);
     
-    var yPosition = startY + (progress * (endY - startY));
+    // Use easeOut for more natural smoke-like movement
+    var easeProgress = 1 - Math.pow(1 - progress, 2);
+    
+    var yPosition = startY + (easeProgress * (endY - startY));
     paragraph.style.transform = &#39;translateY(&#39; + yPosition + &#39;px)&#39;;
     
     if (progress &lt; 1) {
       window.requestAnimationFrame(animateText);
     }
   }
+  
+  // Optional: Clean up scroll prevention when leaving passage
+  window.addEventListener(&#39;beforeunload&#39;, function() {
+    document.body.style.overflow = &#39;&#39;;
+    document.documentElement.style.overflow = &#39;&#39;;
+  });
   
   window.requestAnimationFrame(animateText);
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="11" name="Bile tainted with track changes." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
