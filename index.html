@@ -733,32 +733,29 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
 // Reset background ONLY - no text styling
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 &lt;/script&gt;
-
 |fadeOut&gt;[
-  &lt;div class=&quot;image-text-container fade-target&quot;&gt;
-    &lt;img src=&quot;images/tankbottle.jpg&quot; alt=&quot;Old water tank&quot; class=&quot;side-image&quot; /&gt;
-    &lt;div class=&quot;text-block&quot;&gt;
-      &lt;p&gt;With no fridge to store food, they only ate shelf-staple food. On the one day your Nonno splashed out and bought meat, your Nonna ruined the dish because she couldn&#39;t read English on the bottle labelled, &#39;sweet and sour sauce&#39;.&lt;/p&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+ &lt;div class=&quot;image-text-container fade-target&quot; style=&quot;display: flex !important; align-items: flex-start !important; gap: 2rem !important; flex-wrap: nowrap !important;&quot;&gt;
+   &lt;img src=&quot;images/tankbottle.jpg&quot; alt=&quot;Old water tank&quot; class=&quot;side-image&quot; style=&quot;width: 350px !important; flex-shrink: 0 !important;&quot; /&gt;
+   &lt;div class=&quot;text-block&quot; style=&quot;flex: 1 !important;&quot;&gt;
+     &lt;p&gt;With no fridge to store food, they only ate shelf-staple food. On the one day your Nonno splashed out and bought meat, your Nonna ruined the dish because she couldn&#39;t read English on the bottle labelled, &#39;sweet and sour sauce&#39;.&lt;/p&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
 ]
 (after: 4s)[
-  (enchant: ?fadeOut, (css: &quot;animation: fadeOut 3s ease forwards;&quot;))
+ (enchant: ?fadeOut, (css: &quot;animation: fadeOut 3s ease forwards;&quot;))
 ]
-
 (after: 8s)[
-  (replace: ?fadeOut)[]
-  (goto: &quot;bed&quot;)
+ (replace: ?fadeOut)[]
+ (goto: &quot;bed&quot;)
 ]
 &lt;script&gt;
 // Remove page scroll
 document.body.style.overflow = &#39;hidden&#39;;
 document.documentElement.style.overflow = &#39;hidden&#39;;
-
 // Clean up when leaving passage
 window.addEventListener(&#39;beforeunload&#39;, function() {
-  document.body.style.overflow = &#39;&#39;;
-  document.documentElement.style.overflow = &#39;&#39;;
+ document.body.style.overflow = &#39;&#39;;
+ document.documentElement.style.overflow = &#39;&#39;;
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
