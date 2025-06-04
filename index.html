@@ -1342,7 +1342,18 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 // Force override the persistent scroll blocking from previous passages
 document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
 document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;style&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;script&gt;
+// Force clear any previous background images
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+// Small delay to ensure clearing takes effect
+setTimeout(() =&gt; {
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract2.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+}, 50);
+&lt;/script&gt;
+
+&lt;style&gt;
 tw-story {
   background: url(&#39;images/abstract2.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1350,24 +1361,34 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
+
+/* Force override any previous background styling */
+body, html {
+  background: none !important;
+}
 &lt;/style&gt;
 
-In the village where your mother was born, heat is not arid or tropical but something else - something to do with the Mediterranean, with belief, with time moving at the speed of stories. You sit on a rock alongside the river at the mountain&#39;s base while Zio pokes his pear tree with a stick, beckoning them to fall. You crawl on overgrown grass to collect pears in a Carrefour bag he holds open. 
+&lt;div class=&quot;passage-content&quot;&gt;
+&lt;p&gt;In the village where your mother was born, heat is not arid or tropical but something else - something to do with the Mediterranean, with belief, with time moving at the speed of stories. You sit on a rock alongside the river at the mountain&#39;s base while Zio pokes his pear tree with a stick, beckoning them to fall. You crawl on overgrown grass to collect pears in a Carrefour bag he holds open.&lt;/p&gt;
 
-You eat. You press down on your wrist searching for the pressure point. [[Fuck it– you cry.]] 
+&lt;p&gt;You eat. You press down on your wrist searching for the pressure point. &lt;strong&gt;[[Fuck it– you cry.]]&lt;/strong&gt;&lt;/p&gt;
 
-Saltwater creates scales on your palms. Black stains on feet you&#39;re not sure will ever come out. You scale between *male* and *bene*. [[You pendulum back and forth ten times in an hour.]]
+&lt;p&gt;Saltwater creates scales on your palms. Black stains on feet you&#39;re not sure will ever come out. You scale between &lt;em&gt;male&lt;/em&gt; and &lt;em&gt;bene&lt;/em&gt;. &lt;strong&gt;[[You pendulum back and forth ten times in an hour.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
 
-/* styling- maps, travel, timelines connecting, mess */
-&lt;style&gt;
-tw-story {
-  background: url(&#39;images/timelines.jpg&#39;) center center / cover no-repeat fixed !important;
-  background-color: transparent !important;
-}
-tw-passage {
-  background: transparent !important;
-}
-&lt;/style&gt;</tw-passagedata><tw-passagedata pid="20" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;style&gt;
+&lt;script&gt;
+// Additional backup method - force reapply background after content loads
+window.addEventListener(&#39;load&#39;, function() {
+  const story = document.querySelector(&#39;tw-story&#39;);
+  if (story) {
+    story.style.setProperty(&#39;background-image&#39;, &#39;url(&quot;images/abstract2.jpg&quot;)&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-size&#39;, &#39;cover&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-position&#39;, &#39;center center&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-repeat&#39;, &#39;no-repeat&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
+  }
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="20" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;style&gt;
 /* Force zero spacing on everything */
 * {
  margin: 0 !important;
@@ -1482,7 +1503,7 @@ Too exhausted to find the translation that says you hope you will see her again.
 
 /* things moving, animation, images from australia and italy, childhood, childhood mum photos, maps, timelines connecting, cahos */</tw-passagedata><tw-passagedata pid="22" name="nothing but faith." tags="" position="600,2600" size="100,100">You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with [[another last goodbye]] fighting its way out of your lap.
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="23" name="another last goodbye" tags="" position="600,2725" size="100,100">When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes. [[She never saw him again.]]
+/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="23" name="another last goodbye" tags="" position="600,2725" size="100,100">When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes. 
 
 [[She never saw him again.]]
 
