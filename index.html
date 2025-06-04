@@ -1578,9 +1578,133 @@ Too exhausted to find the translation that says you hope you will see her again.
 
 [[She never saw him again.]]
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="24" name="She never saw him again." tags="" position="600,2850" size="100,100">They take you to the cemetery. You sign across your chests. She kicks gravel stones with her toes, mutters prayers under her breath. Plotting DNA across the dirt floor, bones turned stone, heat insisting in open-mouthed heavy heaps of exhale. You pick dead petals from the flowers on the graves. More buried on this mountain than living. Another no-produce year for the olive fields. She looks up to the sky, [[looks up to ask for something...]]
+/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="24" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
+.concrete-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  padding: 40px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000;
+}
 
-/* Need to decide on styling and how to connect to the messy table, or if this even is the right passage to connect to the table */</tw-passagedata><tw-passagedata pid="25" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
+.line {
+  margin-bottom: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.line-1 { text-align: left; }
+.line-2 { text-align: left; margin-left: 20px; }
+.line-3 { text-align: left; margin-left: 10px; }
+.line-4 { text-align: left; margin-left: 40px; }
+.line-5 { text-align: left; margin-left: 60px; }
+
+/* Text starts breaking apart here */
+.breaking-1 { 
+  text-align: left; 
+  margin-left: 80px; 
+  word-spacing: 3px;
+}
+
+.breaking-2 { 
+  text-align: left; 
+  margin-left: 120px; 
+  word-spacing: 8px;
+  letter-spacing: 1px;
+}
+
+.breaking-3 { 
+  text-align: left; 
+  margin-left: 100px; 
+  word-spacing: 15px;
+  letter-spacing: 2px;
+}
+
+/* Individual scattered words */
+.scattered-word {
+  position: absolute;
+  font-size: 1rem;
+  color: #333;
+}
+
+.word-1 { top: 480px; left: 140px; }
+.word-2 { top: 520px; left: 240px; }
+.word-3 { top: 500px; left: 340px; }
+.word-4 { top: 560px; left: 180px; }
+.word-5 { top: 540px; left: 380px; }
+.word-6 { top: 600px; left: 120px; }
+.word-7 { top: 580px; left: 320px; }
+.word-8 { top: 640px; left: 200px; }
+.word-9 { top: 620px; left: 400px; }
+.word-10 { top: 680px; left: 160px; }
+.word-11 { top: 660px; left: 280px; }
+.word-12 { top: 720px; left: 220px; }
+.word-13 { top: 700px; left: 360px; }
+.word-14 { top: 760px; left: 140px; }
+.word-15 { top: 740px; left: 320px; }
+.word-16 { top: 800px; left: 180px; }
+.word-17 { top: 780px; left: 380px; }
+.word-18 { top: 840px; left: 240px; }
+.word-19 { top: 820px; left: 300px; }
+
+.final-line {
+  position: absolute;
+  top: 900px;
+  left: 200px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Hover effects for interactivity */
+.scattered-word:hover,
+.line:hover {
+  color: #666;
+  cursor: pointer;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;concrete-container&quot;&gt;
+  &lt;!-- Text starts normally structured --&gt;
+  &lt;div class=&quot;line line-1&quot;&gt;They take you to the cemetery. You sign across your chests.&lt;/div&gt;
+  &lt;div class=&quot;line line-2&quot;&gt;She kicks gravel stones with her toes, mutters prayers under her breath.&lt;/div&gt;
+  &lt;div class=&quot;line line-3&quot;&gt;Plotting DNA across the dirt floor,&lt;/div&gt;
+  &lt;div class=&quot;line line-4&quot;&gt;bones turned stone,&lt;/div&gt;
+  &lt;div class=&quot;line line-5&quot;&gt;heat insisting in open-mouthed heavy heaps of exhale.&lt;/div&gt;
+  
+  &lt;!-- Text starts breaking apart --&gt;
+  &lt;div class=&quot;line breaking-1&quot;&gt;You pick dead petals from the flowers&lt;/div&gt;
+  &lt;div class=&quot;line breaking-2&quot;&gt;on the graves.&lt;/div&gt;
+  &lt;div class=&quot;line breaking-3&quot;&gt;More buried on this mountain&lt;/div&gt;
+  
+  &lt;!-- Individual scattered words falling down the page --&gt;
+  &lt;div class=&quot;scattered-word word-1&quot;&gt;than&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-2&quot;&gt;living.&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-3&quot;&gt;Another&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-4&quot;&gt;no-produce&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-5&quot;&gt;year&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-6&quot;&gt;for&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-7&quot;&gt;the&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-8&quot;&gt;olive&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-9&quot;&gt;fields.&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-10&quot;&gt;She&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-11&quot;&gt;looks&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-12&quot;&gt;up&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-13&quot;&gt;to&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-14&quot;&gt;the&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-15&quot;&gt;sky,&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-16&quot;&gt;looks&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-17&quot;&gt;up&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-18&quot;&gt;to&lt;/div&gt;
+  &lt;div class=&quot;scattered-word word-19&quot;&gt;ask&lt;/div&gt;
+  
+  &lt;!-- Final interactive element --&gt;
+  &lt;div class=&quot;final-line&quot;&gt;&lt;strong&gt;[[for something...]]&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+</tw-passagedata><tw-passagedata pid="25" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/ending.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1673,7 +1797,7 @@ tw-story {
     &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
     &lt;p&gt;Dead end, turn back.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata></tw-storydata>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="for something..." tags="" position="725,2975" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
