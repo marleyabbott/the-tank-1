@@ -897,110 +897,7 @@ passage.style.visibility = &quot;visible&quot;;
 &lt;/script&gt;
 You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea. You press down on your right wrist with your left thumb, searching for the pressure point. You tell her you feel mela (apple) when you mean to say male (sick). She brings you a big plate of fruit and you force yourself to swallow. 
 
-She walks in mid-vomit and comforts you with words that feel– are familiar. Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends. [[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]</tw-passagedata><tw-passagedata pid="11" name="looks up to ask for something..." tags="background3" position="600,2975" size="100,100">&lt;script&gt;
-  // Only run this script if we&#39;re in the background3 passage
-  var passage = document.querySelector(&#39;tw-passage&#39;);
-  var story = document.querySelector(&#39;tw-story&#39;);
-  
-  // Check if this is the correct passage by looking at unique content or tags
-  if (passage &amp;&amp; passage.textContent.includes(&quot;letter.jpg&quot;) || story.getAttribute(&quot;tags&quot;).includes(&quot;background3&quot;)) {
-    console.log(&quot;Running background3 script&quot;);
-    
-    // Disable scrolling ONLY for this passage
-    document.body.style.overflow = &#39;hidden&#39;;
-    document.documentElement.style.overflow = &#39;hidden&#39;;
-    
-    // Store original scroll settings to restore later
-    var originalBodyOverflow = document.body.style.overflow;
-    var originalHtmlOverflow = document.documentElement.style.overflow;
-    
-    // First, set the background image
-    document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
-    document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
-    
-    // Make sure passage has transparent background
-    document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
-    
-    // Array of images to display
-    var images = [
-      &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
-      &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
-    ];
-    
-    var currentIndex = 0;
-    
-    // Function to show images one by one
-    function showImage() {
-      if (currentIndex &lt; images.length) {
-        // Create a new image element
-        var img = document.createElement(&#39;img&#39;);
-        img.src = &#39;images/&#39; + images[currentIndex];
-        img.className = &quot;tablecloth-image&quot;; // Add class for later cleanup
-        
-        // Set random positions
-        var top = Math.random() * 600 + &#39;px&#39;;
-        var left = Math.random() * 800 + &#39;px&#39;;
-        var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
-        
-        // Style the image
-        img.style.position = &#39;absolute&#39;;
-        img.style.top = top;
-        img.style.left = left;
-        img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
-        img.style.width = &#39;250px&#39;;
-        img.style.height = &#39;auto&#39;;
-        img.style.opacity = &#39;0&#39;;
-        img.style.transition = &#39;opacity 1s ease&#39;;
-        img.style.zIndex = &#39;5&#39;;
-        
-        // Add to page
-        document.body.appendChild(img);
-        
-        // Fade in
-        setTimeout(function() {
-          img.style.opacity = &#39;1&#39;;
-        }, 100);
-        
-        // Next image
-        currentIndex++;
-        setTimeout(showImage, 500);
-      }
-      // Removed the else block - let Harlowe handle the navigation
-    }
-    
-    // Start showing images
-    showImage();
-    
-    // Add event listener to restore scrolling when leaving this passage
-    document.addEventListener(&#39;tw-passagestart&#39;, function restoreScrolling() {
-      // Check if we&#39;re leaving the passage
-      var currentPassage = document.querySelector(&#39;tw-passage&#39;);
-      if (!currentPassage || !currentPassage.textContent.includes(&quot;letter.jpg&quot;)) {
-        // Restore original scroll settings
-        document.body.style.overflow = &#39;&#39;;
-        document.documentElement.style.overflow = &#39;&#39;;
-        
-        // Remove all added images
-        var images = document.querySelectorAll(&#39;.tablecloth-image&#39;);
-        images.forEach(function(img) {
-          img.remove();
-        });
-        
-        // Remove this event listener once it&#39;s been used
-        document.removeEventListener(&#39;tw-passagestart&#39;, restoreScrolling);
-      }
-    });
-  }
-&lt;/script&gt;
-
-{
-(live: 16s)[
-  (goto: &quot;ending&quot;)
-  (stop:)
-]
-}</tw-passagedata><tw-passagedata pid="12" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
+She walks in mid-vomit and comforts you with words that feel– are familiar. Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends. [[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]</tw-passagedata><tw-passagedata pid="11" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
 tw-story {
  background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
  background-color: transparent !important;
@@ -1026,7 +923,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
  document.body.style.overflow = &#39;&#39;;
  document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="13" name="ending" tags="background2" position="600,3100" size="100,100">&lt;script&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="ending" tags="background2" position="600,3100" size="100,100">&lt;script&gt;
 // Clean up everything from the previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;&quot;;
@@ -1059,7 +956,7 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
-&lt;/style&gt;</tw-passagedata><tw-passagedata pid="14" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;style&gt;
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="13" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;style&gt;
 /* Force zero spacing on everything */
 * {
  margin: 0 !important;
@@ -1165,7 +1062,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 // Force override the persistent scroll blocking from previous passages
 document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
 document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="15" name="You realise she wonders the same thing." tags="" position="600,1725" size="100,100">&lt;style&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="14" name="You realise she wonders the same thing." tags="" position="600,1725" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/timelines.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1180,7 +1077,7 @@ tw-passage {
 }
 &lt;/style&gt;
 Your nonna tells you your uncle nearly died of dehydration as a child. You carry a two-litre water bottle to every outing. You know how to say &#39;hot&#39; and &#39;Australian&#39; in dialect. String a sentence together. 
-[[Everyone smiles.]] </tw-passagedata><tw-passagedata pid="16" name="Everyone smiles." tags="" position="600,1850" size="100,100">&lt;script&gt;
+[[Everyone smiles.]] </tw-passagedata><tw-passagedata pid="15" name="Everyone smiles." tags="" position="600,1850" size="100,100">&lt;script&gt;
 // Reset background ONLY - no text styling
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 // Remove page scroll
@@ -1197,7 +1094,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
  &lt;div class=&quot;text-block&quot;&gt;
    &lt;p&gt;In the tank they ate pigeon your Nonno shot and Nonna stewed, bitter greens harvested from the field surrounding. You write the peperonata into the play. The Milanese scriptwriting teacher squints, tells you, *This is not breakfast food.* The smell of it nudges you awake on the second morning, or is it the third? Garlic crushed under palm, Pipi blackening in the pan. [[Oil spits and expands around her.]]&lt;/p&gt;
  &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;style&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;style&gt;
 .article-embed {
  background: #f9f7f4 !important;
  padding: 20px !important;
@@ -1327,7 +1224,7 @@ document.documentElement.style.overflow = &#39;auto&#39;;
 
 &lt;div style=&quot;overflow: hidden; min-height: 400px;&quot;&gt;
 &lt;p&gt;Tan-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked overhead. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet. She lies on a beach chair and tells you he has gone to find &lt;strong&gt;[[other villagers]]&lt;/strong&gt; for you to meet. A parade of cousins and connections you fail to map.&lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="other villagers" tags="" position="600,2100" size="100,100">&lt;script&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="other villagers" tags="" position="600,2100" size="100,100">&lt;script&gt;
 // Reset background ONLY - no text styling
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 &lt;/script&gt;
@@ -1390,7 +1287,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 // Force override the persistent scroll blocking from previous passages
 document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
 document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;script&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="18" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;script&gt;
 // Force clear any previous background images
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
@@ -1436,7 +1333,7 @@ window.addEventListener(&#39;load&#39;, function() {
     story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
   }
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="20" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;script&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
@@ -1551,7 +1448,7 @@ tw-story {
  &lt;div style=&quot;flex: 1; width: 25%;&quot;&gt;
    &lt;img src=&quot;images/door12.jpg&quot; alt=&quot;&quot; style=&quot;width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;&quot;&gt;
  &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2475" size="100,100">They lead you up the sloped street. You wait outside another small house while Zia calls out a greeting in rapid-fire dialect– urgency easy to decode. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2475" size="100,100">They lead you up the sloped street. You wait outside another small house while Zia calls out a greeting in rapid-fire dialect– urgency easy to decode. 
 
 When you enter each wall is covered with framed pictures of saints and Madonna, no white paint saved from the weight of watching. 
 
@@ -1572,13 +1469,13 @@ When she asks you how your mother is you lean into her t-shirt, heaving. You exc
 Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people [[nothing but faith.]]
 
 
-/* things moving, animation, images from australia and italy, childhood, childhood mum photos, maps, timelines connecting, cahos */</tw-passagedata><tw-passagedata pid="22" name="nothing but faith." tags="" position="600,2600" size="100,100">You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with [[another last goodbye]] fighting its way out of your lap.
+/* things moving, animation, images from australia and italy, childhood, childhood mum photos, maps, timelines connecting, cahos */</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with [[another last goodbye]] fighting its way out of your lap.
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="23" name="another last goodbye" tags="" position="600,2725" size="100,100">When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes. 
+/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2725" size="100,100">When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes. 
 
 [[She never saw him again.]]
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="24" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
+/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
 .concrete-container {
   position: relative;
   width: 100%;
@@ -1589,81 +1486,69 @@ Too exhausted to find the translation that says you hope you will see her again.
   font-size: 1rem;
   line-height: 1.6;
   color: #000;
-}
-
-.line {
-  margin-bottom: 1.2rem;
-  transition: all 0.3s ease;
-}
-
-.line-1 { text-align: center; }
-.line-2 { text-align: center; margin-left: 0px; }
-.line-3 { text-align: center; margin-left: 0px; }
-.line-4 { text-align: center; margin-left: 0px; }
-.line-5 { text-align: center; margin-left: 0px; }
-
-/* Text starts breaking apart here */
-.breaking-1 { 
-  text-align: center; 
-  margin-left: 0px; 
-  word-spacing: 3px;
-}
-
-.breaking-2 { 
-  text-align: center; 
-  margin-left: 0px; 
-  word-spacing: 8px;
-  letter-spacing: 1px;
-}
-
-.breaking-3 { 
-  text-align: center; 
-  margin-left: 0px; 
-  word-spacing: 15px;
-  letter-spacing: 2px;
-}
-
-/* Individual scattered words */
-.scattered-word {
-  position: absolute;
-  font-size: 1rem;
-  color: #333;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.word-1 { top: 480px; margin-left: -100px; }
-.word-2 { top: 520px; margin-left: 50px; }
-.word-3 { top: 500px; margin-left: -20px; }
-.word-4 { top: 560px; margin-left: -80px; }
-.word-5 { top: 540px; margin-left: 80px; }
-.word-6 { top: 600px; margin-left: -60px; }
-.word-7 { top: 580px; margin-left: 20px; }
-.word-8 { top: 640px; margin-left: -40px; }
-.word-9 { top: 620px; margin-left: 100px; }
-.word-10 { top: 680px; margin-left: -90px; }
-.word-11 { top: 660px; margin-left: 30px; }
-.word-12 { top: 720px; margin-left: -10px; }
-.word-13 { top: 700px; margin-left: 70px; }
-.word-14 { top: 760px; margin-left: -70px; }
-.word-15 { top: 740px; margin-left: 40px; }
-.word-16 { top: 800px; margin-left: -30px; }
-.word-17 { top: 780px; margin-left: 90px; }
-.word-18 { top: 840px; margin-left: -50px; }
-.word-19 { top: 820px; margin-left: 10px; }
-
-.final-line {
-  position: absolute;
-  top: 900px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-weight: bold;
-  font-size: 1.1rem;
   text-align: center;
 }
 
+.line {
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+/* Normal structured text at the top */
+.line-1 { }
+.line-2 { margin-left: 10px; }
+.line-3 { margin-left: 20px; }
+
+/* Text starts spreading out but stays readable */
+.line-4 { 
+  word-spacing: 5px;
+  margin-top: 2rem;
+}
+
+.line-5 { 
+  word-spacing: 10px;
+  margin-top: 2.5rem;
+}
+
+.line-6 { 
+  word-spacing: 15px;
+  letter-spacing: 1px;
+  margin-top: 3rem;
+}
+
+.line-7 { 
+  word-spacing: 20px;
+  letter-spacing: 2px;
+  margin-top: 3.5rem;
+}
+
+.line-8 { 
+  word-spacing: 30px;
+  letter-spacing: 3px;
+  margin-top: 4rem;
+}
+
+.line-9 { 
+  word-spacing: 40px;
+  letter-spacing: 4px;
+  margin-top: 4.5rem;
+}
+
+.line-10 { 
+  word-spacing: 50px;
+  letter-spacing: 5px;
+  margin-top: 5rem;
+}
+
+.final-line {
+  margin-top: 6rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  word-spacing: 20px;
+  letter-spacing: 2px;
+}
+
 /* Hover effects for interactivity */
-.scattered-word:hover,
 .line:hover {
   color: #666;
   cursor: pointer;
@@ -1671,42 +1556,18 @@ Too exhausted to find the translation that says you hope you will see her again.
 &lt;/style&gt;
 
 &lt;div class=&quot;concrete-container&quot;&gt;
-  &lt;!-- Text starts normally structured --&gt;
   &lt;div class=&quot;line line-1&quot;&gt;They take you to the cemetery. You sign across your chests.&lt;/div&gt;
   &lt;div class=&quot;line line-2&quot;&gt;She kicks gravel stones with her toes, mutters prayers under her breath.&lt;/div&gt;
   &lt;div class=&quot;line line-3&quot;&gt;Plotting DNA across the dirt floor,&lt;/div&gt;
   &lt;div class=&quot;line line-4&quot;&gt;bones turned stone,&lt;/div&gt;
   &lt;div class=&quot;line line-5&quot;&gt;heat insisting in open-mouthed heavy heaps of exhale.&lt;/div&gt;
-  
-  &lt;!-- Text starts breaking apart --&gt;
-  &lt;div class=&quot;line breaking-1&quot;&gt;You pick dead petals from the flowers&lt;/div&gt;
-  &lt;div class=&quot;line breaking-2&quot;&gt;on the graves.&lt;/div&gt;
-  &lt;div class=&quot;line breaking-3&quot;&gt;More buried on this mountain&lt;/div&gt;
-  
-  &lt;!-- Individual scattered words falling down the page --&gt;
-  &lt;div class=&quot;scattered-word word-1&quot;&gt;than&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-2&quot;&gt;living.&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-3&quot;&gt;Another&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-4&quot;&gt;no-produce&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-5&quot;&gt;year&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-6&quot;&gt;for&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-7&quot;&gt;the&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-8&quot;&gt;olive&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-9&quot;&gt;fields.&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-10&quot;&gt;She&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-11&quot;&gt;looks&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-12&quot;&gt;up&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-13&quot;&gt;to&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-14&quot;&gt;the&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-15&quot;&gt;sky,&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-16&quot;&gt;looks&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-17&quot;&gt;up&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-18&quot;&gt;to&lt;/div&gt;
-  &lt;div class=&quot;scattered-word word-19&quot;&gt;ask&lt;/div&gt;
-  
-  &lt;!-- Final interactive element --&gt;
+  &lt;div class=&quot;line line-6&quot;&gt;You pick dead petals from the flowers on the graves.&lt;/div&gt;
+  &lt;div class=&quot;line line-7&quot;&gt;More buried on this mountain than living.&lt;/div&gt;
+  &lt;div class=&quot;line line-8&quot;&gt;Another no-produce year for the olive fields.&lt;/div&gt;
+  &lt;div class=&quot;line line-9&quot;&gt;She looks up to the sky,&lt;/div&gt;
+  &lt;div class=&quot;line line-10&quot;&gt;looks up to ask&lt;/div&gt;
   &lt;div class=&quot;final-line&quot;&gt;&lt;strong&gt;[[for something...]]&lt;/strong&gt;&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/ending.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1714,8 +1575,8 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
-&lt;/style&gt;</tw-passagedata><tw-passagedata pid="26" name="Title" tags="background5" position="600,0" size="100,100">(after: 5s)[(goto: &quot;Intro&quot;)]
-</tw-passagedata><tw-passagedata pid="27" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. [[You realise she wonders the same thing.]]</tw-passagedata><tw-passagedata pid="28" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="25" name="Title" tags="background5" position="600,0" size="100,100">(after: 5s)[(goto: &quot;Intro&quot;)]
+</tw-passagedata><tw-passagedata pid="26" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. [[You realise she wonders the same thing.]]</tw-passagedata><tw-passagedata pid="27" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
@@ -1799,7 +1660,110 @@ tw-story {
     &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
     &lt;p&gt;Dead end, turn back.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="for something..." tags="" position="725,2975" size="100,100"></tw-passagedata></tw-storydata>
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="for something..." tags="background3" position="600,2975" size="100,100">&lt;script&gt;
+  // Only run this script if we&#39;re in the background3 passage
+  var passage = document.querySelector(&#39;tw-passage&#39;);
+  var story = document.querySelector(&#39;tw-story&#39;);
+  
+  // Check if this is the correct passage by looking at unique content or tags
+  if (passage &amp;&amp; passage.textContent.includes(&quot;letter.jpg&quot;) || story.getAttribute(&quot;tags&quot;).includes(&quot;background3&quot;)) {
+    console.log(&quot;Running background3 script&quot;);
+    
+    // Disable scrolling ONLY for this passage
+    document.body.style.overflow = &#39;hidden&#39;;
+    document.documentElement.style.overflow = &#39;hidden&#39;;
+    
+    // Store original scroll settings to restore later
+    var originalBodyOverflow = document.body.style.overflow;
+    var originalHtmlOverflow = document.documentElement.style.overflow;
+    
+    // First, set the background image
+    document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/tablecloth.jpg&#39;)&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
+    document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
+    
+    // Make sure passage has transparent background
+    document.querySelector(&#39;tw-passage&#39;).style.backgroundColor = &quot;transparent&quot;;
+    
+    // Array of images to display
+    var images = [
+      &quot;letter.jpg&quot;, &quot;family.jpg&quot;, &quot;mum.jpg&quot;, &quot;nonnocitizenship.jpg&quot;, &quot;cousins.jpg&quot;, &quot;farm.jpg&quot;, 
+      &quot;pomodoro.jpeg&quot;, &quot;marriagecertificate.jpg&quot;, &quot;cross.jpg&quot;, &quot;mountains1.jpg&quot;, &quot;jesus1.jpg&quot;, &quot;kids.jpeg&quot;, &quot;bottle.jpeg&quot;, &quot;stairs.jpg&quot;, &quot;mumbirthcertificate.jpg&quot;, &quot;saucedaynonno.jpeg&quot;, &quot;italy.jpg&quot;, &quot;procession1.jpg&quot;, &quot;nonni.jpg&quot;, &quot;zio.jpg&quot;, &quot;mountain2.jpg&quot;, &quot;leaf1.jpg&quot;, &quot;leaf2.jpg&quot;, &quot;maria.jpg&quot;, &quot;jesus2.jpg&quot;, &quot;church1.jpg&quot;, &quot;nonnomilitary.jpg&quot;, &quot;tavolo.jpeg&quot;
+    ];
+    
+    var currentIndex = 0;
+    
+    // Function to show images one by one
+    function showImage() {
+      if (currentIndex &lt; images.length) {
+        // Create a new image element
+        var img = document.createElement(&#39;img&#39;);
+        img.src = &#39;images/&#39; + images[currentIndex];
+        img.className = &quot;tablecloth-image&quot;; // Add class for later cleanup
+        
+        // Set random positions
+        var top = Math.random() * 600 + &#39;px&#39;;
+        var left = Math.random() * 800 + &#39;px&#39;;
+        var rotation = Math.random() * 180 - 90 + &#39;deg&#39;;
+        
+        // Style the image
+        img.style.position = &#39;absolute&#39;;
+        img.style.top = top;
+        img.style.left = left;
+        img.style.transform = &#39;rotate(&#39; + rotation + &#39;)&#39;;
+        img.style.width = &#39;250px&#39;;
+        img.style.height = &#39;auto&#39;;
+        img.style.opacity = &#39;0&#39;;
+        img.style.transition = &#39;opacity 1s ease&#39;;
+        img.style.zIndex = &#39;5&#39;;
+        
+        // Add to page
+        document.body.appendChild(img);
+        
+        // Fade in
+        setTimeout(function() {
+          img.style.opacity = &#39;1&#39;;
+        }, 100);
+        
+        // Next image
+        currentIndex++;
+        setTimeout(showImage, 500);
+      }
+      // Removed the else block - let Harlowe handle the navigation
+    }
+    
+    // Start showing images
+    showImage();
+    
+    // Add event listener to restore scrolling when leaving this passage
+    document.addEventListener(&#39;tw-passagestart&#39;, function restoreScrolling() {
+      // Check if we&#39;re leaving the passage
+      var currentPassage = document.querySelector(&#39;tw-passage&#39;);
+      if (!currentPassage || !currentPassage.textContent.includes(&quot;letter.jpg&quot;)) {
+        // Restore original scroll settings
+        document.body.style.overflow = &#39;&#39;;
+        document.documentElement.style.overflow = &#39;&#39;;
+        
+        // Remove all added images
+        var images = document.querySelectorAll(&#39;.tablecloth-image&#39;);
+        images.forEach(function(img) {
+          img.remove();
+        });
+        
+        // Remove this event listener once it&#39;s been used
+        document.removeEventListener(&#39;tw-passagestart&#39;, restoreScrolling);
+      }
+    });
+  }
+&lt;/script&gt;
+
+{
+(live: 16s)[
+  (goto: &quot;ending&quot;)
+  (stop:)
+]
+}</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
