@@ -1596,29 +1596,29 @@ Too exhausted to find the translation that says you hope you will see her again.
   transition: all 0.3s ease;
 }
 
-.line-1 { text-align: left; }
-.line-2 { text-align: left; margin-left: 20px; }
-.line-3 { text-align: left; margin-left: 10px; }
-.line-4 { text-align: left; margin-left: 40px; }
-.line-5 { text-align: left; margin-left: 60px; }
+.line-1 { text-align: center; }
+.line-2 { text-align: center; margin-left: 0px; }
+.line-3 { text-align: center; margin-left: 0px; }
+.line-4 { text-align: center; margin-left: 0px; }
+.line-5 { text-align: center; margin-left: 0px; }
 
 /* Text starts breaking apart here */
 .breaking-1 { 
-  text-align: left; 
-  margin-left: 80px; 
+  text-align: center; 
+  margin-left: 0px; 
   word-spacing: 3px;
 }
 
 .breaking-2 { 
-  text-align: left; 
-  margin-left: 120px; 
+  text-align: center; 
+  margin-left: 0px; 
   word-spacing: 8px;
   letter-spacing: 1px;
 }
 
 .breaking-3 { 
-  text-align: left; 
-  margin-left: 100px; 
+  text-align: center; 
+  margin-left: 0px; 
   word-spacing: 15px;
   letter-spacing: 2px;
 }
@@ -1628,34 +1628,38 @@ Too exhausted to find the translation that says you hope you will see her again.
   position: absolute;
   font-size: 1rem;
   color: #333;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.word-1 { top: 480px; left: 140px; }
-.word-2 { top: 520px; left: 240px; }
-.word-3 { top: 500px; left: 340px; }
-.word-4 { top: 560px; left: 180px; }
-.word-5 { top: 540px; left: 380px; }
-.word-6 { top: 600px; left: 120px; }
-.word-7 { top: 580px; left: 320px; }
-.word-8 { top: 640px; left: 200px; }
-.word-9 { top: 620px; left: 400px; }
-.word-10 { top: 680px; left: 160px; }
-.word-11 { top: 660px; left: 280px; }
-.word-12 { top: 720px; left: 220px; }
-.word-13 { top: 700px; left: 360px; }
-.word-14 { top: 760px; left: 140px; }
-.word-15 { top: 740px; left: 320px; }
-.word-16 { top: 800px; left: 180px; }
-.word-17 { top: 780px; left: 380px; }
-.word-18 { top: 840px; left: 240px; }
-.word-19 { top: 820px; left: 300px; }
+.word-1 { top: 480px; margin-left: -100px; }
+.word-2 { top: 520px; margin-left: 50px; }
+.word-3 { top: 500px; margin-left: -20px; }
+.word-4 { top: 560px; margin-left: -80px; }
+.word-5 { top: 540px; margin-left: 80px; }
+.word-6 { top: 600px; margin-left: -60px; }
+.word-7 { top: 580px; margin-left: 20px; }
+.word-8 { top: 640px; margin-left: -40px; }
+.word-9 { top: 620px; margin-left: 100px; }
+.word-10 { top: 680px; margin-left: -90px; }
+.word-11 { top: 660px; margin-left: 30px; }
+.word-12 { top: 720px; margin-left: -10px; }
+.word-13 { top: 700px; margin-left: 70px; }
+.word-14 { top: 760px; margin-left: -70px; }
+.word-15 { top: 740px; margin-left: 40px; }
+.word-16 { top: 800px; margin-left: -30px; }
+.word-17 { top: 780px; margin-left: 90px; }
+.word-18 { top: 840px; margin-left: -50px; }
+.word-19 { top: 820px; margin-left: 10px; }
 
 .final-line {
   position: absolute;
   top: 900px;
-  left: 200px;
+  left: 50%;
+  transform: translateX(-50%);
   font-weight: bold;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 /* Hover effects for interactivity */
@@ -1702,9 +1706,7 @@ Too exhausted to find the translation that says you hope you will see her again.
   
   &lt;!-- Final interactive element --&gt;
   &lt;div class=&quot;final-line&quot;&gt;&lt;strong&gt;[[for something...]]&lt;/strong&gt;&lt;/div&gt;
-&lt;/div&gt;
-
-</tw-passagedata><tw-passagedata pid="25" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="25" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/ending.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
