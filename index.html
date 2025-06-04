@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="19" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="26" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -1541,15 +1541,30 @@ tw-passage {
   background: transparent !important;
 }
 &lt;/style&gt;</tw-passagedata><tw-passagedata pid="26" name="Title" tags="background5" position="600,0" size="100,100">(after: 5s)[(goto: &quot;Intro&quot;)]
-</tw-passagedata><tw-passagedata pid="27" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. [[You realise she wonders the same thing.]]</tw-passagedata><tw-passagedata pid="28" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;div class=&quot;image-text-container&quot;&gt;
-  &lt;img src=&quot;images/stairs.jpg&quot; alt=&quot;Old staircase&quot; class=&quot;side-image&quot; /&gt;
-  &lt;div class=&quot;text-block&quot;&gt;
-    &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
-    &lt;p&gt;Dead end, turn back.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="27" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. [[You realise she wonders the same thing.]]</tw-passagedata><tw-passagedata pid="28" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
+
+// Force override with transparent background
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+&lt;/script&gt;
 
 &lt;style&gt;
+/* Clear any persistent backgrounds */
+tw-story {
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
 .image-text-container {
   display: flex;
   align-items: flex-start;
@@ -1602,7 +1617,15 @@ tw-passage {
     align-self: center;
   }
 }
-&lt;/style&gt;</tw-passagedata></tw-storydata>
+&lt;/style&gt;
+
+&lt;div class=&quot;image-text-container&quot;&gt;
+  &lt;img src=&quot;images/stairs.jpg&quot; alt=&quot;Old staircase&quot; class=&quot;side-image&quot; /&gt;
+  &lt;div class=&quot;text-block&quot;&gt;
+    &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
+    &lt;p&gt;Dead end, turn back.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
