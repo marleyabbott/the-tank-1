@@ -757,7 +757,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
  document.body.style.overflow = &#39;&#39;;
  document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="arrive in calabria" tags="background2 wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="arrive in calabria" tags="wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
 &lt;div id=&quot;content-container&quot; style=&quot;position: relative; height: 100vh; overflow: hidden;&quot;&gt;
 &lt;div id=&quot;buttery-smooth-paragraph&quot; style=&quot;position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;&quot;&gt;
 &lt;span style=&quot;display: block; margin-bottom: 15px;&quot;&gt;On the first night in Calabria there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
@@ -780,7 +780,7 @@ passage.style.setProperty(&#39;padding-bottom&#39;, &#39;0&#39;, &#39;important&
 passage.style.setProperty(&#39;height&#39;, &#39;100vh&#39;, &#39;important&#39;);
 
 // Simply set background just for this passage
-document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/cross.jpg&#39;)&quot;;
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;url(&#39;images/village.jpg&#39;)&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
@@ -1036,7 +1036,15 @@ You look out the back window while they drive away from the village. The mountai
 
 It bows its head. You bow yours. [[The car continues driving.]]
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="14" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;style&gt;
+&lt;style&gt;
+tw-story {
+  background: url(&#39;images/sky.jpg&#39;) center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+}
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="14" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;style&gt;
 /* Force zero spacing on everything */
 * {
  margin: 0 !important;
