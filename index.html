@@ -741,10 +741,10 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
    &lt;/div&gt;
  &lt;/div&gt;
 ]
-(after: 6s)[
+(after: 8s)[
  (enchant: ?fadeOut, (css: &quot;animation: fadeOut 3s ease forwards;&quot;))
 ]
-(after: 10s)[
+(after: 12s)[
  (replace: ?fadeOut)[]
  (goto: &quot;bed&quot;)
 ]
@@ -1119,7 +1119,7 @@ tw-passage {
 
 &lt;!-- Fourth row text - centered --&gt;
 &lt;div style=&quot;width: 100%; text-align: center;&quot;&gt;
- &lt;p&gt;You and her both exhale. There is no overflowing the water tank home. Only refilling as the mother and father return. The children pile in. The weeds are plucked and prepared. [[By morning, the field will have grown new leaves again.]] &lt;/p&gt;
+ &lt;p&gt;You and her both exhale. There is no overflowing the water tank home. Only refilling as the mother and father return. The children pile in. The weeds are plucked and prepared.&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;!-- Fourth row of door images with zero space --&gt;
@@ -1136,6 +1136,11 @@ tw-passage {
  &lt;div style=&quot;flex: 1; width: 25%;&quot;&gt;
    &lt;img src=&quot;images/hands18.jpg&quot; alt=&quot;&quot; style=&quot;width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;&quot;&gt;
  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Hyperlinked line separated --&gt;
+&lt;div style=&quot;width: 100%; text-align: center; margin-top: 20px;&quot;&gt;
+ &lt;p&gt;[[By morning, the field will have grown new leaves again.]]&lt;/p&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
