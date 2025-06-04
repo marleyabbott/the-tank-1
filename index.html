@@ -1500,10 +1500,65 @@ tw-passage {
 </tw-passagedata><tw-passagedata pid="27" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. [[You realise she wonders the same thing.]]</tw-passagedata><tw-passagedata pid="28" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;div class=&quot;image-text-container&quot;&gt;
   &lt;img src=&quot;images/stairs.jpg&quot; alt=&quot;Old staircase&quot; class=&quot;side-image&quot; /&gt;
   &lt;div class=&quot;text-block&quot;&gt;
+    &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
+    &lt;p&gt;Dead end, turn back.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
-You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.
+&lt;style&gt;
+.image-text-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 100%;
+}
 
-Dead end, turn back.</tw-passagedata></tw-storydata>
+.side-image {
+  flex: 0 0 40%; /* Takes up 40% width, doesn&#39;t grow or shrink */
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  transform: rotate(-2deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.side-image:hover {
+  transform: rotate(1deg);
+}
+
+.text-block {
+  flex: 1; /* Takes remaining space */
+  padding: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.text-block p {
+  margin-bottom: 1rem;
+}
+
+.text-block p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .image-text-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .side-image {
+    flex: none;
+    max-width: 100%;
+    align-self: center;
+  }
+}
+&lt;/style&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
