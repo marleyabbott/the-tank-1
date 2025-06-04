@@ -1388,7 +1388,30 @@ window.addEventListener(&#39;load&#39;, function() {
     story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
   }
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="20" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;style&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="20" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
+
+// Force override with transparent background
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Clear any persistent backgrounds */
+tw-story {
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
 /* Force zero spacing on everything */
 * {
  margin: 0 !important;
