@@ -1279,54 +1279,76 @@ document.documentElement.style.overflow = &#39;auto&#39;;
  &lt;p class=&quot;falling-text line-7&quot;&gt;desire to tell and be heard.&lt;/p&gt;
 &lt;/div&gt;
 
-Tan-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked overhead. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet. She lies on a beach chair and tells you he has gone to find [[other villagers]] for you to meet. A parade of cousins and connections you fail to map. </tw-passagedata><tw-passagedata pid="18" name="other villagers" tags="" position="600,2100" size="100,100">&lt;!-- Brackets with Rotation --&gt;
+Tan-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked overhead. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet. She lies on a beach chair and tells you he has gone to find [[other villagers]] for you to meet. A parade of cousins and connections you fail to map. </tw-passagedata><tw-passagedata pid="18" name="other villagers" tags="" position="600,2100" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+&lt;/script&gt;
 &lt;div class=&quot;big-brackets&quot;&gt;
-  ( )
-&lt;/div&gt;
-
-&lt;div class=&quot;image-grid&quot;&gt;
-  &lt;!-- Image and reveal code here --&gt;
+ &lt;div class=&quot;dynamic-text&quot;&gt;
+   &lt;p class=&quot;line line-1&quot;&gt;A cross-shaped price tag on the back of the crucifix. They drive you to the village through 2, 3, 5 pit stops. Gravel roads that remember earthquake, potholes like small mouths gasping.&lt;/p&gt;
+   &lt;img src=&quot;images/cross.jpg&quot; class=&quot;inter-text-image rotated&quot;&gt;
+   &lt;p class=&quot;line line-2&quot;&gt;Fontana di Bella Donna: cold mountain water runs from your wrist while you sway bottles from their necks. Hold steady, the water rises, you cap and repeat.&lt;/p&gt;
+   &lt;p class=&quot;line line-3&quot;&gt;The car boot sloshing fountain water interferes with wind translation. Your ex-carabinieri Zio speeds down mountain curves; grey dust musters courage to lean in and kiss. You wind the window up.&lt;/p&gt;
+   &lt;img src=&quot;images/sky.jpg&quot; class=&quot;inter-text-image rotated&quot;&gt;
+   &lt;p class=&quot;line line-4&quot;&gt;The belongings in your bag become a fourth passenger, bouncing over rocks in the back. You hope something falls out so you&#39;ll have to turn around.&lt;/p&gt;
+   &lt;p class=&quot;line line-5&quot;&gt;In the tank lived your mother and her mother and father, 3 brothers - one bigger, one younger, one baby clutching a fist toward the entrance into the world. You try imagining but the dimensions don&#39;t add up.&lt;/p&gt;
+   &lt;img src=&quot;images/zio.jpg&quot; class=&quot;inter-text-image rotated&quot;&gt;
+   &lt;p class=&quot;line line-6&quot;&gt;You can imagine a red apple spinning, a fig tree, a rosary. But no matter how deep you dive into visualisation, [[the mathematics of desperation refuse to stack up.]]&lt;/p&gt;
+   &lt;img src=&quot;images/mum.jpg&quot; class=&quot;inter-text-image rotated&quot;&gt;
+ &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-  .big-brackets {
-    font-family: &#39;CabrionLight&#39;, sans-serif !important;
-    font-size: 6rem !important;
-    font-weight: bold !important;
-    text-align: center !important;
-    color: #3C3633 !important;
-    margin: 5rem 0 !important;
-    letter-spacing: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
+.big-brackets {
+  font-family: &#39;CabrionLight&#39;, sans-serif !important;
+  font-size: 6rem !important;
+  font-weight: bold !important;
+  text-align: center !important;
+  color: #3C3633 !important;
+  margin: 5rem 0 !important;
+  letter-spacing: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
-  .big-brackets::before {
-    content: &quot;(&quot;;
-    position: absolute;
-    left: -5rem;
-    top: -2rem;
-    font-size: 12rem;
-    transform: rotate(-10deg); /* Rotation effect */
-  }
+.big-brackets::before {
+  content: &quot;(&quot;;
+  position: absolute;
+  left: -5rem;
+  top: -2rem;
+  font-size: 12rem;
+  transform: rotate(-10deg);
+}
 
-  .big-brackets::after {
-    content: &quot;)&quot;;
-    position: absolute;
-    right: -5rem;
-    bottom: -2rem;
-    font-size: 12rem;
-    transform: rotate(10deg); /* Rotation effect */
-  }
+.big-brackets::after {
+  content: &quot;)&quot;;
+  position: absolute;
+  right: -5rem;
+  bottom: -2rem;
+  font-size: 12rem;
+  transform: rotate(10deg);
+}
 
-  /* Other styling for image grid, etc. */
+.inter-text-image.rotated {
+  transform: rotate(7deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.inter-text-image.rotated:hover {
+  transform: rotate(-2deg);
+}
 &lt;/style&gt;
 
-A cross-shaped price tag on the back of the crucifix. They drive you to the village through 2, 3, 5 pit stops. Gravel roads that remember earthquake, potholes like small mouths gasping. Fontana di Bella Donna: cold mountain water runs from your wrist while you sway bottles from their necks. Hold steady, the water rises, you cap and repeat. The car boot sloshing fountain water interferes with wind translation. Your ex-carabinieri Zio speeds down mountain curves; grey dust musters courage to lean in and kiss. You wind the window up. The belongings in your bag become a fourth passenger, bouncing over rocks in the back. You hope something falls out so you&#39;ll have to turn around. In the tank lived your mother and her mother and father, 3 brothers - one bigger, one younger, one baby clutching a fist toward the entrance into the world. You try imagining but the dimensions don&#39;t add up. You can imagine a red apple spinning, a fig tree, a rosary. But no matter how deep you dive into visualisation, [[the mathematics of desperation refuse to stack up.]]
-
-/* change styling so that everything is rotated */</tw-passagedata><tw-passagedata pid="19" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;style&gt;
+&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/abstract2.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
