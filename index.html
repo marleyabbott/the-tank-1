@@ -1296,6 +1296,10 @@ setTimeout(() =&gt; {
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract2.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
 }, 50);
+
+// Disable scrolling
+document.body.style.overflow = &#39;hidden&#39;;
+document.documentElement.style.overflow = &#39;hidden&#39;;
 &lt;/script&gt;
 
 &lt;style&gt;
@@ -1306,10 +1310,10 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
-
 /* Force override any previous background styling */
 body, html {
   background: none !important;
+  overflow: hidden !important;
 }
 &lt;/style&gt;
 
@@ -1326,12 +1330,18 @@ body, html {
 window.addEventListener(&#39;load&#39;, function() {
   const story = document.querySelector(&#39;tw-story&#39;);
   if (story) {
-    story.style.setProperty(&#39;background-image&#39;, &#39;url(&quot;images/abstract2.jpg&quot;)&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-image&#39;, &#39;url(&quot;images/abstract3.jpg&quot;)&#39;, &#39;important&#39;);
     story.style.setProperty(&#39;background-size&#39;, &#39;cover&#39;, &#39;important&#39;);
     story.style.setProperty(&#39;background-position&#39;, &#39;center center&#39;, &#39;important&#39;);
     story.style.setProperty(&#39;background-repeat&#39;, &#39;no-repeat&#39;, &#39;important&#39;);
     story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
   }
+});
+
+// Clean up when leaving passage
+window.addEventListener(&#39;beforeunload&#39;, function() {
+  document.body.style.overflow = &#39;&#39;;
+  document.documentElement.style.overflow = &#39;&#39;;
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
