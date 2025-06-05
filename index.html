@@ -1085,6 +1085,12 @@ Your nonna tells you your uncle nearly died of dehydration as a child. You carry
 [[Everyone smiles.]] </tw-passagedata><tw-passagedata pid="15" name="Everyone smiles." tags="" position="600,1850" size="100,100">&lt;script&gt;
 // Reset background ONLY - no text styling
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+// Small delay to ensure clearing takes effect
+setTimeout(() =&gt; {
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/smoke.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+}, 50);
 // Remove page scroll
 document.body.style.overflow = &#39;hidden&#39;;
 document.documentElement.style.overflow = &#39;hidden&#39;;
@@ -1094,12 +1100,54 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
  document.documentElement.style.overflow = &#39;&#39;;
 });
 &lt;/script&gt;
-&lt;div class=&quot;image-text-container&quot;&gt;
- &lt;img src=&quot;images/pipi.jpg&quot; alt=&quot;frying pan&quot; class=&quot;side-image&quot; /&gt;
- &lt;div class=&quot;text-block&quot;&gt;
-   &lt;p&gt;In the tank they ate pigeon your Nonno shot and Nonna stewed, bitter greens harvested from the field surrounding. You write the peperonata into the play. The Milanese scriptwriting teacher squints, tells you, *This is not breakfast food.* The smell of it nudges you awake on the second morning, or is it the third? Garlic crushed under palm, Pipi blackening in the pan. [[Oil spits and expands around her.]]&lt;/p&gt;
- &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;style&gt;
+
+&lt;style&gt;
+tw-story {
+  background: url(&#39;images/smoke.jpg&#39;) center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+  padding: 20px !important;
+  margin: 0 auto !important;
+  max-width: 800px !important;
+}
+/* Force override any previous background styling */
+body, html {
+  background: none !important;
+  overflow: hidden !important;
+}
+
+.passage-content {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 20px !important;
+  margin-top: 100px !important;
+}
+
+.passage-content p {
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6 !important;
+}
+&lt;/style&gt;
+
+&lt;div class=&quot;passage-content&quot;&gt;
+&lt;p&gt;In the tank they ate pigeon your Nonno shot and Nonna stewed, bitter greens harvested from the field surrounding. You write the peperonata into the play. The Milanese scriptwriting teacher squints, tells you, &lt;em&gt;This is not breakfast food.&lt;/em&gt; The smell of it nudges you awake on the second morning, or is it the third? Garlic crushed under palm, Pipi blackening in the pan. &lt;strong&gt;[[Oil spits and expands around her.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Additional backup method - force reapply background after content loads
+window.addEventListener(&#39;load&#39;, function() {
+  const story = document.querySelector(&#39;tw-story&#39;);
+  if (story) {
+    story.style.setProperty(&#39;background-image&#39;, &#39;url(&quot;images/smoke.jpg&quot;)&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-size&#39;, &#39;cover&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-position&#39;, &#39;center center&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-repeat&#39;, &#39;no-repeat&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
+  }
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;style&gt;
 .article-embed {
  background: #f9f7f4 !important;
  padding: 20px !important;
