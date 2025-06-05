@@ -836,6 +836,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundSize = &quot;cover&qu
 document.querySelector(&#39;tw-story&#39;).style.backgroundPosition = &quot;center&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundAttachment = &quot;fixed&quot;;
 document.querySelector(&#39;tw-story&#39;).style.backgroundRepeat = &quot;no-repeat&quot;;
+
 // LANDSCAPE text positioning with fixes
 var passage = document.querySelector(&#39;tw-passage&#39;);
 passage.style.width = &quot;60%&quot;; 
@@ -847,17 +848,18 @@ passage.style.transform = &quot;translate(-50%, -50%)&quot;;
 passage.style.backgroundColor = &quot;transparent&quot;;
 passage.style.boxShadow = &quot;none&quot;;
 passage.style.border = &quot;none&quot;;
-passage.style.padding = &quot;0&quot;;
+passage.style.padding = &quot;15px&quot;;
 passage.style.fontSize = &quot;0.75em&quot;; 
 passage.style.color = &quot;#000000&quot;;
 passage.style.textShadow = &quot;none&quot;;
 passage.style.lineHeight = &quot;1.7&quot;;
 passage.style.textAlign = &quot;center&quot;;
 passage.style.margin = &quot;0&quot;;
-passage.style.overflow = &quot;visible&quot;;
+passage.style.overflow = &quot;auto&quot;;
 passage.style.display = &quot;flex&quot;; 
 passage.style.flexDirection = &quot;column&quot;; 
 passage.style.justifyContent = &quot;center&quot;;
+
 // Fix hyperlinks
 var links = passage.querySelectorAll(&#39;a&#39;);
 for (var i = 0; i &lt; links.length; i++) {
@@ -868,6 +870,7 @@ for (var i = 0; i &lt; links.length; i++) {
    links[i].style.marginBottom = &quot;10px&quot;;
    links[i].style.display = &quot;inline&quot;;
 }
+
 // Fix back button positioning
 var sidebar = document.querySelector(&#39;tw-sidebar&#39;);
 if (sidebar) {
@@ -879,6 +882,7 @@ if (sidebar) {
    sidebar.style.height = &quot;auto&quot;;
    sidebar.style.backgroundColor = &quot;transparent&quot;;
 }
+
 // Ensure back button is visible and properly aligned
 var backButton = document.querySelector(&#39;tw-sidebar [role=button]&#39;);
 if (backButton) {
@@ -891,13 +895,34 @@ if (backButton) {
    backButton.style.opacity = &quot;1&quot;;
    backButton.style.pointerEvents = &quot;auto&quot;;
 }
+
 // Ensure passage is visible
 passage.style.opacity = &quot;1&quot;;
 passage.style.visibility = &quot;visible&quot;;
 &lt;/script&gt;
-You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea. You press down on your right wrist with your left thumb, searching for the pressure point. You tell her you feel *mela* (apple) when you mean to say *male* (sick). She brings you a big plate of fruit and you force yourself to swallow. 
 
-She walks in mid-vomit and comforts you with words that feel– are familiar. Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends. [[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]</tw-passagedata><tw-passagedata pid="11" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
+&lt;style&gt;
+p {
+  margin-bottom: 1.2rem !important;
+  line-height: 1.7 !important;
+}
+
+p:last-child {
+  margin-bottom: 0 !important;
+}
+
+em {
+  white-space: nowrap !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea. You press down on your right wrist with your left thumb, searching for the pressure point.&lt;/p&gt;
+
+&lt;p&gt;You tell her you feel &lt;em&gt;mela&lt;/em&gt; (apple) when you mean to say &lt;em&gt;male&lt;/em&gt; (sick). She brings you a big plate of fruit and you force yourself to swallow.&lt;/p&gt;
+
+&lt;p&gt;Mid vomit she walks in and comforts you with words that feel– are familiar. Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]&lt;/strong&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="11" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
 tw-story {
  background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
  background-color: transparent !important;
@@ -1661,7 +1686,7 @@ passage.style.padding = &quot;15px&quot;;
 passage.style.fontSize = &quot;0.8em&quot;; 
 passage.style.color = &quot;#000000&quot;;
 passage.style.textShadow = &quot;none&quot;;
-passage.style.lineHeight = &quot;1.4&quot;;
+passage.style.lineHeight = &quot;1.6&quot;;
 passage.style.textAlign = &quot;left&quot;;
 passage.style.margin = &quot;0&quot;;
 passage.style.overflow = &quot;auto&quot;;
@@ -1720,25 +1745,36 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
 });
 &lt;/script&gt;
 
-They lead you up the sloped street. You wait outside another small house while Zia calls out a greeting in rapid-fire dialect– urgency easy to decode.
+&lt;style&gt;
+p {
+  margin-bottom: 1.2rem !important;
+  line-height: 1.6 !important;
+}
 
-When you enter each wall is covered with framed pictures of saints and Madonna, no white paint saved from the weight of watching.
+p:last-child {
+  margin-bottom: 0 !important;
+}
+&lt;/style&gt;
 
-A small lady with brown wrinkled skin dressed in black sits on the couch, dress shoes on even though there is nowhere to go.
+&lt;p&gt;They lead you up the sloped street. You wait outside another small house while Zia calls out a greeting in rapid-fire dialect– urgency easy to decode.&lt;/p&gt;
 
-You don&#39;t know who she is, but she knows who you are.
+&lt;p&gt;When you enter each wall is covered with framed pictures of saints and Madonna, no white paint saved from the weight of watching.&lt;/p&gt;
 
-She rips the oxygen tube from under her nose and leans in to hold you. She grabs your hands, rosary still in fist. The beads bite into your palm. They imprint a symbol, if only you could read it.
+&lt;p&gt;A small lady with brown wrinkled skin dressed in black sits on the couch, dress shoes on even though there is nowhere to go.&lt;/p&gt;
 
-Snot meeting blood and bile in your gut. Her aged skin swallows your tears before they can reach you.
+&lt;p&gt;You don&#39;t know who she is, but she knows who you are.&lt;/p&gt;
 
-The local Catholic channel continues playing in the background; the rich can afford to be atheist. Breathless, gasping, snot seeping from the inside out.
+&lt;p&gt;She rips the oxygen tube from under her nose and leans in to hold you. She grabs your hands, rosary still in fist. The beads bite into your palm. They imprint a symbol, if only you could read it.&lt;/p&gt;
 
-When she asks you how your mother is you lean into her t-shirt, heaving. You exchange something with her to prove that it&#39;s more than just blood.
+&lt;p&gt;Snot meeting blood and bile in your gut. Her aged skin swallows your tears before they can reach you.&lt;/p&gt;
 
-*&#39;Andiamo,&#39;* and you follow footsteps away; she stays framed in the doorway, crying, shaking, steady hand waving as you hike up the sloped driveway choking on tears.
+&lt;p&gt;The local Catholic channel continues playing in the background; the rich can afford to be atheist. Breathless, gasping, snot seeping from the inside out.&lt;/p&gt;
 
-Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people [[nothing but faith.]]</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">&lt;script&gt;
+&lt;p&gt;When she asks you how your mother is you lean into her t-shirt, heaving. You exchange something with her to prove that it&#39;s more than just blood.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&#39;Andiamo,&#39;&lt;/em&gt; and you follow footsteps away; she stays framed in the doorway, crying, shaking, steady hand waving as you hike up the sloped driveway choking on tears.&lt;/p&gt;
+
+&lt;p&gt;Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people &lt;strong&gt;[[nothing but faith.]]&lt;/strong&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
