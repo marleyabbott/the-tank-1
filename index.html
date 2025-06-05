@@ -1506,9 +1506,9 @@ document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-
 document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
 document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
 
-// Force override with transparent background
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+// Force override with default background color
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
 
 // RESTORE SCROLLING - remove the persistent scroll blocking
 document.body.style.removeProperty(&#39;overflow&#39;);
@@ -1530,16 +1530,17 @@ setTimeout(() =&gt; {
 &lt;/script&gt;
 
 &lt;style&gt;
-/* Clear any persistent backgrounds */
+/* Clear any persistent backgrounds but use default color */
 tw-story {
-  background: none !important;
+  background: #EEEDEB !important;
   background-image: none !important;
-  background-color: transparent !important;
+  background-color: #EEEDEB !important;
 }
 
 /* Restore scrolling */
 body, html {
   overflow: auto !important;
+  background-color: #EEEDEB !important;
 }
 
 /* Force zero spacing on everything */
