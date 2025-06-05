@@ -911,7 +911,7 @@ tw-story[tags~=&quot;background8&quot;] {
 }
 &lt;/style&gt;
 
-&lt;div style=&quot;height: 500px;&quot;&gt;&lt;/div&gt;
+&lt;div style=&quot;height: 600px;&quot;&gt;&lt;/div&gt;
 
 &lt;p style=&quot;margin: 0 auto; width: 90%; max-width: 800px; padding: 20px; line-height: 1.6; color: #000;&quot;&gt;Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip. Everything is covered in a towel. Your bowl of half-eaten insalata, the table already set for dinner though it&#39;s still morning, the fruit bowl, the 3-story cart of tomatoes. You catch her one morning before she knows you&#39;re watching. Tearing squares of towel from the roll and covering the piles. A cloth concealing the body at the funeral. The red blanket on the couch. The lid of the tank covering the questions, hiding the story. You create the tank in your own image. Wondering requires too many senses. You sense it isn&#39;t appropriate. &lt;strong&gt;[[You sense that your questions do not have answers.]]&lt;/strong&gt;&lt;/p&gt;
 
@@ -1709,8 +1709,12 @@ tw-passage {
  padding: 20px !important;
 }
 
+body, html {
+ overflow: hidden !important;
+}
+
 p {
- margin-top: 20vh !important;
+ margin-top: 100px !important;
  margin-bottom: 0 !important;
  margin-left: auto !important;
  margin-right: auto !important;
@@ -1722,7 +1726,18 @@ p {
 }
 &lt;/style&gt;
 
-&lt;p&gt;&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. &lt;strong&gt;[[You realise she wonders the same thing.]]&lt;/strong&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="27" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
+&lt;p&gt;&#39;Why would she ever leave?&#39; you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That&#39;s the problem with sacrifice. &lt;strong&gt;[[You realise she wonders the same thing.]]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = &#39;hidden&#39;;
+document.documentElement.style.overflow = &#39;hidden&#39;;
+// Clean up when leaving passage
+window.addEventListener(&#39;beforeunload&#39;, function() {
+ document.body.style.overflow = &#39;&#39;;
+ document.documentElement.style.overflow = &#39;&#39;;
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="27" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
