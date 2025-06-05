@@ -9,7 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Digital Writing.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Digital Writing" startnode="25" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+<tw-storydata name="Digital Writing" startnode="24" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
 @font-face {
     font-family: 'CabrionLight';
     src: url('fonts/cabrion-light.otf') format('opentype');
@@ -1330,7 +1330,7 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
    &lt;p class=&quot;line line-5&quot;&gt;In the tank lived your mother and her mother and father, 3 brothers - one bigger, one younger, one baby clutching a fist toward the entrance into the world. You try imagining but the dimensions don&#39;t add up.&lt;/p&gt;
    &lt;img src=&quot;images/zio.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
    &lt;p class=&quot;line line-6&quot;&gt;You can imagine a red apple spinning, a fig tree, a rosary. But no matter how deep you dive into visualisation, [[the mathematics of desperation refuse to stack up.]]&lt;/p&gt;
-   &lt;img src=&quot;images/boys.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
+   &lt;img src=&quot;images/clothesline.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1674,63 +1674,6 @@ When she asks you how your mother is you lean into her t-shirt, heaving. You exc
 *&#39;Andiamo,&#39;* and you follow footsteps away; she stays framed in the doorway, crying, shaking, steady hand waving as you hike up the sloped driveway choking on tears.
 
 Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people [[nothing but faith.]]</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">&lt;script&gt;
-// AGGRESSIVE background clearing - clear the persistent Catholic border
-document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
-document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
-
-// Force override with default background
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-image&#39;, &#39;none&#39;, &#39;important&#39;);
-
-// Reset any special passage positioning from previous passage
-var passage = document.querySelector(&#39;tw-passage&#39;);
-if (passage) {
-  passage.style.width = &quot;&quot;;
-  passage.style.height = &quot;&quot;;
-  passage.style.position = &quot;&quot;;
-  passage.style.top = &quot;&quot;;
-  passage.style.left = &quot;&quot;;
-  passage.style.transform = &quot;&quot;;
-  passage.style.fontSize = &quot;&quot;;
-  passage.style.lineHeight = &quot;&quot;;
-  passage.style.textAlign = &quot;&quot;;
-  passage.style.display = &quot;&quot;;
-  passage.style.flexDirection = &quot;&quot;;
-  passage.style.justifyContent = &quot;&quot;;
-  passage.style.overflow = &quot;&quot;;
-  passage.style.padding = &quot;&quot;;
-}
-
-// Restore scrolling
-document.body.style.removeProperty(&#39;overflow&#39;);
-document.documentElement.style.removeProperty(&#39;overflow&#39;);
-document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-&lt;/script&gt;
-
-&lt;style&gt;
-/* Force clear all backgrounds */
-tw-story {
-  background: #EEEDEB !important;
-  background-image: none !important;
-  background-color: #EEEDEB !important;
-}
-
-body, html {
-  background: #EEEDEB !important;
-  background-image: none !important;
-  overflow: auto !important;
-}
-&lt;/style&gt;
-
-&lt;p&gt;You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with &lt;strong&gt;[[another last goodbye]]&lt;/strong&gt; fighting its way out of your lap.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2725" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
@@ -1794,7 +1737,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.body.style.overflow = &#39;&#39;;
   document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;script&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2850" size="100,100">&lt;script&gt;
 // AGGRESSIVE background clearing - try multiple methods
 const story = document.querySelector(&#39;tw-story&#39;);
 if (story) {
@@ -1921,7 +1864,7 @@ body, html {
   &lt;div class=&quot;line line-9&quot;&gt;She looks up to the sky,&lt;/div&gt;
   &lt;div class=&quot;line line-10&quot;&gt;looks up to ask&lt;/div&gt;
   &lt;div class=&quot;final-line&quot;&gt;&lt;strong&gt;[[for something...]]&lt;/strong&gt;&lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/ending.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1929,8 +1872,8 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
-&lt;/style&gt;</tw-passagedata><tw-passagedata pid="25" name="Title" tags="background5" position="600,0" size="100,100">(after: 5s)[(goto: &quot;Intro&quot;)]
-</tw-passagedata><tw-passagedata pid="26" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&lt;style&gt;
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="24" name="Title" tags="background5" position="600,0" size="100,100">(after: 5s)[(goto: &quot;Intro&quot;)]
+</tw-passagedata><tw-passagedata pid="25" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&lt;style&gt;
 tw-passage {
  background: transparent !important;
  min-height: 100vh !important;
@@ -1965,7 +1908,7 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
  document.body.style.overflow = &#39;&#39;;
  document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="27" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="26" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
@@ -2049,7 +1992,7 @@ tw-story {
     &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
     &lt;p&gt;Dead end, turn back.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="for something..." tags="background3" position="600,2975" size="100,100">&lt;script&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="for something..." tags="background3" position="600,2975" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
   var passage = document.querySelector(&#39;tw-passage&#39;);
   var story = document.querySelector(&#39;tw-story&#39;);
@@ -2152,7 +2095,64 @@ tw-story {
   (goto: &quot;ending&quot;)
   (stop:)
 ]
-}</tw-passagedata></tw-storydata>
+}</tw-passagedata><tw-passagedata pid="28" name="She never saw him again." tags="" position="600,2725" size="100,100">&lt;script&gt;
+// AGGRESSIVE background clearing - clear the persistent Catholic border
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
+
+// Force override with default background
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-image&#39;, &#39;none&#39;, &#39;important&#39;);
+
+// Reset any special passage positioning from previous passage
+var passage = document.querySelector(&#39;tw-passage&#39;);
+if (passage) {
+  passage.style.width = &quot;&quot;;
+  passage.style.height = &quot;&quot;;
+  passage.style.position = &quot;&quot;;
+  passage.style.top = &quot;&quot;;
+  passage.style.left = &quot;&quot;;
+  passage.style.transform = &quot;&quot;;
+  passage.style.fontSize = &quot;&quot;;
+  passage.style.lineHeight = &quot;&quot;;
+  passage.style.textAlign = &quot;&quot;;
+  passage.style.display = &quot;&quot;;
+  passage.style.flexDirection = &quot;&quot;;
+  passage.style.justifyContent = &quot;&quot;;
+  passage.style.overflow = &quot;&quot;;
+  passage.style.padding = &quot;&quot;;
+}
+
+// Restore scrolling
+document.body.style.removeProperty(&#39;overflow&#39;);
+document.documentElement.style.removeProperty(&#39;overflow&#39;);
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Force clear all backgrounds */
+tw-story {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  overflow: auto !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with &lt;strong&gt;[[another last goodbye]]&lt;/strong&gt; fighting its way out of your lap.&lt;/p&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
