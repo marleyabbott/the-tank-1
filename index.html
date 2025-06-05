@@ -1343,18 +1343,35 @@ body, html {
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="other villagers" tags="" position="600,2100" size="100,100">&lt;script&gt;
 // Reset background ONLY - no text styling
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+
+// Force scroll to top of page
+window.scrollTo(0, 0);
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+// Also force it after a small delay to ensure it takes effect
+setTimeout(() =&gt; {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}, 100);
 &lt;/script&gt;
+
 &lt;div class=&quot;big-brackets rotated-brackets&quot;&gt;
  &lt;div class=&quot;dynamic-text&quot;&gt;
    &lt;p class=&quot;line line-1&quot;&gt;A cross-shaped price tag on the back of the crucifix. They drive you to the village through 2, 3, 5 pit stops. Gravel roads that remember earthquake, potholes like small mouths gasping.&lt;/p&gt;
    &lt;img src=&quot;images/purple.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
-   &lt;p class=&quot;line line-2&quot;&gt;*Fontana di Bella Donna*: cold mountain water runs from your wrist while you sway bottles from their necks. Hold steady, the water rises, you cap and repeat.&lt;/p&gt;
+   &lt;p class=&quot;line line-2&quot;&gt;&lt;em&gt;Fontana di Bella Donna&lt;/em&gt;: cold mountain water runs from your wrist while you sway bottles from their necks. Hold steady, the water rises, you cap and repeat.&lt;/p&gt;
    &lt;p class=&quot;line line-3&quot;&gt;The car boot sloshing fountain water interferes with wind translation. Your ex-carabinieri Zio speeds down mountain curves; grey dust musters courage to lean in and kiss. You wind the window up.&lt;/p&gt;
    &lt;img src=&quot;images/church1.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
    &lt;p class=&quot;line line-4&quot;&gt;The belongings in your bag become a fourth passenger, bouncing over rocks in the back. You hope something falls out so you&#39;ll have to turn around.&lt;/p&gt;
    &lt;p class=&quot;line line-5&quot;&gt;In the tank lived your mother and her mother and father, 3 brothers - one bigger, one younger, one baby clutching a fist toward the entrance into the world. You try imagining but the dimensions don&#39;t add up.&lt;/p&gt;
    &lt;img src=&quot;images/zio.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
-   &lt;p class=&quot;line line-6&quot;&gt;You can imagine a red apple spinning, a fig tree, a rosary. But no matter how deep you dive into visualisation, [[the mathematics of desperation refuse to stack up.]]&lt;/p&gt;
+   &lt;p class=&quot;line line-6&quot;&gt;You can imagine a red apple spinning, a fig tree, a rosary. But no matter how deep you dive into visualisation, &lt;strong&gt;[[the mathematics of desperation refuse to stack up.]]&lt;/strong&gt;&lt;/p&gt;
    &lt;img src=&quot;images/clothesline.jpg&quot; class=&quot;inter-text-image rotated-image&quot;&gt;
  &lt;/div&gt;
 &lt;/div&gt;
@@ -1966,17 +1983,21 @@ document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-
 document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
 document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
 
-// Force override with transparent background
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+// Force override with default background color
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
 &lt;/script&gt;
 
 &lt;style&gt;
-/* Clear any persistent backgrounds */
+/* Clear any persistent backgrounds but use default color */
 tw-story {
-  background: none !important;
+  background: #EEEDEB !important;
   background-image: none !important;
-  background-color: transparent !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background-color: #EEEDEB !important;
 }
 
 .image-text-container {
@@ -2037,7 +2058,7 @@ tw-story {
   &lt;img src=&quot;images/stairs.jpg&quot; alt=&quot;Old staircase&quot; class=&quot;side-image&quot; /&gt;
   &lt;div class=&quot;text-block&quot;&gt;
     &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
-    &lt;p&gt;Dead end, turn back.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Dead end, turn back.&lt;/strong&gt;&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="for something..." tags="background3" position="600,2975" size="100,100">&lt;script&gt;
   // Only run this script if we&#39;re in the background3 passage
