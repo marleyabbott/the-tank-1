@@ -1673,9 +1673,64 @@ When she asks you how your mother is you lean into her t-shirt, heaving. You exc
 
 *&#39;Andiamo,&#39;* and you follow footsteps away; she stays framed in the doorway, crying, shaking, steady hand waving as you hike up the sloped driveway choking on tears.
 
-Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people [[nothing but faith.]]</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with [[another last goodbye]] fighting its way out of your lap.
+Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people [[nothing but faith.]]</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">&lt;script&gt;
+// AGGRESSIVE background clearing - clear the persistent Catholic border
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2725" size="100,100">&lt;script&gt;
+// Force override with default background
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-image&#39;, &#39;none&#39;, &#39;important&#39;);
+
+// Reset any special passage positioning from previous passage
+var passage = document.querySelector(&#39;tw-passage&#39;);
+if (passage) {
+  passage.style.width = &quot;&quot;;
+  passage.style.height = &quot;&quot;;
+  passage.style.position = &quot;&quot;;
+  passage.style.top = &quot;&quot;;
+  passage.style.left = &quot;&quot;;
+  passage.style.transform = &quot;&quot;;
+  passage.style.fontSize = &quot;&quot;;
+  passage.style.lineHeight = &quot;&quot;;
+  passage.style.textAlign = &quot;&quot;;
+  passage.style.display = &quot;&quot;;
+  passage.style.flexDirection = &quot;&quot;;
+  passage.style.justifyContent = &quot;&quot;;
+  passage.style.overflow = &quot;&quot;;
+  passage.style.padding = &quot;&quot;;
+}
+
+// Restore scrolling
+document.body.style.removeProperty(&#39;overflow&#39;);
+document.documentElement.style.removeProperty(&#39;overflow&#39;);
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Force clear all backgrounds */
+tw-story {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  overflow: auto !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with &lt;strong&gt;[[another last goodbye]]&lt;/strong&gt; fighting its way out of your lap.&lt;/p&gt;</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2725" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
