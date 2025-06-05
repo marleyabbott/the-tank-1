@@ -1148,19 +1148,32 @@ window.addEventListener(&#39;load&#39;, function() {
   }
 });
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;script&gt;
-// Clear the persistent background from previous passage
-document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
-document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
-document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
+// AGGRESSIVE background clearing with multiple attempts
+function clearBackground() {
+  const story = document.querySelector(&#39;tw-story&#39;);
+  if (story) {
+    // Method 1: Remove all background properties
+    story.style.backgroundImage = &quot;none&quot;;
+    story.style.background = &quot;none&quot;;
+    story.style.removeProperty(&#39;background&#39;);
+    story.style.removeProperty(&#39;background-image&#39;);
+    story.style.removeProperty(&#39;background-size&#39;);
+    story.style.removeProperty(&#39;background-position&#39;);
+    story.style.removeProperty(&#39;background-repeat&#39;);
+    story.style.removeProperty(&#39;background-attachment&#39;);
+    
+    // Method 2: Force override with your default color
+    story.style.setProperty(&#39;background&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-image&#39;, &#39;none&#39;, &#39;important&#39;);
+  }
+}
 
-// Force override with transparent background
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+// Try multiple times with delays
+clearBackground();
+setTimeout(clearBackground, 100);
+setTimeout(clearBackground, 300);
+setTimeout(clearBackground, 500);
 
 // Multiple attempts to force scrolling back
 document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
@@ -1176,11 +1189,16 @@ document.documentElement.style.overflow = &#39;auto&#39;;
 &lt;/script&gt;
 
 &lt;style&gt;
-/* Clear any persistent backgrounds */
+/* FORCE clear all backgrounds */
 tw-story {
-  background: none !important;
+  background: #EEEDEB !important;
   background-image: none !important;
-  background-color: transparent !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background: #EEEDEB !important;
+  background-image: none !important;
 }
 
 .article-embed {
