@@ -904,6 +904,9 @@ tw-story {
 }
 tw-passage {
  background: transparent !important;
+ padding-top: 150px !important;
+ max-width: 800px !important;
+ margin: 0 auto !important;
 }
 /* Clear any previous background styles */
 tw-story[tags] {
@@ -912,8 +915,24 @@ tw-story[tags] {
 tw-story[tags~=&quot;background8&quot;] {
  background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
 }
+
+.text-content {
+ position: absolute !important;
+ top: 300px !important;
+ left: 50% !important;
+ transform: translateX(-50%) !important;
+ width: 80% !important;
+ max-width: 800px !important;
+ padding: 20px !important;
+ line-height: 1.6 !important;
+ z-index: 10 !important;
+}
 &lt;/style&gt;
-Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip. Everything is covered in a towel. Your bowl of half-eaten insalata, the table already set for dinner though it&#39;s still morning, the fruit bowl, the 3-story cart of tomatoes. You catch her one morning before she knows you&#39;re watching. Tearing squares of towel from the roll and covering the piles. A cloth concealing the body at the funeral. The red blanket on the couch. The lid of the tank covering the questions, hiding the story. You create the tank in your own image. Wondering requires too many senses. You sense it isn&#39;t appropriate. [[You sense that your questions do not have answers.]]
+
+&lt;div class=&quot;text-content&quot;&gt;
+&lt;p&gt;Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip. Everything is covered in a towel. Your bowl of half-eaten insalata, the table already set for dinner though it&#39;s still morning, the fruit bowl, the 3-story cart of tomatoes. You catch her one morning before she knows you&#39;re watching. Tearing squares of towel from the roll and covering the piles. A cloth concealing the body at the funeral. The red blanket on the couch. The lid of the tank covering the questions, hiding the story. You create the tank in your own image. Wondering requires too many senses. You sense it isn&#39;t appropriate. &lt;strong&gt;[[You sense that your questions do not have answers.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
 &lt;script&gt;
 // Remove page scroll
 document.body.style.overflow = &#39;hidden&#39;;
@@ -1296,9 +1315,9 @@ setTimeout(() =&gt; {
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract3.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
 }, 50);
-// Disable scrolling
-document.body.style.overflow = &#39;hidden&#39;;
-document.documentElement.style.overflow = &#39;hidden&#39;;
+// ENABLE scrolling instead of disabling it
+document.body.style.overflow = &#39;auto&#39;;
+document.documentElement.style.overflow = &#39;auto&#39;;
 &lt;/script&gt;
 
 &lt;style&gt;
@@ -1312,16 +1331,17 @@ tw-passage {
   margin: 0 auto !important;
   max-width: 800px !important;
 }
-/* Force override any previous background styling */
+/* Force override any previous background styling but ALLOW scrolling */
 body, html {
   background: none !important;
-  overflow: hidden !important;
+  overflow: auto !important;
 }
 
 .passage-content {
   position: relative !important;
   z-index: 1 !important;
   padding: 20px !important;
+  min-height: 100vh !important;
 }
 
 .passage-content p {
@@ -1350,12 +1370,7 @@ window.addEventListener(&#39;load&#39;, function() {
     story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
   }
 });
-
-// Clean up when leaving passage
-window.addEventListener(&#39;beforeunload&#39;, function() {
-  document.body.style.overflow = &#39;&#39;;
-  document.documentElement.style.overflow = &#39;&#39;;
-});
+// Don&#39;t disable scrolling when leaving this passage
 &lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;script&gt;
 // Clear the persistent background from previous passage
 document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
