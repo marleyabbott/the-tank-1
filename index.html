@@ -1293,10 +1293,9 @@ document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&qu
 document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
 // Small delay to ensure clearing takes effect
 setTimeout(() =&gt; {
-  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract2.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract3.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
 }, 50);
-
 // Disable scrolling
 document.body.style.overflow = &#39;hidden&#39;;
 document.documentElement.style.overflow = &#39;hidden&#39;;
@@ -1309,11 +1308,25 @@ tw-story {
 }
 tw-passage {
   background: transparent !important;
+  padding: 20px !important;
+  margin: 0 auto !important;
+  max-width: 800px !important;
 }
 /* Force override any previous background styling */
 body, html {
   background: none !important;
   overflow: hidden !important;
+}
+
+.passage-content {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 20px !important;
+}
+
+.passage-content p {
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6 !important;
 }
 &lt;/style&gt;
 
@@ -1357,6 +1370,12 @@ document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-
 // Force override with transparent background
 document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
 document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+
+// RESTORE SCROLLING - remove the persistent scroll blocking
+document.body.style.removeProperty(&#39;overflow&#39;);
+document.documentElement.style.removeProperty(&#39;overflow&#39;);
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
 &lt;/script&gt;
 
 &lt;style&gt;
@@ -1365,6 +1384,11 @@ tw-story {
   background: none !important;
   background-image: none !important;
   background-color: transparent !important;
+}
+
+/* Restore scrolling */
+body, html {
+  overflow: auto !important;
 }
 
 /* Force zero spacing on everything */
