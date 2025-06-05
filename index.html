@@ -904,7 +904,7 @@ tw-story {
 }
 tw-passage {
  background: transparent !important;
- padding-top: 200px !important;
+ padding-top: 300px !important;
  max-width: 800px !important;
  margin: 0 auto !important;
  padding-left: 20px !important;
@@ -1516,7 +1516,29 @@ Too exhausted to find the translation that says you hope you will see her again.
 
 /* things moving, animation, images from australia and italy, childhood, childhood mum photos, maps, timelines connecting, cahos */</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with [[another last goodbye]] fighting its way out of your lap.
 
-/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2725" size="100,100">&lt;style&gt;
+/* Need to decide on styling */</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2725" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
+
+// Force override with transparent background first
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+
+// Small delay to ensure clearing takes effect, then apply new background
+setTimeout(() =&gt; {
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract2.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
+  document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+}, 50);
+&lt;/script&gt;
+
+&lt;style&gt;
 tw-story {
   background: url(&#39;images/abstract2.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1524,12 +1546,30 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
+
+/* Clear any persistent backgrounds */
+body, html {
+  background: none !important;
+}
 &lt;/style&gt;
 
-When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes. 
+&lt;p&gt;When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes.&lt;/p&gt;
 
-[[She never saw him again.]]
+&lt;p&gt;&lt;strong&gt;[[She never saw him again.]]&lt;/strong&gt;&lt;/p&gt;
 
+&lt;script&gt;
+// Additional backup method - force reapply background after content loads
+window.addEventListener(&#39;load&#39;, function() {
+  const story = document.querySelector(&#39;tw-story&#39;);
+  if (story) {
+    story.style.setProperty(&#39;background-image&#39;, &#39;url(&quot;images/abstract2.jpg&quot;)&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-size&#39;, &#39;cover&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-position&#39;, &#39;center center&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-repeat&#39;, &#39;no-repeat&#39;, &#39;important&#39;);
+    story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
+  }
+});
+&lt;/script&gt;
 </tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
 .concrete-container {
   position: relative;
