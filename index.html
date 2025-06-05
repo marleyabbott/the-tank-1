@@ -904,11 +904,7 @@ tw-story {
 }
 tw-passage {
  background: transparent !important;
- padding-top: 70vh !important;
- max-width: 800px !important;
- margin: 0 auto !important;
- padding-left: 20px !important;
- padding-right: 20px !important;
+ position: relative !important;
  min-height: 100vh !important;
 }
 /* Clear any previous background styles */
@@ -918,15 +914,28 @@ tw-story[tags] {
 tw-story[tags~=&quot;background8&quot;] {
  background: url(&#39;images/broken.jpg&#39;) center center / cover no-repeat fixed !important;
 }
-p {
+
+.text-container {
+ position: absolute !important;
+ bottom: 100px !important;
+ left: 50% !important;
+ transform: translateX(-50%) !important;
+ width: 90% !important;
+ max-width: 800px !important;
+ padding: 20px !important;
+ z-index: 10 !important;
+}
+
+.text-container p {
  margin-bottom: 1.5rem !important;
  line-height: 1.6 !important;
- position: relative !important;
- z-index: 10 !important;
+ color: #000 !important;
 }
 &lt;/style&gt;
 
+&lt;div class=&quot;text-container&quot;&gt;
 &lt;p&gt;Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip. Everything is covered in a towel. Your bowl of half-eaten insalata, the table already set for dinner though it&#39;s still morning, the fruit bowl, the 3-story cart of tomatoes. You catch her one morning before she knows you&#39;re watching. Tearing squares of towel from the roll and covering the piles. A cloth concealing the body at the funeral. The red blanket on the couch. The lid of the tank covering the questions, hiding the story. You create the tank in your own image. Wondering requires too many senses. You sense it isn&#39;t appropriate. &lt;strong&gt;[[You sense that your questions do not have answers.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;script&gt;
 // Remove page scroll
@@ -1579,12 +1588,63 @@ window.addEventListener(&#39;beforeunload&#39;, function() {
   document.body.style.overflow = &#39;&#39;;
   document.documentElement.style.overflow = &#39;&#39;;
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;script&gt;
+// AGGRESSIVE background clearing - try multiple methods
+const story = document.querySelector(&#39;tw-story&#39;);
+if (story) {
+  // Method 1: Remove all background properties
+  story.style.backgroundImage = &quot;none&quot;;
+  story.style.background = &quot;none&quot;;
+  story.style.removeProperty(&#39;background&#39;);
+  story.style.removeProperty(&#39;background-image&#39;);
+  story.style.removeProperty(&#39;background-size&#39;);
+  story.style.removeProperty(&#39;background-position&#39;);
+  story.style.removeProperty(&#39;background-repeat&#39;);
+  story.style.removeProperty(&#39;background-attachment&#39;);
+  
+  // Method 2: Force white background
+  story.style.setProperty(&#39;background&#39;, &#39;white&#39;, &#39;important&#39;);
+  story.style.setProperty(&#39;background-color&#39;, &#39;white&#39;, &#39;important&#39;);
+  story.style.setProperty(&#39;background-image&#39;, &#39;none&#39;, &#39;important&#39;);
+}
+
+// AGGRESSIVE scroll restoration
+document.body.style.removeProperty(&#39;overflow&#39;);
+document.documentElement.style.removeProperty(&#39;overflow&#39;);
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+
+// Force page scroll restoration
+window.addEventListener(&#39;load&#39;, function() {
+  document.body.style.overflow = &#39;auto&#39;;
+  document.documentElement.style.overflow = &#39;auto&#39;;
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+/* FORCE clear all backgrounds */
+tw-story {
+  background: white !important;
+  background-image: none !important;
+  background-color: white !important;
+}
+
+tw-passage {
+  background: white !important;
+  background-image: none !important;
+}
+
+body, html {
+  background: white !important;
+  background-image: none !important;
+  overflow: auto !important;
+}
+
 .concrete-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: #ffffff;
+  background: white !important;
   padding: 40px;
   font-family: inherit;
   font-size: 1rem;
