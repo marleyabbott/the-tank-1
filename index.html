@@ -1600,16 +1600,14 @@ if (story) {
   
   // Method 2: Force transparent background to show default
   story.style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
-  story.style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+  story.style.setProperty(&#39;background-color&#39;, &#39;#EEEDEB&#39;, &#39;important&#39;);
   story.style.setProperty(&#39;background-image&#39;, &#39;none&#39;, &#39;important&#39;);
 }
-
 // AGGRESSIVE scroll restoration
 document.body.style.removeProperty(&#39;overflow&#39;);
 document.documentElement.style.removeProperty(&#39;overflow&#39;);
 document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
 document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-
 // Force page scroll restoration
 window.addEventListener(&#39;load&#39;, function() {
   document.body.style.overflow = &#39;auto&#39;;
@@ -1618,29 +1616,26 @@ window.addEventListener(&#39;load&#39;, function() {
 &lt;/script&gt;
 
 &lt;style&gt;
-/* FORCE clear all backgrounds */
+/* FORCE clear all backgrounds but use your default color */
 tw-story {
-  background: white !important;
+  background: transparent !important;
   background-image: none !important;
-  background-color: white !important;
+  background-color: #EEEDEB !important;
 }
-
 tw-passage {
-  background: white !important;
+  background: transparent !important;
   background-image: none !important;
 }
-
 body, html {
-  background: white !important;
+  background-color: #EEEDEB !important;
   background-image: none !important;
   overflow: auto !important;
 }
-
 .concrete-container {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background: white !important;
+  background: transparent !important;
   padding: 40px;
   font-family: inherit;
   font-size: 1rem;
@@ -1648,58 +1643,48 @@ body, html {
   color: #000;
   text-align: center;
 }
-
 .line {
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
 }
-
 /* Normal structured text at the top */
 .line-1 { }
 .line-2 { margin-left: 10px; }
 .line-3 { margin-left: 20px; }
-
 /* Text starts spreading out but stays readable */
 .line-4 { 
   word-spacing: 5px;
   margin-top: 2rem;
 }
-
 .line-5 { 
   word-spacing: 10px;
   margin-top: 2.5rem;
 }
-
 .line-6 { 
   word-spacing: 15px;
   letter-spacing: 1px;
   margin-top: 3rem;
 }
-
 .line-7 { 
   word-spacing: 20px;
   letter-spacing: 2px;
   margin-top: 3.5rem;
 }
-
 .line-8 { 
   word-spacing: 30px;
   letter-spacing: 3px;
   margin-top: 4rem;
 }
-
 .line-9 { 
   word-spacing: 40px;
   letter-spacing: 4px;
   margin-top: 4.5rem;
 }
-
 .line-10 { 
   word-spacing: 50px;
   letter-spacing: 5px;
   margin-top: 5rem;
 }
-
 .final-line {
   margin-top: 6rem;
   font-weight: bold;
@@ -1707,7 +1692,6 @@ body, html {
   word-spacing: 20px;
   letter-spacing: 2px;
 }
-
 /* Hover effects for interactivity */
 .line:hover {
   color: #666;
