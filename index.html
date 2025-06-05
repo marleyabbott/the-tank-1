@@ -961,7 +961,28 @@ tw-story {
 tw-passage {
   background: transparent !important;
 }
-&lt;/style&gt;</tw-passagedata><tw-passagedata pid="13" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;style&gt;
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="13" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+
+// Force scroll to top of page
+window.scrollTo(0, 0);
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+// Also force it after a small delay to ensure it takes effect
+setTimeout(() =&gt; {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}, 100);
+&lt;/script&gt;
+
+&lt;style&gt;
 /* Force zero spacing on everything */
 * {
  margin: 0 !important;
@@ -1057,17 +1078,8 @@ tw-passage {
 
 &lt;!-- Hyperlinked line separated --&gt;
 &lt;div style=&quot;width: 100%; text-align: center; margin-top: 20px;&quot;&gt;
- &lt;p&gt;[[By morning, the field will have grown new leaves again.]]&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;script&gt;
-// Reset background ONLY - no text styling
-document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
-
-// Force override the persistent scroll blocking from previous passages
-document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="14" name="You realise she wonders the same thing." tags="" position="600,1725" size="100,100">&lt;style&gt;
+ &lt;p&gt;&lt;strong&gt;[[By morning, the field will have grown new leaves again.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="You realise she wonders the same thing." tags="" position="600,1725" size="100,100">&lt;style&gt;
 tw-story {
   background: url(&#39;images/timelines.jpg&#39;) center center / cover no-repeat fixed !important;
   background-color: transparent !important;
@@ -1111,22 +1123,29 @@ tw-passage {
   padding: 20px !important;
   margin: 0 auto !important;
   max-width: 800px !important;
+  padding-top: 100px !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 /* Force override any previous background styling */
 body, html {
   background: none !important;
   overflow: hidden !important;
 }
-
 .passage-content {
   position: relative !important;
   z-index: 1 !important;
   padding: 20px !important;
+  margin-top: -100px !important;
 }
-
 .passage-content p {
   margin-bottom: 1.5rem !important;
   line-height: 1.6 !important;
+}
+.passage-content p:last-child {
+  margin-bottom: 0 !important;
 }
 &lt;/style&gt;
 
@@ -1135,21 +1154,10 @@ body, html {
 
 &lt;p&gt;You write the &lt;em&gt;peperonata&lt;/em&gt; into the play. The Milanese scriptwriting teacher squints, tells you, &lt;em&gt;This is not breakfast food.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;On the second morning, the smell nudges you awake. Garlic crushed under palm, Pipi blackening in the pan.&lt;/p&gt;
+&lt;p&gt;The smell of it nudges you awake on the second morning, or is it the third? Garlic crushed under palm, Pipi blackening in the pan.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;[[Oil spits and expands around her.]]&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-
-&lt;style&gt;
-.passage-content p {
-  margin-bottom: 1.5rem !important;
-  line-height: 1.6 !important;
-}
-
-.passage-content p:last-child {
-  margin-bottom: 0 !important;
-}
-&lt;/style&gt;
 
 &lt;script&gt;
 // Additional backup method - force reapply background after content loads
