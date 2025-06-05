@@ -1536,6 +1536,10 @@ setTimeout(() =&gt; {
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;url(&quot;images/abstract2.jpg&quot;) center center / cover no-repeat fixed&#39;, &#39;important&#39;);
   document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
 }, 50);
+
+// Disable scrolling
+document.body.style.overflow = &#39;hidden&#39;;
+document.documentElement.style.overflow = &#39;hidden&#39;;
 &lt;/script&gt;
 
 &lt;style&gt;
@@ -1550,6 +1554,7 @@ tw-passage {
 /* Clear any persistent backgrounds */
 body, html {
   background: none !important;
+  overflow: hidden !important;
 }
 &lt;/style&gt;
 
@@ -1569,8 +1574,13 @@ window.addEventListener(&#39;load&#39;, function() {
     story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
   }
 });
-&lt;/script&gt;
-</tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
+
+// Clean up when leaving passage
+window.addEventListener(&#39;beforeunload&#39;, function() {
+  document.body.style.overflow = &#39;&#39;;
+  document.documentElement.style.overflow = &#39;&#39;;
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="23" name="She never saw him again." tags="" position="600,2850" size="100,100">&lt;style&gt;
 .concrete-container {
   position: relative;
   width: 100%;
