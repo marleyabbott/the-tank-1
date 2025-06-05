@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)file:///Users/marleyabbott/Documents/Twine/Scratch/proof-78cfc38a-39c3-42af-b666-af8e156978ac.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Digital Writing
+</title>
+
+<style>
+body
+{
+	font: 10pt Cousine, monospace;
+	margin: 2em;
+}
+
+h1
+{
+	font-size: 14pt;
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+tw-storydata
+{
+	display: block !important;
+}
+
+tw-passagedata
+{
+	display: block !important;
+	line-height: 200%;
+	margin-bottom: 2em;
+	white-space: pre-wrap;
+}
+
+tw-passagedata + tw-passagedata
+{
+	border-top: 1pt dashed black;
+	padding-top: 2em;
+}
+
+tw-passagedata:before
+{
+	content: attr(name);
+	display: block;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Digital Writing
+</h1>
+<tw-storydata name="Digital Writing" startnode="24" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F9CD24CD-E8CA-4A9F-ADFC-1AFA582C2E95" options="" tags="" zoom="1" hidden=""><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* OVERALL CODE */
+@font-face {
+    font-family: 'CabrionLight';
+    src: url('fonts/cabrion-light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+tw-story {
+    font-family: 'CabrionLight', sans-serif;
+    color: #3C3633;
+    background-color: #EEEDEB;
+}
+
+.story-image {
+    width: 100%;
+}
+
+tw-passage:has(.side-image) .image-text-container {
+    display: flex !important;
+    gap: 2rem !important;
+}
+
+/* OVERALL LINK STYLING */
+tw-link,
+tw-link:link,
+tw-link:visited,
+tw-link:hover,
+tw-link:active,
+tw-link.visited,
+tw-link.visited:hover,
+.enchantment-link,
+tw-hook[class*="link"],
+a.enchantment-link {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+/* IMPORTANT- Targets the internal span that Harlowe sometimes uses */
+tw-link span,
+.enchantment-link span {
+    color: #3C3633 !important;
+}
+
+/* BACK BUTTON SIDE BAR */
+tw-sidebar {
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: block !important;
+    position: fixed !important;
+    top: 30px !important;     /* Moved down slightly from the top edge */
+    left: 50px !important;    /* Moved more toward the middle from the left edge */
+    z-index: 9999 !important; /* Ensure it's above everything else */
+    pointer-events: auto !important; /* Make sure it can be clicked */
+    width: auto !important;
+    height: auto !important;
+    background-color: transparent !important;
+}
+
+/* STYLE ALL SIDEBAR BUTTONS */
+tw-sidebar \[role=button] {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #3C3633 !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    /* Optional: Add some padding or margin for better positioning */
+    padding: 5px !important;
+    margin: 5px !important;
+}
+
+/* IMPORTANT - Fix for passage links in Harlowe */
+tw-passage tw-link,
+tw-passage .enchantment-link,
+tw-passage [role="link"],
+tw-passage tw-link::before {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+tw-passage tw-link:hover {
+    color: #6d635d !important; /* slightly lighter on hover for feedback */
+    text-decoration: none !important;
+}
+
+/* OVERRIDE ANY DEFAULT HARLOWE STYLES */
+tw-passage [class*="link"] {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+/* INTRO PASSAGES FORMATTING */
+tw-passage {
+    padding-bottom: 200px;
+    overflow: auto;
+}
+
+/* GLOBAL ANIMATION DEFINITION */
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* GLOBAL ANIMATION CLASS */
+.fadeOutSlow {
+    animation: fadeOut 3s ease forwards;
+}
+
+/* 'SWEET AND SOUR SAUCE' PASSAGE */
+    .slow-fade-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        animation: slowFadeToBlack 4s forwards;
+        z-index: 9999;
+        pointer-events: none;
+    }
+
+    @keyframes slowFadeToBlack {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+}
+
+/* SNOWFALL ANIMATION PASSAGE */
+/* Faster fade-in and move-up animation */
+@keyframes fadeInUpFast {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ONLY passages tagged 'wide-text' get wide style and animation */
+tw-story[tags~="wide-text"] tw-passage {
+  max-width: 90% !important;
+  width: 90% !important;
+  padding: 1rem 2rem;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+
+  animation: fadeInUpFast 0.15s ease-out forwards;
+  overflow-y: hidden;  /* prevent scroll inside passage */
+  max-height: 100vh;   /* limit passage height */
+}
+
+/* Prevent scrolling ONLY inside wide-text passage */
+tw-story[tags~="wide-text"] {
+  overflow: hidden;
+}
+
+
+/* BRACKETS PASSAGE FORMATTING */
+tw-story\[tags\~="brackets"] {
+    background-color: #EEEDEB;
+}
+
+/* MAIN CONTAINER WITH BRACKETS */
+.big-brackets {
+    font-family: 'CabrionLight', sans-serif;
+    font-size: 1rem;
+    color: #3C3633;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    flex-direction: column;
+    padding: 1rem;
+    width: 90%;
+    margin: 2rem auto;
+    text-align: left;
+    min-height: 30rem;
+}
+
+.big-brackets::before {
+    content: "(";
+    position: absolute;
+    left: -3rem;
+    top: 0rem;
+    font-size: 8rem;
+    transform: scaleX(0.6);
+    font-family: 'Arial', sans-serif;
+}
+
+.big-brackets::after {
+    content: ")";
+    position: absolute;
+    right: -3rem;
+    bottom: -1rem;
+    font-size: 8rem;
+    transform: scaleX(0.6);
+    font-family: 'Arial', sans-serif;
+}
+
+.dynamic-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.line {
+    font-size: 0.9rem;
+    color: #3C3633;
+    font-family: 'CabrionLight', sans-serif;
+    margin: 0;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.line-1 {
+    align-self: flex-start;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    max-width: 70%;
+}
+
+.line-2 {
+    align-self: flex-end;
+    margin-top: 2.5rem;
+    margin-right: 3rem;
+    max-width: 65%;
+}
+
+.line-3 {
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    margin-left: 4rem;
+    max-width: 60%;
+}
+
+.line-4 {
+    align-self: flex-end;
+    margin-top: 3rem;
+    margin-right: 2rem;
+    max-width: 75%;
+}
+
+.line-5 {
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    max-width: 65%;
+}
+
+.line-6 {
+    align-self: flex-end;
+    margin-top: 2.5rem;
+    margin-right: 2.5rem;
+    max-width: 70%;
+}
+
+.line-7 {
+    align-self: flex-start;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    max-width: 65%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.story-image {
+    width: 100%;
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.text-item {
+    font-family: 'CabrionLight', sans-serif;
+    color: #3C3633;
+    text-align: center;
+}
+
+.text-item p {
+    font-size: 1rem;
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.inter-text-image {
+    width: 50%;
+    max-width: 400px;
+    margin: 2rem 0;
+    border-radius: 0; /* No rounded corners */
+    display: block;
+    object-fit: cover;
+    box-shadow: none; /* Remove shadow */
+    transform: none; /* No rotation */
+}
+
+/* BACKGROUND STYLES */
+tw-story\[tags\~="background1"] {
+    background: url('images/tapestry.jpg') center center / cover no-repeat fixed;
+}
+}
+
+/* Soccer background */
+tw-story[tags~="background4"] {
+  background: url('images/soccerborder.jpg') center center / cover no-repeat fixed;
+}
+
+/* title page background */
+tw-story[tags~="background5"] {
+  background: url('images/title.jpg') center center / cover no-repeat fixed;
+}
+
+/* paint background */
+tw-story[tags~="background6"] {
+  background: url('images/paintbackground.jpg') center center / cover no-repeat fixed;
+}
+
+/* ending background */
+tw-story[tags~="background7"] {
+  background: url('images/ending.jpg') center center / cover no-repeat fixed;
+  
+}
+/* arrive in calabria background */
+tw-story[tags~="background9"] {
+  background: url('images/cross.jpg') center center / cover no-repeat fixed;
+
+/* Text styling for passages with backgrounds */
+tw-story[tags~="background1"] tw-passage,
+tw-story[tags~="background2"] tw-passage,
+tw-story[tags~="background4"] tw-passage {
+  width: 35%;
+  margin: 20% auto 0;
+  font-size: 0.8em;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 12px;
+  border-radius: 4px;
+}
+
+/* SCRAP IMAGES STYLING */
+.scrap-img {
+    position: absolute;
+    width: 250px; /* Larger size as requested */
+    height: auto;
+    opacity: 0; /* Start invisible */
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 2; /* Make sure images are above content */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2); /* Optional: add subtle shadow */
+}
+
+/* ANIMATION FOR THE IMAGES */
+@keyframes rotateAndMove {
+    0% {
+        transform: rotate(0deg) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(360deg) translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* IMAGE TEXT CONTAINER STYLING */
+.image-text-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 90%;
+    margin: 2rem auto;
+    flex-wrap: nowrap;
+}
+
+.side-image {
+    width: 350px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin-left: -100px;
+    margin-top: 40px;
+}
+
+.text-block {
+    flex: 1;
+    font-family: 'CabrionLight', sans-serif;
+    color: #3C3633;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* CLICK-APPEND LINK STYLING */
+tw-link[click-append] {
+    color: #3C3633 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+tw-link[click-append]:hover {
+    color: #3C3633 !important;
+    text-decoration: none !important;
+}
+
+/* HIGH SPECIFICITY BACKGROUND3 STYLING - FOR MESSY TABLE PASSAGE*/
+html body tw-story\[tags\~="background3"] {
+    background-image: url('images/tablecloth.jpg') !important;
+    background-color: transparent !important; 
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Make passage background transparent to show story background */
+html body tw-story\[tags\~="background3"] tw-passage {
+    background-color: transparent !important;
+    background-image: none !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+/* BACKGROUND3 FIX - ADD THIS AT THE END OF YOUR CSS */
+tw-story\[tags\~="background3"] {
+    background-color: transparent !important;
+    position: relative !important;
+}
+
+tw-story\[tags\~="background3"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/tablecloth.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    z-index: -1;
+    opacity: 1;
+}
+/* DOOR IMAGE GRID LAYOUT */
+/* Keep image size sane */
+/* Door passage specific grid styling */
+/* Add this small CSS snippet at the very end of your StoryStylesheet */
+
+/* This creates a completely isolated image grid with a unique class name */
+.door-image-grid-2025 {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+  gap: 16px !important;
+  margin: 2em 0 !important;
+  width: 100% !important;
+}
+
+.door-image-grid-2025 > div {
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+}
+
+.door-image-grid-2025 > div:nth-child(even) {
+  grid-row: span 2 !important;
+  height: 380px !important;
+}
+
+.door-image-grid-2025 > div:nth-child(odd) {
+  grid-row: span 1 !important;
+  height: 180px !important;
+}
+
+.door-image-grid-2025 img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">// Simplified audio setup - no fade, maximizing reliability
+window.onload = function() {
+    // Check if audio already exists
+    if (!document.getElementById("bg-music")) {
+        // Create audio element
+        var audio = document.createElement("audio");
+        audio.id = "bg-music";
+        audio.loop = true;
+        audio.volume = 0.5; // Set volume directly to target
+        audio.setAttribute("preload", "auto");
+        
+        // Add source
+        var source = document.createElement("source");
+        source.src = "./audio/soundscape.mp3";
+        source.type = "audio/mpeg";
+        audio.appendChild(source);
+        document.body.appendChild(audio);
+        
+        // Store audio in window object for easy access
+        window.bgMusic = audio;
+        
+        // Function to play music
+        function playMusic() {
+            var playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(function(error) {
+                    // If autoplay was prevented, we'll try again on user interaction
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+        }
+        
+        // Try to play immediately (might work in some cases)
+        playMusic();
+        
+        // Try to play on any user interaction
+        function attemptPlayOnInteraction() {
+            playMusic();
+            // Check if audio is actually playing
+            setTimeout(function() {
+                if (!audio.paused) {
+                    // If playing, remove event listeners
+                    document.removeEventListener('click', attemptPlayOnInteraction);
+                    document.removeEventListener('keydown', attemptPlayOnInteraction);
+                    document.removeEventListener('touchstart', attemptPlayOnInteraction);
+                }
+            }, 200);
+        }
+        
+        // Add multiple event listeners for better coverage
+        document.addEventListener('click', attemptPlayOnInteraction);
+        document.addEventListener('keydown', attemptPlayOnInteraction);
+        document.addEventListener('touchstart', attemptPlayOnInteraction);
+        
+        // Force play attempt on each page navigation within Twine
+        // This helps with Twine's single-page nature
+        setInterval(function() {
+            if (audio.paused) {
+                playMusic();
+            }
+        }, 2000); // Try every 2 seconds if music isn't playing
+    }
+};</script><tw-tag name="snowfalling" color="blue"></tw-tag><tw-tag name="brackets" color="purple"></tw-tag><tw-passagedata pid="1" name="Intro" tags="" position="600,100" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+It’s late on a Saturday night, too late for you to be awake.
+
+'Tell us a story from when you were younger', you say.
+
+'There are no good stories from when I was young', she replies.
+
+'We don’t want a good story Nonna, [[we want your story]]'.
+
+'*Va Bene*', she says.
+
+You and your sister sit up in bed.
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="2" name="we want your story" tags="" position="600,225" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+&lt;div class="image-text-container" style="display: flex !important; align-items: flex-start !important; gap: 2rem !important; flex-wrap: nowrap !important; margin: 0 !important; padding: 0 !important; margin-top: 100px !important;"&gt;
+  &lt;img src="images/tank.jpg" alt="Old water tank" class="side-image" style="width: 350px !important; flex-shrink: 0 !important; margin: 0 !important; padding: 0 !important; vertical-align: top !important;" /&gt;
+  &lt;div class="text-block" style="flex: 1 !important; margin: 0 !important; padding: 0 !important; margin-top: -8px !important;"&gt;
+    &lt;p style="margin: 0 !important; padding: 0 !important; line-height: 1.4 !important; margin-top: 0 !important;"&gt;When your Nonna and Nonno first came to Australia they lived inside a water tank with your Mum and her older brother. Your Nonno worked on an orange farm picking fruit under the hot sun. The farmer had no accommodation for them. One day, they saw the farmer dragging an old water tank toward hard rubbish. &lt;strong&gt;[[They asked him if they could save it.]]&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="3" name="bed" tags="" position="600,725" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+In your proper bedroom with the slated roof and the insulated walls, you could imagine many places better to live than a water tank.
+
+The bedroom that could fit the water tank inside of it maybe, 
+(click-append: "maybe,")[ [[if you could measure the parameters.]] ]
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="4" name="if you could measure the parameters." tags="" position="600,850" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+&lt;p&gt;You walk the parameters of the story, graze your hand on the corrugated iron edges.&lt;/p&gt;
+
+|fade&gt;[ ]
+
+(after: 4s)[
+  (replace: ?fade)[&lt;div class="slow-fade-screen"&gt;&lt;/div&gt;]
+]
+
+(after: 10s)[
+  (goto: "arrive in calabria")
+]
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="5" name="Outside the bathroom window, a soccer ball is tossed between small dirty soles." tags="brackets" position="600,1225" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+&lt;div class="big-brackets"&gt;
+ &lt;div class="dynamic-text"&gt;
+   &lt;p class="line line-1"&gt;A ring-shaped mosquito bite on your finger greets you in the morning.&lt;/p&gt;
+   &lt;img src="images/cross.jpg" class="inter-text-image"&gt;
+   &lt;p class="line line-2"&gt;She wears a scarf tight around her skull as she washes dishes.&lt;/p&gt;
+   &lt;p class="line line-3"&gt;The radio hums in the background, a voice talking about the weather. Another hot day transmitting through the static.&lt;/p&gt;
+   &lt;img src="images/procession1.jpg" class="inter-text-image"&gt;
+   &lt;p class="line line-4"&gt;You collect clean laundry from the balcony rail, clothes dried into submission.&lt;/p&gt;
+   &lt;p class="line line-5"&gt;Is it the heat or the break from idling hands raised above keys in contemplation that makes folding the clothes feel euphoric?&lt;/p&gt;
+   &lt;img src="images/tapestry.jpg" class="inter-text-image"&gt;
+   &lt;p class="line line-6"&gt;The sun reaches into the story through the splinters. The peeling paint. The half-laid kitchen tile causing depressions in the floor.&lt;/p&gt;
+   &lt;img src="images/mum.jpg" class="inter-text-image"&gt;
+   &lt;p class="line line-7"&gt;The tile trailing off, [[somewhere we are supposed to walk.]]&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="6" name="They asked him if they could save it." tags="" position="600,350" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+&lt;div class="image-text-container" style="display: flex !important; align-items: flex-start !important; gap: 2rem !important; flex-wrap: nowrap !important; margin: 0 !important; padding: 0 !important; margin-top: 100px !important;"&gt;
+  &lt;img src="images/tankfire.jpg" alt="Old water tank" class="side-image" style="width: 350px !important; flex-shrink: 0 !important; margin: 0 !important; padding: 0 !important; vertical-align: top !important;" /&gt;
+  &lt;div class="text-block" style="flex: 1 !important; margin: 0 !important; padding: 0 !important; margin-top: -8px !important;"&gt;
+    &lt;p style="margin: 0 !important; padding: 0 !important; line-height: 1.4 !important; margin-top: 0 !important;"&gt;They flipped the water tank upside down. The old floor became the new roof. The new floor was bare earth. The farmer installed a wood-fired stove so they could cook, &lt;strong&gt;[[smoke rising from their metal home.]]&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="7" name="smoke rising from their metal home." tags="" position="600,475" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+&lt;div class="image-text-container" style="display: flex !important; align-items: flex-start !important; gap: 2rem !important; flex-wrap: nowrap !important; margin: 0 !important; padding: 0 !important; margin-top: 100px !important;"&gt;
+  &lt;img src="images/tankclothes.jpg" alt="Old water tank" class="side-image" style="width: 350px !important; flex-shrink: 0 !important; margin: 0 !important; padding: 0 !important; vertical-align: top !important;" /&gt;
+  &lt;div class="text-block" style="flex: 1 !important; margin: 0 !important; padding: 0 !important; margin-top: -8px !important;"&gt;
+    &lt;p style="margin: 0 !important; padding: 0 !important; line-height: 1.4 !important; margin-top: 0 !important;"&gt;&lt;strong&gt;[[They slept on piles of clothes instead of a bed]]&lt;/strong&gt;. Their luggage filled with blankets from home was still crossing the dark waters of the pacific between Calabria and Victoria.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="8" name="They slept on piles of clothes instead of a bed" tags="" position="600,600" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+&lt;/script&gt;
+
+&lt;style&gt;
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+&lt;/style&gt;
+
+|fadeOut&gt;[
+ &lt;div class="image-text-container fade-target" style="display: flex !important; align-items: flex-start !important; gap: 2rem !important; flex-wrap: nowrap !important; margin: 0 !important; padding: 0 !important;"&gt;
+   &lt;img src="images/tankbottle.jpg" alt="Old water tank" class="side-image" style="width: 350px !important; flex-shrink: 0 !important; margin: 0 !important; padding: 0 !important; vertical-align: top !important;" /&gt;
+   &lt;div class="text-block" style="flex: 1 !important; margin: 0 !important; padding: 0 !important; margin-top: -8px !important;"&gt;
+     &lt;p style="margin: 0 !important; padding: 0 !important; line-height: 1.4 !important; margin-top: 0 !important;"&gt;With no fridge to store food, they only ate shelf-staple food. On the one day your Nonno splashed out and bought meat, your Nonna ruined the dish because she couldn't read English on the bottle labelled, 'sweet and sour sauce'.&lt;/p&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+]
+(after: 8s)[
+ (enchant: ?fadeOut, (css: "animation: fadeOut 3s ease forwards;"))
+]
+(after: 12s)[
+ (replace: ?fadeOut)[]
+ (goto: "bed")
+]
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+ document.body.style.overflow = '';
+ document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="9" name="arrive in calabria" tags="wide-text" position="600,975" size="100,100">&lt;!-- Fast Snowfall Passage with background and minimal formatting --&gt;
+&lt;div id="content-container" style="position: relative; height: 100vh; overflow: hidden;"&gt;
+&lt;div id="buttery-smooth-paragraph" style="position: absolute; font-size: 20px; line-height: 1.8; color: #3C3633; padding: 20px; left: 10%; width: 80%; top: 20px; will-change: transform; transform: translateY(0); transform-style: preserve-3d; backface-visibility: hidden;"&gt;
+&lt;span style="display: block; margin-bottom: 15px;"&gt;On the first night in Calabria there is vomit. Before the vomit she talks at you in the language you have pretended to understand since the morning at the train station where they picked you up and tossed your bags into the back.&lt;/span&gt;   
+&lt;span style="display: block; margin-bottom: 15px;"&gt;The couch is made of wooden pellets, covered in thin foam. Foam bubbles up and coats your tongue.&lt;/span&gt;
+&lt;span style="display: block; margin-bottom: 15px;"&gt;Before talk there is *sugo* and *melone* and *formaggio* sliced thinly and a bottle of homemade red wine.&lt;/span&gt;
+&lt;span style="display: block; margin-bottom: 15px;"&gt;You decline. You retract. You are drunk.&lt;/span&gt;
+&lt;span style="display: block; margin-bottom: 15px;"&gt;A woman working in the bar corrects your sentences. You repeat after her. Swirl the words around your mouth. Chew on them, swallow, but they come rising back up.&lt;/span&gt;
+&lt;span style="display: block; margin-bottom: 15px; text-align: center;"&gt;[[Bile tainted with red underlines.]]&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+// FORCE prevent scrolling with high specificity
+document.body.style.setProperty('overflow', 'hidden', 'important');
+document.documentElement.style.setProperty('overflow', 'hidden', 'important');
+
+// Override passage-specific CSS that might interfere
+var passage = document.querySelector('tw-passage');
+passage.style.setProperty('overflow', 'hidden', 'important');
+passage.style.setProperty('padding-bottom', '0', 'important');
+passage.style.setProperty('height', '100vh', 'important');
+
+// Simply set background just for this passage
+document.querySelector('tw-story').style.backgroundImage = "url('images/sky2.jpg')";
+document.querySelector('tw-story').style.backgroundSize = "cover";
+document.querySelector('tw-story').style.backgroundPosition = "center";
+document.querySelector('tw-story').style.backgroundAttachment = "fixed";
+
+// Make sure passage has transparent background
+passage.style.backgroundColor = "transparent";
+
+// Animation code - Use CSS animation instead of JavaScript
+var paragraph = document.getElementById('buttery-smooth-paragraph');
+
+// Create CSS animation dynamically - much slower
+var style = document.createElement('style');
+style.textContent = `
+  @keyframes slowRiseUp {
+    0% { 
+      transform: translateY(0px); 
+    }
+    100% { 
+      transform: translateY(-${window.innerHeight + 1500}px); 
+    }
+  }
+  
+  #buttery-smooth-paragraph {
+    animation: slowRiseUp 300s linear forwards !important;
+  }
+`;
+document.head.appendChild(style);
+
+// Optional: Clean up scroll prevention when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="10" name="Bile tainted with red underlines." tags="background4" position="600,1100" size="100,100">&lt;script&gt;
+// Force background image for this passage only
+document.querySelector('tw-story').style.backgroundImage = "url('images/soccerborder.jpg')";
+document.querySelector('tw-story').style.backgroundSize = "cover";
+document.querySelector('tw-story').style.backgroundPosition = "center";
+document.querySelector('tw-story').style.backgroundAttachment = "fixed";
+document.querySelector('tw-story').style.backgroundRepeat = "no-repeat";
+
+// LANDSCAPE text positioning with fixes
+var passage = document.querySelector('tw-passage');
+passage.style.width = "60%"; 
+passage.style.height = "350px"; 
+passage.style.position = "absolute"; 
+passage.style.top = "50%"; 
+passage.style.left = "50%";
+passage.style.transform = "translate(-50%, -50%)";
+passage.style.backgroundColor = "transparent";
+passage.style.boxShadow = "none";
+passage.style.border = "none";
+passage.style.padding = "15px";
+passage.style.fontSize = "0.75em"; 
+passage.style.color = "#000000";
+passage.style.textShadow = "none";
+passage.style.lineHeight = "1.7";
+passage.style.textAlign = "center";
+passage.style.margin = "0";
+passage.style.overflow = "auto";
+passage.style.display = "flex"; 
+passage.style.flexDirection = "column"; 
+passage.style.justifyContent = "flex-start";
+
+// Fix hyperlinks
+var links = passage.querySelectorAll('a');
+for (var i = 0; i &lt; links.length; i++) {
+   links[i].style.color = "#3C3633";
+   links[i].style.fontWeight = "bold";
+   links[i].style.textDecoration = "none";
+   links[i].style.marginTop = "10px";
+   links[i].style.marginBottom = "10px";
+   links[i].style.display = "inline";
+}
+
+// Fix back button positioning
+var sidebar = document.querySelector('tw-sidebar');
+if (sidebar) {
+   sidebar.style.position = "fixed";
+   sidebar.style.top = "30px";
+   sidebar.style.left = "50px";
+   sidebar.style.zIndex = "9999";
+   sidebar.style.width = "auto";
+   sidebar.style.height = "auto";
+   sidebar.style.backgroundColor = "transparent";
+}
+
+// Ensure back button is visible and properly aligned
+var backButton = document.querySelector('tw-sidebar [role=button]');
+if (backButton) {
+   backButton.style.position = "relative";
+   backButton.style.left = "0";
+   backButton.style.top = "0";
+   backButton.style.margin = "5px";
+   backButton.style.padding = "5px";
+   backButton.style.visibility = "visible";
+   backButton.style.opacity = "1";
+   backButton.style.pointerEvents = "auto";
+}
+
+// Ensure passage is visible
+passage.style.opacity = "1";
+passage.style.visibility = "visible";
+&lt;/script&gt;
+
+&lt;style&gt;
+p {
+  margin-bottom: 1.2rem !important;
+  line-height: 1.7 !important;
+}
+
+p:last-child {
+  margin-bottom: 0 !important;
+}
+
+em {
+  white-space: nowrap !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;You sit on the wooden pellet couch that is covered in a red blanket. You try the acupuncture technique to stop nausea. You press down on your right wrist with your left thumb, searching for the pressure point.&lt;/p&gt;
+
+&lt;p&gt;You tell her you feel &lt;em&gt;mela&lt;/em&gt; (apple) when you mean to say &lt;em&gt;male&lt;/em&gt; (sick). She brings you a big plate of fruit and you force yourself to swallow.&lt;/p&gt;
+
+&lt;p&gt;Mid vomit she walks in and comforts you with words that feel– are familiar. Mid shower, the water runs out. You stand naked in front of the tiny sink rinsing shampoo from your dead ends.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[[Outside the bathroom window, a soccer ball is tossed between small dirty soles.]]&lt;/strong&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="11" name="somewhere we are supposed to walk." tags="" position="600,1350" size="100,100">&lt;style&gt;
+tw-story {
+ background: url('images/broken.jpg') center center / cover no-repeat fixed !important;
+ background-color: #EEEDEB !important;
+}
+tw-passage {
+ background: transparent !important;
+ position: relative !important;
+ min-height: 100vh !important;
+ overflow: hidden !important;
+}
+
+body, html {
+ background-color: #EEEDEB !important;
+}
+
+/* Clear any previous background styles */
+tw-story[tags] {
+ background-image: none;
+}
+tw-story[tags~="background8"] {
+ background: url('images/broken.jpg') center center / cover no-repeat fixed !important;
+ background-color: #EEEDEB !important;
+}
+&lt;/style&gt;
+
+&lt;p style="position: absolute; top: 280px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 800px; margin: 0; padding: 20px; line-height: 1.6; color: #000; z-index: 10;"&gt;Broken drawers, broken glasses, broken fridge. She searches to find the only plate without a chip. Everything is covered in a towel. Your bowl of half-eaten &lt;em&gt;insalata&lt;/em&gt;, the table already set for dinner though it's still morning, the fruit bowl, the 3-story cart of tomatoes. You catch her one morning before she knows you're watching. Tearing squares of towel from the roll and covering the piles. A cloth concealing the body at the funeral. The red blanket on the couch. The lid of the tank covering the questions, hiding the story. You create the tank in your own image. Wondering requires too many senses. You sense it isn't appropriate. &lt;strong&gt;[[You sense that your questions do not have answers.]]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+ document.body.style.overflow = '';
+ document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="12" name="ending" tags="background2" position="600,3100" size="100,100">&lt;script&gt;
+// Clean up everything from the previous passage
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.backgroundSize = "";
+document.querySelector('tw-story').style.backgroundPosition = "";
+document.querySelector('tw-story').style.backgroundAttachment = "";
+
+// Remove all the scattered images
+var images = document.querySelectorAll('.tablecloth-image');
+images.forEach(function(img) {
+  img.remove();
+});
+
+// Restore scrolling
+document.body.style.overflow = '';
+document.documentElement.style.overflow = '';
+
+// Make sure passage background is back to normal
+document.querySelector('tw-passage').style.backgroundColor = "";
+&lt;/script&gt;
+
+You look out the back window while they drive away from the village. The mountain screams dry. *Fichi d'india* line the road. The sky fades blue into yellow, yellow into pink. Zio slams on the brakes and points. You roll down the window. The wild boar groans a loud goodbye. You all stare in silence. It groans again and you stare into its eyes.
+
+It bows its head. You bow yours. [[The car continues driving.]]
+
+&lt;style&gt;
+tw-story {
+  background: url('images/sky.jpg') center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+}
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="13" name="You sense that your questions do not have answers." tags="" position="600,1475" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+
+// Force scroll to top of page
+window.scrollTo(0, 0);
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+// Also force it after a small delay to ensure it takes effect
+setTimeout(() =&gt; {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}, 100);
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Force zero spacing on everything */
+* {
+ margin: 0 !important;
+ padding: 0 !important;
+ line-height: 1 !important;
+ font-size: 1em !important;
+}
+&lt;/style&gt;
+
+&lt;!-- First row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center; padding-bottom: 0 !important; margin-bottom: 0 !important;"&gt;
+ &lt;p&gt;You call your mother; in Melbourne it rains all night long.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- First row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands2.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands5.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands11.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands19.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Second row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center;"&gt;
+ &lt;p&gt;Somewhere the tank sleeps badly in a scrap metal yard. It drinks up the rain, then it dries out.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Second row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands23.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands28.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands14.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands32.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Third row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center;"&gt;
+ &lt;p&gt;It holds, it contains, it remembers for us, saves for the next rainy day. The sun sets and rises at the same time in different places.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Third row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands37.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands50.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands46.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands38.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Fourth row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center;"&gt;
+ &lt;p&gt;You and her both exhale. There is no overflowing the water tank home. Only refilling as the mother and father return. The children pile in. The weeds are plucked and prepared.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Fourth row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands42.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands6.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands46.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/hands18.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Hyperlinked line separated --&gt;
+&lt;div style="width: 100%; text-align: center; margin-top: 20px;"&gt;
+ &lt;p&gt;&lt;strong&gt;[[By morning, the field will have grown new leaves again.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="You realise she wonders the same thing." tags="" position="600,1725" size="100,100">&lt;style&gt;
+tw-story {
+  background: url('images/timelines.jpg') center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+  font-size: 0.7em !important;
+  line-height: 1.4 !important;
+  max-width: 50% !important;
+  margin: 15% auto 0 !important;
+  padding: 10px !important;
+}
+&lt;/style&gt;
+Your nonna tells you your uncle nearly died of dehydration as a child. You carry a two-litre water bottle to every outing. You know how to say 'hot' and 'Australian' in dialect. String a sentence together. 
+[[Everyone smiles.]] </tw-passagedata><tw-passagedata pid="15" name="Everyone smiles." tags="" position="600,1850" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+// Small delay to ensure clearing takes effect
+setTimeout(() =&gt; {
+  document.querySelector('tw-story').style.setProperty('background', 'url("images/smoke.jpg") center center / cover no-repeat fixed', 'important');
+  document.querySelector('tw-story').style.setProperty('background-color', 'transparent', 'important');
+}, 50);
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+ document.body.style.overflow = '';
+ document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+tw-story {
+  background: url('images/smoke.jpg') center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+  padding: 20px !important;
+  margin: 0 auto !important;
+  max-width: 800px !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+/* Force override any previous background styling */
+body, html {
+  background: none !important;
+  overflow: hidden !important;
+}
+.passage-content {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 20px !important;
+  margin-top: -200px !important;
+  margin-bottom: 100px !important;
+}
+.passage-content p {
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6 !important;
+}
+.passage-content p:last-child {
+  margin-bottom: 0 !important;
+}
+&lt;/style&gt;
+
+&lt;div class="passage-content"&gt;
+&lt;p&gt;In the tank they ate pigeon your Nonno shot and Nonna stewed, bitter greens harvested from the field surrounding.&lt;/p&gt;
+
+&lt;p&gt;You write the &lt;em&gt;peperonata&lt;/em&gt; into the play. The Milanese scriptwriting teacher squints, tells you, &lt;em&gt;This is not breakfast food.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The smell of it nudges you awake on the second morning, or is it the third? Garlic crushed under palm, Pipi blackening in the pan.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[[Oil spits and expands around her.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Additional backup method - force reapply background after content loads
+window.addEventListener('load', function() {
+  const story = document.querySelector('tw-story');
+  if (story) {
+    story.style.setProperty('background-image', 'url("images/smoke.jpg")', 'important');
+    story.style.setProperty('background-size', 'cover', 'important');
+    story.style.setProperty('background-position', 'center center', 'important');
+    story.style.setProperty('background-repeat', 'no-repeat', 'important');
+    story.style.setProperty('background-attachment', 'fixed', 'important');
+  }
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;script&gt;
+// AGGRESSIVE background clearing with multiple attempts
+function clearBackground() {
+  const story = document.querySelector('tw-story');
+  if (story) {
+    // Method 1: Remove all background properties
+    story.style.backgroundImage = "none";
+    story.style.background = "none";
+    story.style.removeProperty('background');
+    story.style.removeProperty('background-image');
+    story.style.removeProperty('background-size');
+    story.style.removeProperty('background-position');
+    story.style.removeProperty('background-repeat');
+    story.style.removeProperty('background-attachment');
+    
+    // Method 2: Force override with your default color
+    story.style.setProperty('background', '#EEEDEB', 'important');
+    story.style.setProperty('background-color', '#EEEDEB', 'important');
+    story.style.setProperty('background-image', 'none', 'important');
+  }
+}
+
+// Try multiple times with delays
+clearBackground();
+setTimeout(clearBackground, 100);
+setTimeout(clearBackground, 300);
+setTimeout(clearBackground, 500);
+
+// Multiple attempts to force scrolling back
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+document.querySelector('tw-story').style.setProperty('overflow', 'auto', 'important');
+document.querySelector('tw-passage').style.setProperty('overflow', 'auto', 'important');
+
+// Also try removing the property entirely and re-adding
+document.body.style.removeProperty('overflow');
+document.documentElement.style.removeProperty('overflow');
+document.body.style.overflow = 'auto';
+document.documentElement.style.overflow = 'auto';
+&lt;/script&gt;
+
+&lt;style&gt;
+/* FORCE clear all backgrounds */
+tw-story {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background: #EEEDEB !important;
+  background-image: none !important;
+}
+
+.article-embed {
+ background: #f9f7f4 !important;
+ padding: 20px !important;
+ margin: 0 0 20px 20px !important;
+ transform: rotate(-2deg) !important;
+ font-family: 'Times New Roman', serif !important;
+ font-size: 0.6em !important;
+ line-height: 1.3 !important;
+ color: #1a1a1a !important;
+ max-width: 350px !important;
+ float: right !important;
+ cursor: pointer !important;
+ transition: transform 0.2s ease !important;
+ box-shadow: 2px 2px 8px rgba(0,0,0,0.1) !important;
+ border: 1px solid #e0e0e0 !important;
+ position: relative !important;
+ z-index: 3 !important;
+}
+
+.article-embed::before {
+ content: '' !important;
+ position: absolute !important;
+ top: 3px !important;
+ left: 3px !important;
+ right: -3px !important;
+ bottom: -3px !important;
+ background: #f5f3f0 !important;
+ border: 1px solid #d0d0d0 !important;
+ transform: rotate(1deg) !important;
+ z-index: -1 !important;
+}
+
+.article-embed::after {
+ content: '' !important;
+ position: absolute !important;
+ top: 6px !important;
+ left: 6px !important;
+ right: -6px !important;
+ bottom: -6px !important;
+ background: #f0ede8 !important;
+ border: 1px solid #c5c5c5 !important;
+ transform: rotate(-0.5deg) !important;
+ z-index: -2 !important;
+}
+
+.article-embed:hover {
+ transform: rotate(-2deg) scale(1.02) !important;
+}
+
+.newspaper-header {
+ font-weight: bold !important;
+ font-size: 0.7em !important;
+ margin-bottom: 8px !important;
+ color: #1a1a1a !important;
+ letter-spacing: 1px !important;
+ text-transform: uppercase !important;
+ text-align: center !important;
+ border-bottom: 2px solid #1a1a1a !important;
+ padding-bottom: 5px !important;
+}
+
+.article-headline {
+ font-weight: bold !important;
+ font-size: 1.1em !important;
+ margin-bottom: 8px !important;
+ color: #1a1a1a !important;
+ text-align: center !important;
+ line-height: 1.2 !important;
+}
+
+.article-date {
+ font-size: 0.7em !important;
+ margin-bottom: 12px !important;
+ color: #666 !important;
+ text-align: center !important;
+ border-bottom: 1px solid #ccc !important;
+ padding-bottom: 8px !important;
+}
+
+.article-body {
+ text-align: justify !important;
+ columns: 2 !important;
+ column-gap: 15px !important;
+ column-rule: 1px solid #ddd !important;
+}
+
+.article-location {
+ font-weight: bold !important;
+ font-variant: small-caps !important;
+}
+
+.article-body p {
+ margin: 0 0 8px 0 !important;
+ text-indent: 8px !important;
+}
+&lt;/style&gt;
+
+&lt;div class="article-embed" onclick="window.open('https://edgeofhumanity.com/2018/08/15/italy-14/', '_blank')"&gt;
+ &lt;div class="newspaper-header"&gt;Edge of Humanity Magazine&lt;/div&gt;
+ &lt;div class="article-headline"&gt;Poverty, Isolation &amp; Love For The Land&lt;/div&gt;
+ &lt;div class="article-date"&gt;August 15, 2018&lt;/div&gt;
+ 
+ &lt;div class="article-body"&gt;
+   &lt;p&gt;&lt;span class="article-location"&gt;Nardodipace, Italy&lt;/span&gt; — Considered one of the poorest comune in Italy, Nardodipace has just more than 1,000 inhabitants distributed in 5 small cities: Cassari, Ragonà, Vecchio Abitato, Santo Todaro, and Ciano.&lt;/p&gt;
+   
+   &lt;p&gt;A place where one can still perceive an ancient simplicity in everyday gestures. Time is precious here, inhabited mostly by humble farmers who work a land that is often severe, sometimes cruel.&lt;/p&gt;
+   
+   &lt;p&gt;The love for the land is so strong that sometimes those who live there renounce their dreams of a different life, even cursing themselves for the isolation forced by difficult, unsavory and abandoned roads.&lt;/p&gt;
+   
+   &lt;p&gt;Shaking hands and the word given is more valuable than anything else: a place where the non-local is called "Forestieru" but where initial mistrust transforms, with human sincerity, into courtesy, welcome and familiarity, with a great desire to tell and be heard.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style="overflow: hidden; min-height: 400px;"&gt;
+&lt;p&gt;Tan-skinned kids swim in the sea. You float easily and dodge a soccer ball kicked overhead. They speak dialect, they squeal, they scream. More rock than sand. You cut your feet. She lies on a beach chair and tells you he has gone to find &lt;strong&gt;[[other villagers]]&lt;/strong&gt; for you to meet. A parade of cousins and connections you fail to map.&lt;/p&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="other villagers" tags="" position="600,2100" size="100,100">&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+
+// Force scroll to top of page
+window.scrollTo(0, 0);
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+// Also force it after a small delay to ensure it takes effect
+setTimeout(() =&gt; {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}, 100);
+&lt;/script&gt;
+
+&lt;div class="big-brackets rotated-brackets"&gt;
+ &lt;div class="dynamic-text"&gt;
+   &lt;p class="line line-1"&gt;A cross-shaped price tag on the back of the crucifix. They drive you to the village through 2, 3, 5 pit stops. Gravel roads that remember earthquake, potholes like small mouths gasping.&lt;/p&gt;
+   &lt;img src="images/purple.jpg" class="inter-text-image rotated-image"&gt;
+   &lt;p class="line line-2"&gt;&lt;em&gt;Fontana di Bella Donna&lt;/em&gt;: cold mountain water runs from your wrist while you sway bottles from their necks. Hold steady, the water rises, you cap and repeat.&lt;/p&gt;
+   &lt;p class="line line-3"&gt;The car boot sloshing fountain water interferes with wind translation. Your ex-carabinieri Zio speeds down mountain curves; grey dust musters courage to lean in and kiss. You wind the window up.&lt;/p&gt;
+   &lt;img src="images/church1.jpg" class="inter-text-image rotated-image"&gt;
+   &lt;p class="line line-4"&gt;The belongings in your bag become a fourth passenger, bouncing over rocks in the back. You hope something falls out so you'll have to turn around.&lt;/p&gt;
+   &lt;p class="line line-5"&gt;In the tank lived your mother and her mother and father, 3 brothers - one bigger, one younger, one baby clutching a fist toward the entrance into the world. You try imagining but the dimensions don't add up.&lt;/p&gt;
+   &lt;img src="images/zio.jpg" class="inter-text-image rotated-image"&gt;
+   &lt;p class="line line-6"&gt;You can imagine a red apple spinning, a fig tree, a rosary. But no matter how deep you dive into visualisation, &lt;strong&gt;[[the mathematics of desperation refuse to stack up.]]&lt;/strong&gt;&lt;/p&gt;
+   &lt;img src="images/clothesline.jpg" class="inter-text-image rotated-image"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* Add rotation to the brackets container */
+.rotated-brackets::before {
+  content: "(";
+  position: absolute;
+  left: -2rem;
+  top: -1rem;
+  font-size: 8rem;
+  transform: rotate(-15deg);
+  color: #333;
+}
+
+.rotated-brackets::after {
+  content: ")";
+  position: absolute;
+  right: -2rem;
+  bottom: -1rem;
+  font-size: 8rem;
+  transform: rotate(15deg);
+  color: #333;
+}
+
+.rotated-brackets {
+  position: relative;
+}
+
+/* Add rotation to images */
+.rotated-image {
+  transform: rotate(5deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.rotated-image:hover {
+  transform: rotate(-3deg);
+}
+&lt;/style&gt;
+
+&lt;script&gt;
+// Reset background ONLY - no text styling
+document.querySelector('tw-story').style.backgroundImage = "none";
+// Force override the persistent scroll blocking from previous passages
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="18" name="the mathematics of desperation refuse to stack up." tags="" position="600,2225" size="100,100">&lt;script&gt;
+// Force clear any previous background images
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+// Small delay to ensure clearing takes effect
+setTimeout(() =&gt; {
+  document.querySelector('tw-story').style.setProperty('background', 'url("images/abstract3.jpg") center center / cover no-repeat fixed', 'important');
+  document.querySelector('tw-story').style.setProperty('background-color', 'transparent', 'important');
+}, 50);
+// ENABLE scrolling instead of disabling it
+document.body.style.overflow = 'auto';
+document.documentElement.style.overflow = 'auto';
+
+// Force scroll to top of page
+window.scrollTo(0, 0);
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+// Also force it after a small delay to ensure it takes effect
+setTimeout(() =&gt; {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}, 100);
+&lt;/script&gt;
+
+&lt;style&gt;
+tw-story {
+  background: url('images/abstract3.jpg') center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+  padding: 20px !important;
+  margin: 0 auto !important;
+  max-width: 800px !important;
+}
+/* Force override any previous background styling but ALLOW scrolling */
+body, html {
+  background: none !important;
+  overflow: auto !important;
+}
+.passage-content {
+  position: relative !important;
+  z-index: 1 !important;
+  padding: 20px !important;
+  min-height: 100vh !important;
+}
+.passage-content p {
+  margin-bottom: 1.5rem !important;
+  line-height: 1.6 !important;
+}
+&lt;/style&gt;
+
+&lt;div class="passage-content"&gt;
+&lt;p&gt;In the village where your mother was born, heat is not arid or tropical but something else - something to do with the Mediterranean, with belief, with time moving at the speed of stories. You sit on a rock alongside the river at the mountain's base while Zio pokes his pear tree with a stick, beckoning them to fall. You crawl on overgrown grass to collect pears in a &lt;em&gt;Carrefour&lt;/em&gt; bag he holds open.&lt;/p&gt;
+
+&lt;p&gt;You eat. You press down on your wrist searching for the pressure point. &lt;strong&gt;[[Fuck it– you cry.]]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Saltwater creates scales on your palms. Black stains on feet you're not sure will ever come out. You scale between &lt;em&gt;male&lt;/em&gt; and &lt;em&gt;bene&lt;/em&gt;. &lt;strong&gt;[[You pendulum back and forth ten times in an hour.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+// Additional backup method - force reapply background after content loads
+window.addEventListener('load', function() {
+  const story = document.querySelector('tw-story');
+  if (story) {
+    story.style.setProperty('background-image', 'url("images/abstract3.jpg")', 'important');
+    story.style.setProperty('background-size', 'cover', 'important');
+    story.style.setProperty('background-position', 'center center', 'important');
+    story.style.setProperty('background-repeat', 'no-repeat', 'important');
+    story.style.setProperty('background-attachment', 'fixed', 'important');
+  }
+});
+// Don't disable scrolling when leaving this passage
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="19" name="You pendulum back and forth ten times in an hour." tags="" position="600,2350" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+document.querySelector('tw-story').style.removeProperty('background');
+document.querySelector('tw-story').style.removeProperty('background-image');
+document.querySelector('tw-story').style.removeProperty('background-size');
+document.querySelector('tw-story').style.removeProperty('background-position');
+document.querySelector('tw-story').style.removeProperty('background-repeat');
+document.querySelector('tw-story').style.removeProperty('background-attachment');
+
+// Force override with default background color
+document.querySelector('tw-story').style.setProperty('background', '#EEEDEB', 'important');
+document.querySelector('tw-story').style.setProperty('background-color', '#EEEDEB', 'important');
+
+// RESTORE SCROLLING - remove the persistent scroll blocking
+document.body.style.removeProperty('overflow');
+document.documentElement.style.removeProperty('overflow');
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+
+// Force scroll to top of page
+window.scrollTo(0, 0);
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+// Also force it after a small delay to ensure it takes effect
+setTimeout(() =&gt; {
+  window.scrollTo(0, 0);
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}, 100);
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Clear any persistent backgrounds but use default color */
+tw-story {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+
+/* Restore scrolling */
+body, html {
+  overflow: auto !important;
+  background-color: #EEEDEB !important;
+}
+
+/* Force zero spacing on everything */
+* {
+ margin: 0 !important;
+ padding: 0 !important;
+ line-height: 1 !important;
+ font-size: 1em !important;
+}
+&lt;/style&gt;
+
+&lt;!-- First row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center; padding-bottom: 0 !important; margin-bottom: 0 !important;"&gt;
+ &lt;p&gt;You open the door with the key looped on the Matryoshka doll keyring.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- First row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door1.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door2.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door3.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door4.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Second row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center;"&gt;
+ &lt;p&gt;The key your cousin gave you. You promised not to lose it by keeping it in the wallet with the GPS tile tracker. When you check, there are no bars on your phone.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Second row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door5.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door6.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door7.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door8.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Third row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center;"&gt;
+ &lt;p&gt;Inside the bedroom-sized house, she points to a single mattress pushed against the corner and tells you, 'this is where your mother entered the world'.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Third row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door9.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door10.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door11.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/stucco.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Fourth row text - centered --&gt;
+&lt;div style="width: 100%; text-align: center;"&gt;
+ &lt;p&gt;&lt;strong&gt;[[The number 4 is painted in red on the outside stucco wall.]]&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Fourth row of door images with zero space --&gt;
+&lt;div style="display: flex; width: 100%; gap: 0;"&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door13.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door14.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door15.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+ &lt;div style="flex: 1; width: 25%;"&gt;
+   &lt;img src="images/door12.jpg" alt="" style="width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="The number 4 is painted in red on the outside stucco wall." tags="" position="600,2475" size="100,100">&lt;script&gt;
+// Clear any persistent backgrounds
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+
+// Force background image for this passage only
+document.querySelector('tw-story').style.backgroundImage = "url('images/catholicborder.jpg')";
+document.querySelector('tw-story').style.backgroundSize = "cover";
+document.querySelector('tw-story').style.backgroundPosition = "center";
+document.querySelector('tw-story').style.backgroundAttachment = "fixed";
+document.querySelector('tw-story').style.backgroundRepeat = "no-repeat";
+
+// LANDSCAPE text positioning with fixes
+var passage = document.querySelector('tw-passage');
+passage.style.width = "65%"; 
+passage.style.height = "280px"; 
+passage.style.position = "absolute"; 
+passage.style.top = "50%"; 
+passage.style.left = "50%";
+passage.style.transform = "translate(-50%, -50%)";
+passage.style.backgroundColor = "transparent";
+passage.style.boxShadow = "none";
+passage.style.border = "none";
+passage.style.padding = "15px";
+passage.style.fontSize = "0.8em"; 
+passage.style.color = "#000000";
+passage.style.textShadow = "none";
+passage.style.lineHeight = "1.6";
+passage.style.textAlign = "left";
+passage.style.margin = "0";
+passage.style.overflow = "auto";
+passage.style.display = "flex"; 
+passage.style.flexDirection = "column"; 
+passage.style.justifyContent = "flex-start";
+
+// Fix hyperlinks
+var links = passage.querySelectorAll('a');
+for (var i = 0; i &lt; links.length; i++) {
+   links[i].style.color = "#2c2c2c";
+   links[i].style.fontWeight = "bold";
+   links[i].style.textDecoration = "none";
+   links[i].style.marginTop = "10px";
+   links[i].style.marginBottom = "10px";
+   links[i].style.display = "inline";
+}
+
+// Fix back button positioning
+var sidebar = document.querySelector('tw-sidebar');
+if (sidebar) {
+   sidebar.style.position = "fixed";
+   sidebar.style.top = "30px";
+   sidebar.style.left = "50px";
+   sidebar.style.zIndex = "9999";
+   sidebar.style.width = "auto";
+   sidebar.style.height = "auto";
+   sidebar.style.backgroundColor = "transparent";
+}
+
+// Ensure back button is visible and properly aligned
+var backButton = document.querySelector('tw-sidebar [role=button]');
+if (backButton) {
+   backButton.style.position = "relative";
+   backButton.style.left = "0";
+   backButton.style.top = "0";
+   backButton.style.margin = "5px";
+   backButton.style.padding = "5px";
+   backButton.style.visibility = "visible";
+   backButton.style.opacity = "1";
+   backButton.style.pointerEvents = "auto";
+}
+
+// Ensure passage is visible
+passage.style.opacity = "1";
+passage.style.visibility = "visible";
+
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+ document.body.style.overflow = '';
+ document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+p {
+  margin-bottom: 1.2rem !important;
+  line-height: 1.6 !important;
+}
+
+p:last-child {
+  margin-bottom: 0 !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;They lead you up the sloped street. You wait outside another small house while Zia calls out a greeting in rapid-fire dialect– urgency easy to decode.&lt;/p&gt;
+
+&lt;p&gt;When you enter each wall is covered with framed pictures of saints and Madonna, no white paint saved from the weight of watching.&lt;/p&gt;
+
+&lt;p&gt;A small lady with brown wrinkled skin dressed in black sits on the couch, dress shoes on even though there is nowhere to go.&lt;/p&gt;
+
+&lt;p&gt;You don't know who she is, but she knows who you are.&lt;/p&gt;
+
+&lt;p&gt;She rips the oxygen tube from under her nose and leans in to hold you. She grabs your hands, rosary still in fist. The beads bite into your palm. They imprint a symbol, if only you could read it.&lt;/p&gt;
+
+&lt;p&gt;Snot meeting blood and bile in your gut. Her aged skin swallows your tears before they can reach you.&lt;/p&gt;
+
+&lt;p&gt;The local Catholic channel continues playing in the background; the rich can afford to be atheist. Breathless, gasping, snot seeping from the inside out.&lt;/p&gt;
+
+&lt;p&gt;When she asks you how your mother is you lean into her t-shirt, heaving. You exchange something with her to prove that it's more than just blood.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;'Andiamo,'&lt;/em&gt; and you follow footsteps away; she stays framed in the doorway, crying, shaking, steady hand waving as you hike up the sloped driveway choking on tears.&lt;/p&gt;
+
+&lt;p&gt;Too exhausted to find the translation that says you hope you will see her again. Your body stops you from making promises to people &lt;strong&gt;[[nothing but faith.]]&lt;/strong&gt;&lt;/p&gt;</tw-passagedata><tw-passagedata pid="21" name="nothing but faith." tags="" position="600,2600" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+document.querySelector('tw-story').style.removeProperty('background');
+document.querySelector('tw-story').style.removeProperty('background-image');
+document.querySelector('tw-story').style.removeProperty('background-size');
+document.querySelector('tw-story').style.removeProperty('background-position');
+document.querySelector('tw-story').style.removeProperty('background-repeat');
+document.querySelector('tw-story').style.removeProperty('background-attachment');
+
+// Force override with transparent background first
+document.querySelector('tw-story').style.setProperty('background', 'transparent', 'important');
+document.querySelector('tw-story').style.setProperty('background-color', 'transparent', 'important');
+
+// Small delay to ensure clearing takes effect, then apply new background
+setTimeout(() =&gt; {
+  document.querySelector('tw-story').style.setProperty('background', 'url("images/abstract2.jpg") center center / cover no-repeat fixed', 'important');
+  document.querySelector('tw-story').style.setProperty('background-color', 'transparent', 'important');
+}, 50);
+
+// Disable scrolling
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+&lt;/script&gt;
+
+&lt;style&gt;
+tw-story {
+  background: url('images/abstract2.jpg') center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+}
+
+/* Clear any persistent backgrounds */
+body, html {
+  background: none !important;
+  overflow: hidden !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;When your Nonna said goodbye to her father for the last time in Reggio airport, he was crying so much that she left him behind with saltwater dripping from his leather shoes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;[[She never saw him again.]]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script&gt;
+// Additional backup method - force reapply background after content loads
+window.addEventListener('load', function() {
+  const story = document.querySelector('tw-story');
+  if (story) {
+    story.style.setProperty('background-image', 'url("images/abstract2.jpg")', 'important');
+    story.style.setProperty('background-size', 'cover', 'important');
+    story.style.setProperty('background-position', 'center center', 'important');
+    story.style.setProperty('background-repeat', 'no-repeat', 'important');
+    story.style.setProperty('background-attachment', 'fixed', 'important');
+  }
+});
+
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+  document.body.style.overflow = '';
+  document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="22" name="another last goodbye" tags="" position="600,2850" size="100,100">&lt;script&gt;
+// AGGRESSIVE background clearing - try multiple methods
+const story = document.querySelector('tw-story');
+if (story) {
+  // Method 1: Remove all background properties
+  story.style.backgroundImage = "none";
+  story.style.background = "none";
+  story.style.removeProperty('background');
+  story.style.removeProperty('background-image');
+  story.style.removeProperty('background-size');
+  story.style.removeProperty('background-position');
+  story.style.removeProperty('background-repeat');
+  story.style.removeProperty('background-attachment');
+  
+  // Method 2: Force transparent background to show default
+  story.style.setProperty('background', 'transparent', 'important');
+  story.style.setProperty('background-color', '#EEEDEB', 'important');
+  story.style.setProperty('background-image', 'none', 'important');
+}
+// AGGRESSIVE scroll restoration
+document.body.style.removeProperty('overflow');
+document.documentElement.style.removeProperty('overflow');
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+// Force page scroll restoration
+window.addEventListener('load', function() {
+  document.body.style.overflow = 'auto';
+  document.documentElement.style.overflow = 'auto';
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+/* FORCE clear all backgrounds but use your default color */
+tw-story {
+  background: transparent !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+tw-passage {
+  background: transparent !important;
+  background-image: none !important;
+}
+body, html {
+  background-color: #EEEDEB !important;
+  background-image: none !important;
+  overflow: auto !important;
+}
+.concrete-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: transparent !important;
+  padding: 40px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #000;
+  text-align: center;
+}
+.line {
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+/* Normal structured text at the top */
+.line-1 { }
+.line-2 { margin-left: 10px; }
+.line-3 { margin-left: 20px; }
+/* Text starts spreading out but stays readable */
+.line-4 { 
+  word-spacing: 5px;
+  margin-top: 2rem;
+}
+.line-5 { 
+  word-spacing: 10px;
+  margin-top: 2.5rem;
+}
+.line-6 { 
+  word-spacing: 15px;
+  letter-spacing: 1px;
+  margin-top: 3rem;
+}
+.line-7 { 
+  word-spacing: 20px;
+  letter-spacing: 2px;
+  margin-top: 3.5rem;
+}
+.line-8 { 
+  word-spacing: 30px;
+  letter-spacing: 3px;
+  margin-top: 4rem;
+}
+.line-9 { 
+  word-spacing: 40px;
+  letter-spacing: 4px;
+  margin-top: 4.5rem;
+}
+.line-10 { 
+  word-spacing: 50px;
+  letter-spacing: 5px;
+  margin-top: 5rem;
+}
+.final-line {
+  margin-top: 6rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  word-spacing: 20px;
+  letter-spacing: 2px;
+}
+/* Hover effects for interactivity */
+.line:hover {
+  color: #666;
+  cursor: pointer;
+}
+&lt;/style&gt;
+
+&lt;div class="concrete-container"&gt;
+  &lt;div class="line line-1"&gt;They take you to the cemetery. You sign across your chests.&lt;/div&gt;
+  &lt;div class="line line-2"&gt;She kicks gravel stones with her toes, mutters prayers under her breath.&lt;/div&gt;
+  &lt;div class="line line-3"&gt;Plotting DNA across the dirt floor,&lt;/div&gt;
+  &lt;div class="line line-4"&gt;bones turned stone,&lt;/div&gt;
+  &lt;div class="line line-5"&gt;heat insisting in open-mouthed heavy heaps of exhale.&lt;/div&gt;
+  &lt;div class="line line-6"&gt;You pick dead petals from the flowers on the graves.&lt;/div&gt;
+  &lt;div class="line line-7"&gt;More buried on this mountain than living.&lt;/div&gt;
+  &lt;div class="line line-8"&gt;Another no-produce year for the olive fields.&lt;/div&gt;
+  &lt;div class="line line-9"&gt;She looks up to the sky,&lt;/div&gt;
+  &lt;div class="line line-10"&gt;looks up to ask&lt;/div&gt;
+  &lt;div class="final-line"&gt;&lt;strong&gt;[[for something...]]&lt;/strong&gt;&lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="23" name="The car continues driving." tags="background7" position="600,3225" size="100,100">&lt;style&gt;
+tw-story {
+  background: url('images/ending.jpg') center center / cover no-repeat fixed !important;
+  background-color: transparent !important;
+}
+tw-passage {
+  background: transparent !important;
+}
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="24" name="Title" tags="background5" position="600,0" size="100,100">(after: 5s)[(goto: "Intro")]
+</tw-passagedata><tw-passagedata pid="25" name="By morning, the field will have grown new leaves again." tags="" position="600,1600" size="100,100">&lt;style&gt;
+tw-passage {
+ background: transparent !important;
+ min-height: 100vh !important;
+ padding: 20px !important;
+}
+
+body, html {
+ overflow: hidden !important;
+}
+
+p {
+ margin-top: 100px !important;
+ margin-bottom: 0 !important;
+ margin-left: auto !important;
+ margin-right: auto !important;
+ width: 90% !important;
+ max-width: 800px !important;
+ padding: 20px !important;
+ line-height: 1.6 !important;
+ color: #000 !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;'Why would she ever leave?' you wonder. She sold her small house in the village for 1,000 Lire. The flights and visas to Australia cost the same amount. That's the problem with sacrifice. &lt;strong&gt;[[You realise she wonders the same thing.]]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script&gt;
+// Remove page scroll
+document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+// Clean up when leaving passage
+window.addEventListener('beforeunload', function() {
+ document.body.style.overflow = '';
+ document.documentElement.style.overflow = '';
+});
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="26" name="Fuck it– you cry." tags="" position="725,2350" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+document.querySelector('tw-story').style.removeProperty('background');
+document.querySelector('tw-story').style.removeProperty('background-image');
+document.querySelector('tw-story').style.removeProperty('background-size');
+document.querySelector('tw-story').style.removeProperty('background-position');
+document.querySelector('tw-story').style.removeProperty('background-repeat');
+document.querySelector('tw-story').style.removeProperty('background-attachment');
+
+// Force override with default background color
+document.querySelector('tw-story').style.setProperty('background', '#EEEDEB', 'important');
+document.querySelector('tw-story').style.setProperty('background-color', '#EEEDEB', 'important');
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Clear any persistent backgrounds but use default color */
+tw-story {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background-color: #EEEDEB !important;
+}
+
+.image-text-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 100%;
+}
+
+.side-image {
+  flex: 0 0 40%; /* Takes up 40% width, doesn't grow or shrink */
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  transform: rotate(-2deg);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.side-image:hover {
+  transform: rotate(1deg);
+}
+
+.text-block {
+  flex: 1; /* Takes remaining space */
+  padding: 1rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.text-block p {
+  margin-bottom: 1rem;
+}
+
+.text-block p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .image-text-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .side-image {
+    flex: none;
+    max-width: 100%;
+    align-self: center;
+  }
+}
+&lt;/style&gt;
+
+&lt;div class="image-text-container"&gt;
+  &lt;img src="images/stairs.jpg" alt="Old staircase" class="side-image" /&gt;
+  &lt;div class="text-block"&gt;
+    &lt;p&gt;You climb the staircase that seems more like a question than an answer. The stones are uneven under your feet. The village stacks itself without logic. Buildings lean against each other like fed-up farmers, hungry yet without a yield. You reach the top and find only air and silence.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Dead end, turn back.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="for something..." tags="background3" position="600,2975" size="100,100">&lt;script&gt;
+  // Only run this script if we're in the background3 passage
+  var passage = document.querySelector('tw-passage');
+  var story = document.querySelector('tw-story');
+  
+  // Check if this is the correct passage by looking at unique content or tags
+  if (passage &amp;&amp; passage.textContent.includes("letter.jpg") || story.getAttribute("tags").includes("background3")) {
+    console.log("Running background3 script");
+    
+    // Disable scrolling ONLY for this passage
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    
+    // Store original scroll settings to restore later
+    var originalBodyOverflow = document.body.style.overflow;
+    var originalHtmlOverflow = document.documentElement.style.overflow;
+    
+    // First, set the background image
+    document.querySelector('tw-story').style.backgroundImage = "url('images/tablecloth.jpg')";
+    document.querySelector('tw-story').style.backgroundSize = "cover";
+    document.querySelector('tw-story').style.backgroundPosition = "center";
+    document.querySelector('tw-story').style.backgroundAttachment = "fixed";
+    
+    // Make sure passage has transparent background
+    document.querySelector('tw-passage').style.backgroundColor = "transparent";
+    
+    // Array of images to display
+   var images = [
+  "letter.jpg", "family.jpg", "mum.jpg", "nonnocitizenship.jpg", "cousins.jpg", "farm.jpg", 
+  "pomodoro.jpeg", "marriagecertificate.jpg", "cross.jpg", "mountains1.jpg", "jesus1.jpg", "kids.jpeg", "bottle.jpeg", "stairs.jpg", "mumbirthcertificate.jpg", "saucedaynonno.jpeg", "italy.jpg", "procession1.jpg", "nonni.jpg", "zio.jpg", "mountain2.jpg", "maria.jpg", "jesus2.jpg", "church1.jpg", "nonnomilitary.jpg", "tavolo.jpeg", "boys.jpg", "farm.jpg", "hands14.jpg", "hands50.jpg", "siblings.jpg", "procession5.jpg", "soccer70.jpg", "clothesline.jpg", "community.jpg", "communitykids.jpg", "mum9.jpg", "nonna3.jpg"
+];
+    
+    var currentIndex = 0;
+    
+    // Function to show images one by one
+    function showImage() {
+      if (currentIndex &lt; images.length) {
+        // Create a new image element
+        var img = document.createElement('img');
+        img.src = 'images/' + images[currentIndex];
+        img.className = "tablecloth-image"; // Add class for later cleanup
+        
+        // Set random positions
+        var top = Math.random() * 600 + 'px';
+        var left = Math.random() * 800 + 'px';
+        var rotation = Math.random() * 180 - 90 + 'deg';
+        
+        // Style the image
+        img.style.position = 'absolute';
+        img.style.top = top;
+        img.style.left = left;
+        img.style.transform = 'rotate(' + rotation + ')';
+        img.style.width = '250px';
+        img.style.height = 'auto';
+        img.style.opacity = '0';
+        img.style.transition = 'opacity 1s ease';
+        img.style.zIndex = '5';
+        
+        // Add to page
+        document.body.appendChild(img);
+        
+        // Fade in
+        setTimeout(function() {
+          img.style.opacity = '1';
+        }, 100);
+        
+        // Next image
+        currentIndex++;
+        setTimeout(showImage, 500);
+      }
+      // Removed the else block - let Harlowe handle the navigation
+    }
+    
+    // Start showing images
+    showImage();
+    
+    // Add event listener to restore scrolling when leaving this passage
+    document.addEventListener('tw-passagestart', function restoreScrolling() {
+      // Check if we're leaving the passage
+      var currentPassage = document.querySelector('tw-passage');
+      if (!currentPassage || !currentPassage.textContent.includes("letter.jpg")) {
+        // Restore original scroll settings
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        
+        // Remove all added images
+        var images = document.querySelectorAll('.tablecloth-image');
+        images.forEach(function(img) {
+          img.remove();
+        });
+        
+        // Remove this event listener once it's been used
+        document.removeEventListener('tw-passagestart', restoreScrolling);
+      }
+    });
+  }
+&lt;/script&gt;
+
+{
+(live: 21s)[
+  (goto: "ending")
+  (stop:)
+]
+}</tw-passagedata><tw-passagedata pid="28" name="She never saw him again." tags="" position="600,2725" size="100,100">&lt;script&gt;
+// AGGRESSIVE background clearing - clear the persistent Catholic border
+document.querySelector('tw-story').style.backgroundImage = "none";
+document.querySelector('tw-story').style.background = "none";
+document.querySelector('tw-story').style.removeProperty('background');
+document.querySelector('tw-story').style.removeProperty('background-image');
+document.querySelector('tw-story').style.removeProperty('background-size');
+document.querySelector('tw-story').style.removeProperty('background-position');
+document.querySelector('tw-story').style.removeProperty('background-repeat');
+document.querySelector('tw-story').style.removeProperty('background-attachment');
+
+// Force override with default background
+document.querySelector('tw-story').style.setProperty('background', '#EEEDEB', 'important');
+document.querySelector('tw-story').style.setProperty('background-color', '#EEEDEB', 'important');
+document.querySelector('tw-story').style.setProperty('background-image', 'none', 'important');
+
+// Reset any special passage positioning from previous passage
+var passage = document.querySelector('tw-passage');
+if (passage) {
+  passage.style.width = "";
+  passage.style.height = "";
+  passage.style.position = "";
+  passage.style.top = "";
+  passage.style.left = "";
+  passage.style.transform = "";
+  passage.style.fontSize = "";
+  passage.style.lineHeight = "";
+  passage.style.textAlign = "";
+  passage.style.display = "";
+  passage.style.flexDirection = "";
+  passage.style.justifyContent = "";
+  passage.style.overflow = "";
+  passage.style.padding = "";
+}
+
+// Restore scrolling
+document.body.style.removeProperty('overflow');
+document.documentElement.style.removeProperty('overflow');
+document.body.style.setProperty('overflow', 'auto', 'important');
+document.documentElement.style.setProperty('overflow', 'auto', 'important');
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Force clear all backgrounds */
+tw-story {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  background-color: #EEEDEB !important;
+}
+
+body, html {
+  background: #EEEDEB !important;
+  background-image: none !important;
+  overflow: auto !important;
+}
+&lt;/style&gt;
+
+&lt;p&gt;You sit open legged on a different balcony. Zio carries gallons of olive oil up and down the hill– gallons of liquid gold. You sit open legged with &lt;strong&gt;[[another last goodbye]]&lt;/strong&gt; fighting its way out of your lap.&lt;/p&gt;</tw-passagedata></tw-storydata>
+
+
+
+
+</body></html>
