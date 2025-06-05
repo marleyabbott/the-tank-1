@@ -1147,7 +1147,42 @@ window.addEventListener(&#39;load&#39;, function() {
     story.style.setProperty(&#39;background-attachment&#39;, &#39;fixed&#39;, &#39;important&#39;);
   }
 });
-&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;style&gt;
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="16" name="Oil spits and expands around her." tags="" position="600,1975" size="100,100">&lt;script&gt;
+// Clear the persistent background from previous passage
+document.querySelector(&#39;tw-story&#39;).style.backgroundImage = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.background = &quot;none&quot;;
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-image&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-size&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-position&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-repeat&#39;);
+document.querySelector(&#39;tw-story&#39;).style.removeProperty(&#39;background-attachment&#39;);
+
+// Force override with transparent background
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background&#39;, &#39;transparent&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;background-color&#39;, &#39;transparent&#39;, &#39;important&#39;);
+
+// Multiple attempts to force scrolling back
+document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+document.querySelector(&#39;tw-passage&#39;).style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
+
+// Also try removing the property entirely and re-adding
+document.body.style.removeProperty(&#39;overflow&#39;);
+document.documentElement.style.removeProperty(&#39;overflow&#39;);
+document.body.style.overflow = &#39;auto&#39;;
+document.documentElement.style.overflow = &#39;auto&#39;;
+&lt;/script&gt;
+
+&lt;style&gt;
+/* Clear any persistent backgrounds */
+tw-story {
+  background: none !important;
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
 .article-embed {
  background: #f9f7f4 !important;
  padding: 20px !important;
@@ -1244,20 +1279,6 @@ window.addEventListener(&#39;load&#39;, function() {
  text-indent: 8px !important;
 }
 &lt;/style&gt;
-
-&lt;script&gt;
-// Multiple attempts to force scrolling back
-document.body.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-document.documentElement.style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-story&#39;).style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-document.querySelector(&#39;tw-passage&#39;).style.setProperty(&#39;overflow&#39;, &#39;auto&#39;, &#39;important&#39;);
-
-// Also try removing the property entirely and re-adding
-document.body.style.removeProperty(&#39;overflow&#39;);
-document.documentElement.style.removeProperty(&#39;overflow&#39;);
-document.body.style.overflow = &#39;auto&#39;;
-document.documentElement.style.overflow = &#39;auto&#39;;
-&lt;/script&gt;
 
 &lt;div class=&quot;article-embed&quot; onclick=&quot;window.open(&#39;https://edgeofhumanity.com/2018/08/15/italy-14/&#39;, &#39;_blank&#39;)&quot;&gt;
  &lt;div class=&quot;newspaper-header&quot;&gt;Edge of Humanity Magazine&lt;/div&gt;
